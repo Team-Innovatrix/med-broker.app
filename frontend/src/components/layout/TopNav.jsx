@@ -4,6 +4,7 @@ import { useCart } from '../../context/CartContext';
 import authService from '../../services/auth.service';
 import { useUser } from '../../context/UserContext';
 import Avatar from '../common/Avatar';
+import BrandLogo from '../common/BrandLogo';
 import { Home, Settings, Pill, ShoppingCart, Package, CheckCircle, CreditCard, Search, LogOut, User, Menu, X } from 'lucide-react';
 
 function TopNav() {
@@ -271,15 +272,10 @@ function TopNav() {
 							type="button"
 							className="topnav-logo"
 							onClick={() => navigate(user?.role === 'VENDOR' ? '/vendor/dashboard' : '/customer/dashboard')}
-							style={styles.logo}
+							style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
 							aria-label="PharmaSense home"
 						>
-							<span className="topnav-logo-mark" aria-hidden="true">⚛</span>
-							<span className="topnav-logo-word">
-								<span className="topnav-logo-med">Pharma</span>
-								<span className="topnav-logo-iq">Sense</span>
-							</span>
-							<span className="topnav-logo-trust" aria-hidden="true">AI Platform</span>
+							<BrandLogo size={22} showBadge={true} />
 						</button>
 					</div>
 
@@ -306,9 +302,9 @@ function TopNav() {
 										alignItems: 'center',
 										gap: '0.5rem',
 										padding: '0.5rem 0.85rem',
-										backgroundColor: 'rgba(21, 115, 71, 0.1)',
+										backgroundColor: 'rgba(37, 99, 235, 0.08)',
 										color: 'var(--primary)',
-										border: '1px solid rgba(21, 115, 71, 0.2)',
+										border: '1px solid rgba(37, 99, 235, 0.25)',
 										borderRadius: '8px',
 										fontSize: '0.85rem',
 										fontWeight: 600,

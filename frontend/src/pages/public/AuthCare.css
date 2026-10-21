@@ -4,7 +4,7 @@
   min-height: 100vh;
   overflow: hidden;
   background:
-    radial-gradient(130% 110% at 50% 0%, #e7f2eb 0%, #dce9e1 48%, #d2dfd7 100%);
+    radial-gradient(130% 110% at 50% 0%, #f0f7ff 0%, #e2e8f0 48%, #cbd5e1 100%);
 }
 
 .auth-care-page::before {
@@ -18,12 +18,12 @@
   background:
     linear-gradient(
       115deg,
-      rgba(16, 185, 129, 0.16) 0%,
-      rgba(45, 212, 191, 0.12) 22%,
-      rgba(251, 146, 60, 0.1) 40%,
-      rgba(34, 197, 94, 0.14) 61%,
-      rgba(56, 189, 248, 0.1) 82%,
-      rgba(16, 185, 129, 0.14) 100%
+      rgba(37, 99, 235, 0.16) 0%,
+      rgba(14, 165, 233, 0.14) 22%,
+      rgba(99, 102, 241, 0.12) 40%,
+      rgba(56, 189, 248, 0.14) 61%,
+      rgba(37, 99, 235, 0.1) 82%,
+      rgba(14, 165, 233, 0.14) 100%
     );
   filter: blur(38px) saturate(102%);
   border-radius: 42% 58% 60% 40% / 56% 40% 60% 44%;
@@ -42,11 +42,11 @@
   background:
     linear-gradient(
       96deg,
-      rgba(5, 150, 105, 0.11) 0%,
-      rgba(14, 116, 144, 0.11) 24%,
-      rgba(253, 186, 116, 0.1) 45%,
-      rgba(34, 197, 94, 0.11) 68%,
-      rgba(45, 212, 191, 0.11) 100%
+      rgba(37, 99, 235, 0.11) 0%,
+      rgba(14, 165, 233, 0.11) 24%,
+      rgba(99, 102, 241, 0.1) 45%,
+      rgba(56, 189, 248, 0.11) 68%,
+      rgba(37, 99, 235, 0.11) 100%
     );
   filter: blur(42px);
   border-radius: 58% 42% 34% 66% / 36% 60% 40% 64%;
@@ -78,15 +78,15 @@
 .auth-care-container::before {
   left: clamp(-125px, -10vw, -180px);
   background:
-    linear-gradient(180deg, rgba(16, 185, 129, 0.16) 0%, rgba(74, 222, 128, 0.03) 100%),
+    linear-gradient(180deg, rgba(37, 99, 235, 0.16) 0%, rgba(56, 189, 248, 0.03) 100%),
     repeating-linear-gradient(
       180deg,
-      rgba(16, 185, 129, 0.22) 0 2px,
-      rgba(16, 185, 129, 0) 2px 15px
+      rgba(37, 99, 235, 0.22) 0 2px,
+      rgba(37, 99, 235, 0) 2px 15px
     );
   box-shadow:
-    inset 0 0 0 1px rgba(16, 185, 129, 0.18),
-    0 0 28px rgba(16, 185, 129, 0.1);
+    inset 0 0 0 1px rgba(37, 99, 235, 0.18),
+    0 0 28px rgba(37, 99, 235, 0.1);
   transform: translateY(-50%) rotate(-8deg);
   animation: auth-side-wave-left 8.4s ease-in-out infinite;
 }
@@ -94,14 +94,14 @@
 .auth-care-container::after {
   right: clamp(-125px, -10vw, -180px);
   background:
-    linear-gradient(180deg, rgba(45, 212, 191, 0.15) 0%, rgba(45, 212, 191, 0.03) 100%),
+    linear-gradient(180deg, rgba(14, 165, 233, 0.15) 0%, rgba(14, 165, 233, 0.03) 100%),
     repeating-linear-gradient(
       180deg,
       rgba(56, 189, 248, 0.2) 0 2px,
       rgba(56, 189, 248, 0) 2px 14px
     );
   box-shadow:
-    inset 0 0 0 1px rgba(94, 234, 212, 0.16),
+    inset 0 0 0 1px rgba(14, 165, 233, 0.16),
     0 0 24px rgba(56, 189, 248, 0.1);
   transform: translateY(-50%) rotate(8deg);
   animation: auth-side-wave-right 9.6s ease-in-out infinite;

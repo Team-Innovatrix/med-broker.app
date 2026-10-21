@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, Check, ClipboardList, CreditCard, UserRound } from 'lucide-react';
+import { ArrowRight, Check, ClipboardList, CreditCard, UserRound, ChevronRight } from 'lucide-react';
 import Avatar from './Avatar';
 import styles from './CustomerAccountSidebar.module.css';
 
@@ -47,7 +47,7 @@ function CustomerAccountSidebar({ user, activeItem, hiddenItemKeys = [] }) {
           >
             <span className={styles.menuIcon}>{item.icon}</span>
             <span className={styles.menuLabel}>{item.label}</span>
-            <span className={styles.menuArrow}>›</span>
+            <ChevronRight size={14} className={styles.menuArrow} />
           </button>
         ))}
       </nav>

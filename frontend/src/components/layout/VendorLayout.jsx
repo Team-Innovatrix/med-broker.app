@@ -7,6 +7,7 @@ import {
 	MessageSquare, Settings, LogOut, Menu, X, ChevronLeft, ChevronRight, Brain
 } from 'lucide-react';
 import './VendorLayout.css';
+import BrandLogo from '../common/BrandLogo';
 
 function VendorLayout({ children }) {
 	const navigate = useNavigate();
@@ -100,16 +101,12 @@ function VendorLayout({ children }) {
 						className="vendor-brand"
 						onClick={() => navigate('/vendor/dashboard')}
 						aria-label="Go to vendor dashboard"
+						style={{ background: 'none', border: 'none', padding: 0, textAlign: 'left', cursor: 'pointer' }}
 					>
-						<span className="topnav-logo-mark" aria-hidden="true">⚛</span>
-						{!isCollapsed && (
-							<div className="vendor-brand-text">
-								<span className="topnav-logo-word">
-									<span className="topnav-logo-med">Pharma</span>
-									<span className="topnav-logo-iq">Sense</span>
-								</span>
-								<span className="topnav-logo-trust">Vendor Console</span>
-							</div>
+						{isCollapsed ? (
+							<BrandLogo size={20} showBadge={false} />
+						) : (
+							<BrandLogo size={22} showBadge={true} />
 						)}
 					</button>
 					<button

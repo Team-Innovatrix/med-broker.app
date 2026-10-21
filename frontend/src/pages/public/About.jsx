@@ -62,7 +62,7 @@ const About = () => {
                         </div>
                         <div className={styles.contentImage}>
                              <div style={{ 
-                                background: 'linear-gradient(135deg, #0284c7 0%, #0f766e 100%)', 
+                                background: 'linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%)', 
                                 height: '380px', 
                                 display: 'flex', 
                                 flexDirection: 'column', 

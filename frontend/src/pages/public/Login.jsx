@@ -122,7 +122,7 @@ function Login() {
 											border: 'none',
 											borderRadius: '12px',
 											cursor: 'pointer',
-											background: 'linear-gradient(135deg, #157347 0%, #0e5e3a 100%)',
+											background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
 											color: 'white'
 										}}
 									>
@@ -145,8 +145,8 @@ function Login() {
 											borderRadius: '12px',
 											cursor: 'pointer',
 											background: 'white',
-											color: '#157347',
-											border: '2px solid #157347'
+											color: '#2563eb',
+											border: '2px solid #2563eb'
 										}}
 									>
 										<span style={{ fontSize: '1.1rem', fontWeight: 700 }}>Customer Dashboard</span>

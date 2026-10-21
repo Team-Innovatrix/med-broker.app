@@ -1,16 +1,16 @@
 .aboutPage {
-  --primary-glow: rgba(16, 185, 129, 0.15);
-  --secondary-glow: rgba(5, 150, 105, 0.1);
+  --primary-glow: rgba(37, 99, 235, 0.15);
+  --secondary-glow: rgba(14, 165, 233, 0.1);
   min-height: 100vh;
-  color: #1a202c;
+  color: #0f172a;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
 }
 
 .hero {
   position: relative;
-  padding: 120px 20px 80px;
-  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+  padding: 100px 20px 70px;
+  background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 50%, #ffffff 100%);
   text-align: center;
   overflow: hidden;
 }
@@ -36,96 +36,100 @@
 
 .badge {
   display: inline-block;
-  padding: 8px 16px;
-  background: rgba(16, 185, 129, 0.1);
-  color: #059669;
+  padding: 6px 16px;
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
   border-radius: 99px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-bottom: 24px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  margin-bottom: 20px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(37, 99, 235, 0.2);
 }
 
 .title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 24px;
-  color: #064e3b;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  color: #0f172a;
+  letter-spacing: -0.025em;
 }
 
 .subtitle {
-  font-size: 1.25rem;
-  color: #4b5563;
+  font-size: 1.125rem;
+  color: #475569;
   max-width: 700px;
-  margin: 0 auto 40px;
+  margin: 0 auto 36px;
   line-height: 1.6;
 }
 
 .section {
-  padding: 80px 20px;
+  padding: 70px 20px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  margin-top: 60px;
+  gap: 32px;
+  margin-top: 50px;
 }
 
 .card {
-  padding: 40px;
+  padding: 36px;
   background: #ffffff;
-  border-radius: 24px;
-  border: 1px solid rgba(16, 185, 129, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
   transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.35);
 }
 
 .cardIcon {
-  width: 64px;
-  height: 64px;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  border-radius: 16px;
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(135deg, #2563eb 0%, #0284c7 100%);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
 }
 
 .cardTitle {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 16px;
-  color: #064e3b;
+  margin-bottom: 12px;
+  color: #0f172a;
 }
 
 .cardText {
-  color: #4b5563;
+  color: #475569;
   line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 .missionVision {
   display: flex;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 50px;
   align-items: center;
 }
 
 .contentImage {
   flex: 1;
   min-width: 300px;
-  border-radius: 32px;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.08);
 }
 
 .contentText {
@@ -134,42 +138,33 @@
 }
 
 .statsSection {
-  background: #064e3b;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e3a8a 100%);
   color: white;
-  border-radius: 40px;
-  margin: 40px 20px;
-  padding: 80px 40px;
+  border-radius: 32px;
+  margin: 30px 20px;
+  padding: 60px 40px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
 }
 
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
+  gap: 32px;
   text-align: center;
 }
 
 .statItem h2 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 800;
-  margin-bottom: 8px;
-  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  margin-bottom: 6px;
+  background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .statItem p {
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 500;
-}
-
-@media (max-width: 768px) {
-  .hero {
-    padding: 80px 20px 60px;
-  }
-  
-  .section {
-    padding: 60px 20px;
-  }
 }

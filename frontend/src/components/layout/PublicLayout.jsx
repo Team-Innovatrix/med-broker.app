@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../app/App.css';
 
+import BrandLogo from '../common/BrandLogo';
+
 export default function PublicLayout({ children }) {
   const navigate = useNavigate();
 
@@ -11,11 +13,8 @@ export default function PublicLayout({ children }) {
       <header className="landing-header">
         <div className="container">
           <div className="header-content">
-            <div className="logo-section" style={{cursor: 'pointer'}} onClick={() => navigate('/')}>
-              <div className="logo-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--primary)', color: 'white', borderRadius: '8px', width: '36px', height: '36px', fontSize: '20px' }}>
-                ⚛
-              </div>
-              <h1 className="logo-text" style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>PharmaSense</h1>
+            <div style={{cursor: 'pointer'}} onClick={() => navigate('/')}>
+              <BrandLogo />
             </div>
             <nav className="header-nav">
               <a href="/#features" className="nav-link">Features</a>
