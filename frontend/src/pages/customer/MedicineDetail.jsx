@@ -75,7 +75,7 @@ function MedicineDetail() {
 			setMedicine({
 				...med,
 				images: galleryImages,
-				manufacturer: med.brand || med.vendor || med.manufacturer || null,
+				manufacturer: med.manufacturer || null,
 				strength: providedStrength,
 				dosage: providedDosageForm,
 				usage: providedUsage,
@@ -153,7 +153,7 @@ function MedicineDetail() {
 		{ label: 'Registration No.', value: medicine.registrationNo }
 	].filter((item) => Boolean(item.value));
 	const hasRatingData = typeof medicine.rating === 'number' && medicine.reviewCount > 0;
-	const availabilityLabel = medicine.inStock
+	const availabilityLabel = medicine.isDemo ? 'Demo only' : medicine.inStock
 		? medicine.stockLevel > 0
 			? `${medicine.stockLevel} units available`
 			: 'In stock'
@@ -213,8 +213,8 @@ function MedicineDetail() {
 									<p>No image available</p>
 								</div>
 							)}
-							{medicine.requiresPrescription && <span className={styles.prescriptionBadge}>Rx required</span>}
-							<span className={styles.imageBadge}>{medicine.inStock ? availabilityLabel : 'Out of stock'}</span>
+							{!medicine.isDemo && medicine.requiresPrescription && <span className={styles.prescriptionBadge}>Rx required</span>}
+							<span className={styles.imageBadge}>{medicine.isDemo ? 'Demo only' : medicine.inStock ? availabilityLabel : 'Out of stock'}</span>
 						</div>
 
 						{medicine.images?.length > 0 && (
@@ -253,7 +253,7 @@ function MedicineDetail() {
 						</div>
 
 						<div className={styles.statusRow}>
-							<span className={styles.statusBadge}>{medicine.requiresPrescription ? 'Prescription' : 'OTC'}</span>
+							<span className={styles.statusBadge}>{medicine.isDemo ? 'Demo — product details need review' : medicine.requiresPrescription ? 'Prescription' : 'OTC'}</span>
 							<span className={styles.statusBadge}>{availabilityLabel}</span>
 							{hasRatingData ? <span className={styles.statusBadge}>{medicine.reviewCount} reviews</span> : <span className={styles.statusBadge}>Review data unavailable</span>}
 						</div>
@@ -272,7 +272,7 @@ function MedicineDetail() {
 
 						<div className={styles.priceBlock}>
 							<div>
-								<div className={styles.priceLabel}>Current price</div>
+								<div className={styles.priceLabel}>{medicine.isDemo ? 'Example price' : 'Current price'}</div>
 								<div className={styles.currentPrice}>{formatPrice(dynamicCurrentPrice || 0, displayCurrencyCode)}</div>
 							</div>
 							<div className={styles.priceMeta}>
@@ -336,7 +336,7 @@ function MedicineDetail() {
 							</div>
 
 							<button onClick={handleAddToCart} className={styles.addToCartButton} disabled={!medicine?.inStock}>
-								{medicine?.inStock ? 'ADD TO CART' : 'OUT OF STOCK'}
+								{medicine.isDemo ? 'DEMO ONLY' : medicine?.inStock ? 'ADD TO CART' : 'OUT OF STOCK'}
 							</button>
 
 							<button onClick={handleBuyNow} className={styles.buyButton} disabled={!medicine?.inStock}>
@@ -347,15 +347,15 @@ function MedicineDetail() {
 						{addedToCart && <div className={styles.successMessage}>Added to cart.</div>}
 
 						<div className={styles.shippingInfo}>
-							{medicine.inStock ? `Ready to checkout with ${availabilityLabel.toLowerCase()}.` : 'Temporarily unavailable for checkout.'}
+							{medicine.inStock ? `Ready to checkout with ${availabilityLabel.toLowerCase()}.` : medicine.isDemo ? 'This example listing is not available for purchase.' : 'Temporarily unavailable for checkout.'}
 						</div>
 
-						<div className={styles.trustGrid}>
+						{!medicine.isDemo && <div className={styles.trustGrid}>
 							<div className={styles.trustItem}><span className={styles.trustIcon}><BadgeCheck size={16} strokeWidth={1.75} /></span><span className={styles.trustText}>Verified pharmaceutical</span></div>
 							<div className={styles.trustItem}><span className={styles.trustIcon}><Check size={16} strokeWidth={1.75} /></span><span className={styles.trustText}>Licensed vendor</span></div>
 							<div className={styles.trustItem}><span className={styles.trustIcon}><ClipboardList size={16} strokeWidth={1.75} /></span><span className={styles.trustText}>Regulated product</span></div>
 							<div className={styles.trustItem}><span className={styles.trustIcon}><ShieldCheck size={16} strokeWidth={1.75} /></span><span className={styles.trustText}>Certified quality</span></div>
-						</div>
+						</div>}
 					</div>
 				</section>
 

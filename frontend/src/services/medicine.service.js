@@ -83,9 +83,16 @@ const medicineService = {
 				throw new Error(`API Error: ${response.statusText}`);
 			}
 
-			const data = await response.json();
+			let data = await response.json();
+            // When real stock has no matching results, show explicitly labeled read-only examples.
+            if (Number(data.pagination?.total) === 0) {
+                const demoQuery = new URLSearchParams({limit:'100',...(params.search ? {search:String(params.search).trim()} : {})});
+                const demoResponse = await fetch(`${API_BASE_URL}/medicines/demo?${demoQuery}`,{headers:getAuthHeaders()});
+                if (demoResponse.ok) data = await demoResponse.json();
+            }
 			const payload = {
 				success: true,
+                isDemo: Boolean(data.isDemo),
 				medicines: data.data || [],
 				pagination: data.pagination || {},
 				currency: data.currency || preferredCurrency || 'INR'
@@ -123,7 +130,7 @@ const medicineService = {
 				...(preferredCurrency ? { currency: preferredCurrency } : {})
 			}).toString();
 
-			const response = await fetch(
+			let response = await fetch(
 				`${API_BASE_URL}/medicines/${medicineId}${queryString ? `?${queryString}` : ''}`,
 				{
 					method: 'GET',
@@ -131,9 +138,8 @@ const medicineService = {
 				}
 			);
 
-			if (!response.ok) {
-				throw new Error(`API Error: ${response.statusText}`);
-			}
+			if (response.status === 404) response = await fetch(`${API_BASE_URL}/medicines/demo/${medicineId}`,{headers:getAuthHeaders()});
+			if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
 
 			const data = await response.json();
 			return data.data || null;

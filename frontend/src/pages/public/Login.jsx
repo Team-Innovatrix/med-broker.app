@@ -8,7 +8,7 @@ function Login() {
 	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
-		role: 'CUSTOMER'
+		role: new URLSearchParams(window.location.search).get('role') === 'ADMIN' ? 'ADMIN' : 'CUSTOMER'
 	});
 	const [error, setError] = useState('');
 	const [suspended, setSuspended] = useState(false);
@@ -75,7 +75,7 @@ function Login() {
 	};
 
 	const handleWorkspaceRedirect = (result, selectedRole) => {
-		const targetRole = selectedRole || result.user.role;
+		const targetRole = result.user.role === 'ADMIN' ? 'ADMIN' : (selectedRole || result.user.role);
 		
 		if (targetRole === 'VENDOR') {
 			navigate('/vendor/dashboard');
@@ -266,7 +266,7 @@ function Login() {
 							>
 								Create a new account
 							</button>
-							<span className="auth-care-foot-note">Admin access is restricted to internal operations.</span>
+							<a className="auth-care-foot-note" href="/login?role=ADMIN">Administrator sign in</a>
 						</div>
 					</form>
 					)}

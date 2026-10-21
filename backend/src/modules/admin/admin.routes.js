@@ -7,6 +7,7 @@ const router = express.Router();
 // Apply auth middleware to protect all admin routes
 // Only users with role 'ADMIN' can access these routes
 router.use(authenticate, requireRole('ADMIN'));
+router.use('/datasets', require('../datasets/admin-dataset.routes'));
 
 // Dashboard and Stats
 router.get('/stats', adminController.getDashboardStats);

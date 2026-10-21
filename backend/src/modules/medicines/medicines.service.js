@@ -165,6 +165,8 @@ module.exports = {
             { medicine: { name: { contains: search, mode: 'insensitive' } } },
             { medicine: { description: { contains: search, mode: 'insensitive' } } },
             { medicine: { brand: { contains: search, mode: 'insensitive' } } },
+            { medicine: { sku: { contains: search, mode: 'insensitive' } } },
+            { medicine: { category: { contains: search, mode: 'insensitive' } } },
             { medicine: { manufacturer: { contains: search, mode: 'insensitive' } } },
             { vendor: { companyName: { contains: search, mode: 'insensitive' } } }
           ]

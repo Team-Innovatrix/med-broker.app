@@ -28,6 +28,7 @@ function Catalog() {
 	const { showSuccess, showError } = useNotification();
 	const { currency: userCurrency, exchangeRates } = useCurrency();
 	const [viewerCurrency, setViewerCurrency] = useState(userCurrency || 'INR');
+	const [demoMode, setDemoMode] = useState(false);
 	const [apiPagination, setApiPagination] = useState({ totalPages: 1, total: 0 });
 	
 	// Consolidated state management with useReducer
@@ -66,6 +67,7 @@ function Catalog() {
 				});
 
 				if (result.success) {
+                    setDemoMode(Boolean(result.isDemo));
 					dispatch({ type: CATALOG_ACTIONS.SET_MEDICINES, payload: result.medicines });
 					setApiPagination({
 						totalPages: result.pagination?.totalPages || 1,
@@ -106,7 +108,7 @@ function Catalog() {
 
 	// Available filter options (derived from data)
 	const categories = useMemo(() => {
-		const unique = new Set(medicines.map((medicine) => getBrandLabel(medicine)));
+		const unique = new Set(medicines.map((medicine) => medicine.category || 'Other'));
 		return ['all', ...Array.from(unique)].sort();
 	}, [medicines]);
 
@@ -127,7 +129,7 @@ function Catalog() {
 
 		// Filter by category
 		if (categoryFilter !== 'all') {
-			list = list.filter((medicine) => getBrandLabel(medicine) === categoryFilter);
+			list = list.filter((medicine) => (medicine.category || 'Other') === categoryFilter);
 		}
 
 		// Filter by stock availability
@@ -167,7 +169,8 @@ function Catalog() {
 	}, [medicines, searchQuery, categoryFilter, availabilityFilter, prescriptionFilter, sortBy, minPrice, maxPrice, user?.customer?.buyerType, activeCurrency, exchangeRates, viewerCurrency]);
 
 	// API-driven pagination to avoid double-slicing already paginated results.
-	const totalPages = apiPagination.totalPages;
+	const totalPages = demoMode ? Math.max(1, Math.ceil(filteredMedicines.length / itemsPerPage)) : apiPagination.totalPages;
+    const visibleMedicines = demoMode ? filteredMedicines.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : filteredMedicines;
 
 	const getStockStatusTone = (medicine) => {
 		if (!medicine.inStock) return 'out';
@@ -185,6 +188,7 @@ function Catalog() {
 
 	// Get stock status with professional language (no aggressive urgency)
 	const getStockStatus = (medicine) => {
+        if (medicine.isDemo) return 'Demo only';
 		if (!medicine.inStock) return 'Out of stock';
 		if (medicine.stockLevel > 50) return 'In stock';
 		if (medicine.stockLevel > 20) return 'Limited stock';
@@ -193,6 +197,7 @@ function Catalog() {
 
 	// Event handlers
 	const handleAddToCart = (medicine) => {
+        if (medicine.isDemo || medicine.purchasable === false) return;
 		addToCart(
 			medicine,
 			1,
@@ -493,6 +498,7 @@ function Catalog() {
 
 					{/* ===== RIGHT SECTION: MEDICINES LISTING ===== */}
 					<section className={styles.mainContent}>
+                        {demoMode && <div className={styles.demoNotice} role="status"><strong>Demo catalog</strong><p>Browse example medicines from the imported dataset. Prices and product details need review. These listings are not available for purchase.</p></div>}
 						<div className={styles.resultsHeaderCompact}>
 							<div>
 								<h2 className={styles.resultsTitle}>
@@ -559,11 +565,11 @@ function Catalog() {
 						) : filteredMedicines.length > 0 ? (
 							<>
 								<div className={styles.medicinesGrid}>
-									{filteredMedicines.map(medicine => (
+									{visibleMedicines.map(medicine => (
 									<article key={medicine.id} className={styles.medicineCard}>
 										<div className={styles.cardImageWrap}>
 											<div className={styles.cardOverlayRow}>
-												<span className={styles.ratingBadge}><Star size={14} strokeWidth={1.75} fill="currentColor" /> {Math.min(5, Math.max(3.8, (medicine.popularity / 20)).toFixed(1))}</span>
+												{!medicine.isDemo && <span className={styles.ratingBadge}><Star size={14} strokeWidth={1.75} fill="currentColor" /> {Math.min(5, Math.max(3.8, (medicine.popularity / 20)).toFixed(1))}</span>}
 												<span className={`${styles.stockPill} ${styles[`stockTone-${getStockStatusTone(medicine)}`]}`}>{getStockStatus(medicine)}</span>
 											</div>
 											{medicine.imageUrl ? (
@@ -580,14 +586,14 @@ function Catalog() {
 
 											{/* BADGES: PRESCRIPTION, STOCK STATUS */}
 										<div className={styles.badgesRow}>
-											{medicine.requiresPrescription && (
+											{!medicine.isDemo && medicine.requiresPrescription && (
 												<span className={styles.rxBadge}>Rx Prescription</span>
 												)}
 											</div>
 
 											{/* PRICING */}
 										<div className={styles.pricingSection}>
-											<p className={styles.priceLabel}>Price {getPricingTier()}</p>
+											<p className={styles.priceLabel}>{medicine.isDemo ? 'Example price' : 'Price'} {getPricingTier()}</p>
 											<p className={styles.priceValue}>{formatDisplayPrice(getDisplayPrice(medicine), getMedicineCurrency(medicine))}</p>
 											</div>
 
@@ -610,7 +616,7 @@ function Catalog() {
 													}}
 													aria-label={medicine.inStock ? `Add ${medicine.name} to cart` : `${medicine.name} is out of stock`}
 												>
-													{medicine.inStock ? 'Add to Cart' : 'Out of Stock'}
+													{medicine.isDemo ? 'Demo only' : medicine.inStock ? 'Add to Cart' : 'Out of Stock'}
 												</button>
 											</div>
 

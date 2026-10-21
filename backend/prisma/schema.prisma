@@ -116,6 +116,8 @@ model Customer {
 }
 
 model Medicine {
+  demoInventory DemoInventory[]
+  datasetReferences MedicineReference[]
   id                   String              @id @default(uuid())
   name                 String
   description          String?
@@ -899,4 +901,117 @@ enum UserActivityType {
   ORDER_ACTION
   PAYMENT_ACTION
   ADMIN_ACTION
+}
+
+model AiChatSession {
+  id        String   @id
+  symptoms  String[] @default([])
+  messages  Json
+  expiresAt DateTime
+  updatedAt DateTime @updatedAt
+
+  @@index([expiresAt])
+}
+
+model DemoDataset {
+ id String @id
+ sourceHash String
+ counts Json
+ importedAt DateTime @default(now())
+ vendors DemoVendor[]
+ references MedicineReference[]
+}
+model DemoVendor {
+ datasetId String
+ vendorCode String
+ companyName String
+ vendorType VendorType
+ country String
+ state String
+ city String
+ verificationStatus VerificationStatus @default(PENDING)
+ isDemo Boolean @default(true)
+ dataset DemoDataset @relation(fields:[datasetId],references:[id])
+ inventory DemoInventory[]
+ orders DemoOrder[]
+ @@id([datasetId,vendorCode])
+}
+model DemoInventory {
+ datasetId String
+ inventoryCode String
+ sku String
+ vendorCode String
+ medicineId String
+ quantity Int
+ reservedQuantity Int
+ reorderLevel Int
+ sellingPriceCents Int
+ costPriceCents Int
+ mrpCents Int
+ isActive Boolean
+ lastRestockedAt DateTime @db.Date
+ vendor DemoVendor @relation(fields:[datasetId,vendorCode],references:[datasetId,vendorCode])
+ medicine Medicine @relation(fields:[medicineId],references:[id])
+ demandHistory DemoDemandHistory[]
+ orderItems DemoOrderItem[]
+ @@id([datasetId,inventoryCode])
+ @@unique([datasetId,sku,vendorCode])
+}
+model MedicineReference {
+ datasetId String
+ sku String
+ medicineId String
+ name String
+ activeIngredients String
+ strength String
+ sourceUrl String?
+ priceDataType String
+ rxDataType String
+ note String
+ dataset DemoDataset @relation(fields:[datasetId],references:[id])
+ medicine Medicine @relation(fields:[medicineId],references:[id])
+ @@id([datasetId,sku])
+}
+model DemoDemandHistory {
+ datasetId String
+ month DateTime @db.Date
+ sku String
+ vendorCode String
+ pastMonthSales Int
+ price Decimal @db.Decimal(12,2)
+ stockLevel Int
+ seasonalityIndex Decimal @db.Decimal(8,3)
+ promotionActive Boolean
+ nextMonthSales Int
+ inventory DemoInventory @relation(fields:[datasetId,sku,vendorCode],references:[datasetId,sku,vendorCode])
+ @@id([datasetId,month,sku,vendorCode])
+ @@index([datasetId,sku,vendorCode,month])
+}
+model DemoOrder {
+ datasetId String
+ orderCode String
+ demoCustomerCode String
+ vendorCode String
+ orderMonth DateTime @db.Date
+ status OrderStatus
+ currencyCode String
+ totalCents Int
+ recordType String @default("SYNTHETIC")
+ vendor DemoVendor @relation(fields:[datasetId,vendorCode],references:[datasetId,vendorCode])
+ items DemoOrderItem[]
+ @@id([datasetId,orderCode])
+ @@index([datasetId,orderMonth])
+}
+model DemoOrderItem {
+ datasetId String
+ orderCode String
+ lineNo Int
+ sku String
+ vendorCode String
+ quantity Int
+ unitPriceCents Int
+ lineTotalCents Int
+ order DemoOrder @relation(fields:[datasetId,orderCode],references:[datasetId,orderCode])
+ inventory DemoInventory @relation(fields:[datasetId,sku,vendorCode],references:[datasetId,sku,vendorCode])
+ @@id([datasetId,orderCode,lineNo])
 }

@@ -980,3 +980,6 @@
 		opacity: 0.5;
 	}
 }
+
+.demoNotice { padding: 16px 20px; margin-bottom: 20px; border: 1px solid #89b9a1; border-radius: 12px; background: #f0f9f3; color: #184e36; }
+.demoNotice p { margin: 6px 0 0; line-height: 1.5; }

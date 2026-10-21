@@ -67,7 +67,6 @@ module.exports = {
     try {
       const result = await authService.updateProfile(req.user.id, req.body);
       // return refreshed user data
-      const updated = await authService.getCurrentUser ? undefined : undefined; // noop placeholder
       res.status(200).json({ success: true, data: result });
     } catch (error) { next(error); }
   }
@@ -75,7 +74,7 @@ module.exports = {
 
 module.exports.logoutAllSessions = async (req, res, next) => {
   try {
-    await require('../modules/auth/auth.service').invalidateUserSessions(req.user.id);
+    await authService.invalidateUserSessions(req.user.id);
     res.json({ success: true, message: 'All sessions revoked' });
   } catch (err) {
     next(err);
