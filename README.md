@@ -1,42 +1,48 @@
-# MedIQ - Medicine Marketplace Platform
+# PharmaSense - AI-Powered Pharmaceutical Intelligence & Inventory Platform
 
-A comprehensive B2B/B2C medicine marketplace platform with role-based access control, AI-powered features, and multi-vendor support.
+> **Seminar Project (Session 2026-27 | Semester VI)**  
+> **Department of Computer Science & Engineering (AIML)**  
+> **Shri Ramdeobaba College of Engineering & Management, Nagpur**  
+> Guided by: **Prof. Harshita Patil**  
+> Team: **Kartikeya Kalbandhe (55), Mohit Mohatkar (57), Poush Makade (59), Rudra Bambal (60), Viplav Bhure (63)**
+
+PharmaSense is an AI-powered pharmaceutical platform designed to unify medicine commerce between verified Indian suppliers and healthcare buyers, powered by deep learning sequence models for demand forecasting and stockout prevention.
+
+---
+
+## 🎯 Current Milestone: 30% - 40% Core Progress
+
+- **RBAC Simplification**: Focused on the two primary market actors:
+  - 👤 **Customer (Buyer)**: Unified multi-vendor catalog, symptom-based AI assistance, order workflows, and transparent tiered pricing.
+  - 🏢 **Vendor (Supplier)**: Inventory listings, incoming orders, and AI predictive demand forecasting.
+- **Flagship AI Module**: **Demand Forecasting** (evaluating historical orders, 3-month seasonality, and price elasticity to prevent stockouts and overstock).
+- **Compliance & Trust Gate**: Integrated GSTIN and Drug License onboarding verification.
+- **Refreshed Visual Identity**: Modern corporate pharmaceutical intelligence theme.
 
 ## 🚀 Features
 
 ### Authentication & Authorization
-- **Role-Based Access**: Separate workflows for Customers, Vendors, and Admins
-- **Secure Authentication**: JWT-based authentication with bcrypt password hashing
-- **Profile Management**: Complete onboarding flow for vendors and customers
-- **Verification System**: Vendor verification workflow for quality assurance
+- **Role-Based Access Control**: Dual workflows for Customers and Vendors
+- **Secure Authentication**: JWT-based session security with bcrypt password hashing
+- **Profile Onboarding**: Streamlined compliance collection (GSTIN, Drug License)
 
 ### User Roles
 
-#### 👤 Customer
-- **Retail Buyers**: Individual consumers purchasing medicines
-- **Wholesale Buyers**: Business entities with GSTIN registration
-- Browse medicine catalog with real-time pricing
-- Order tracking and invoice generation
+#### 👤 Customer (Buyer)
+- **Retail & Wholesale Buyers**: Clinics, hospitals, pharmacies, and patients
+- Browse medicine catalog with multi-vendor dynamic comparisons
+- Order tracking and checkout
 
-#### 🏢 Vendor
-- **Types**: Pharmacy, Distributor, Manufacturer, Wholesaler
-- Business profile with GSTIN and Drug License verification
-- Inventory management
-- Order fulfillment system
+#### 🏢 Vendor (Supplier)
+- Verify business with GSTIN and Drug License details
+- Manage medicine catalog and stock
+- **AI Demand Forecasting**: Sequence-modeled 30-day look-ahead predictions with restock suggestions
 
-#### 👨‍💼 Admin
-- Vendor verification and approval
-- Platform analytics and reporting
-- User management
-
-### Technical Features
-- Multi-currency support with exchange rates
-- QR code generation for invoices
-- Real-time inventory tracking
-- Payment integration ready
-- AI/ML recommendation engine
-- Chatbot for customer support
-- Disease prediction API
+### Technical & AI Features
+- **AI Sequence Demand Forecasting**: PyTorch / ONNX LSTM sequence modeling for pharmaceutical supply chains
+- **Dynamic Pricing Engine**: Real-time tiered bulk discount calculations
+- **AI Health Assistant**: Transformer NLP symptom guidance
+- **Multi-Currency Support**: Real-time FX conversion for cross-border trade
 
 ## 🏗️ Architecture
 

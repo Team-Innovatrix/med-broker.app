@@ -6,10 +6,10 @@ if (!import.meta.env.VITE_API_URL) {
   console.warn("Frontend is falling back to localhost; check Vercel environment variables.");
 }
 
-const CHAT_SESSION_KEY = 'mediq_chat_session_id';
+const CHAT_SESSION_KEY = 'pharmasense_chat_session_id';
 
 const getSessionId = () => {
-	const existing = localStorage.getItem(CHAT_SESSION_KEY);
+	const existing = localStorage.getItem(CHAT_SESSION_KEY) || localStorage.getItem('mediq_chat_session_id');
 	if (existing) return existing;
 
 	const generated = `chat_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
@@ -37,7 +37,7 @@ const localFallbackResponse = (message) => {
 	}
 
 	if (text.includes('hello') || text.includes('hi') || text.includes('hey')) {
-		return 'Hello! Tell me your symptoms and I can help shortlist suitable medicines available on MedIQ.';
+		return 'Hello! Tell me your symptoms and I can help shortlist suitable medicines available on PharmaSense.';
 	}
 
 	return 'Share your symptoms, duration, and severity. I will guide safe next steps and product options from the catalog.';

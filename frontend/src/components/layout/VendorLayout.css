@@ -159,16 +159,16 @@ body {
 }
 
 .vendor-brand .topnav-logo-med {
-	font-family: "Playfair Display", "Times New Roman", serif;
-	font-weight: 700;
-	color: #eef8f3;
+	font-family: "Space Grotesk", "Inter", sans-serif;
+	font-weight: 800;
+	color: #ffffff;
 }
 
 .vendor-brand .topnav-logo-iq {
-	font-family: "Space Grotesk", "Segoe UI", sans-serif;
+	font-family: "Space Grotesk", "Inter", sans-serif;
 	font-weight: 800;
-	letter-spacing: 0.01em;
-	color: #8ce4bf;
+	letter-spacing: -0.01em;
+	color: #38bdf8;
 	margin-left: 0.03em;
 }
 

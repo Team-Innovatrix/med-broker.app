@@ -135,7 +135,7 @@ export const CartProvider = ({ children }) => {
 		const load = async () => {
 			try {
 				if (user && user.id) {
-					const local = JSON.parse(localStorage.getItem('mediq_cart') || '[]');
+					const local = JSON.parse(localStorage.getItem('pharmasense_cart') || localStorage.getItem('mediq_cart') || '[]');
 					if (local.length) {
 						for (const item of local) {
 							try {
@@ -151,13 +151,14 @@ export const CartProvider = ({ children }) => {
 								console.warn('Failed to merge local cart item', error);
 							}
 						}
+						localStorage.removeItem('pharmasense_cart');
 						localStorage.removeItem('mediq_cart');
 					}
 
 					const res = await cartService.getCart();
 					setCartItems((res.data || []).map(mapServerCartItem).filter(item => item !== null));
 				} else {
-					const savedCart = localStorage.getItem('mediq_cart');
+					const savedCart = localStorage.getItem('pharmasense_cart') || localStorage.getItem('mediq_cart');
 					if (savedCart) setCartItems(JSON.parse(savedCart).map(mapLocalCartItem));
 				}
 			} catch (error) {
@@ -174,13 +175,17 @@ export const CartProvider = ({ children }) => {
 			}
 		};
 
+		window.addEventListener('pharmasense:auth-changed', handleAuthChanged);
 		window.addEventListener('mediq:auth-changed', handleAuthChanged);
-		return () => window.removeEventListener('mediq:auth-changed', handleAuthChanged);
+		return () => {
+			window.removeEventListener('pharmasense:auth-changed', handleAuthChanged);
+			window.removeEventListener('mediq:auth-changed', handleAuthChanged);
+		};
 	}, []);
 
 	useEffect(() => {
 		if (user && user.id) return;
-		localStorage.setItem('mediq_cart', JSON.stringify(cartItems));
+		localStorage.setItem('pharmasense_cart', JSON.stringify(cartItems));
 	}, [cartItems, user?.id]);
 
 	const addToCart = (
@@ -344,7 +349,10 @@ export const CartProvider = ({ children }) => {
 	const clearCart = () => {
 		setCartItems([]);
 		if (user && user.id) cartService.clearCart().catch(() => {});
-		if (!user || !user.id) localStorage.removeItem('mediq_cart');
+		if (!user || !user.id) {
+			localStorage.removeItem('pharmasense_cart');
+			localStorage.removeItem('mediq_cart');
+		}
 	};
 
 	const getTotalItems = () => {

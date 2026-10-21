@@ -224,10 +224,10 @@ function Register() {
 		<main className="auth-care-page page">
 			<div className="container auth-care-container" style={{ maxWidth: '900px' }}>
 				<section className="auth-care-hero reveal" style={{ paddingBottom: '1rem' }}>
-					<p className="auth-care-kicker">Healthcare Onboarding</p>
-					<h1 className="auth-care-title">Create your MedIQ account</h1>
+					<p className="auth-care-kicker">Pharmaceutical Intelligence Onboarding</p>
+					<h1 className="auth-care-title">Create your PharmaSense account</h1>
 					<p className="auth-care-subtitle">
-						Provide your details below to get started. Your account type will determine your profile settings.
+						Join the AI-powered medicine commerce platform as a verified Customer (Buyer) or Vendor (Supplier).
 					</p>
 				</section>
 

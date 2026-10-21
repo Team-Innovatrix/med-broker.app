@@ -12,9 +12,9 @@ function Footer() {
 				<div style={styles.grid}>
 					{/* About Section */}
 					<div style={styles.column}>
-						<h3 style={styles.columnTitle}>medIQ</h3>
+						<h3 style={styles.columnTitle}>PharmaSense</h3>
 						<p style={styles.columnDescription}>
-							Your trusted medicine marketplace connecting patients with verified pharmacies and vendors.
+							AI-powered pharmaceutical intelligence and predictive inventory platform connecting buyers with verified suppliers.
 						</p>
 						<div style={styles.socialLinks}>
 							<a href="#" style={styles.socialLink} title="Facebook">f</a>
@@ -28,11 +28,11 @@ function Footer() {
 					<div style={styles.column}>
 						<h3 style={styles.columnTitle}>Quick Links</h3>
 						<ul style={styles.linkList}>
-							<li><button onClick={() => navigate('/about')} style={styles.link}>About Us</button></li>
-							<li><button onClick={() => navigate('/customer/catalog')} style={styles.link}>Browse Medicines</button></li>
+							<li><button onClick={() => navigate('/about')} style={styles.link}>About Project</button></li>
+							<li><button onClick={() => navigate('/customer/catalog')} style={styles.link}>Browse Catalog</button></li>
 							<li><button onClick={() => navigate('/customer/orders')} style={styles.link}>My Orders</button></li>
-							<li><button onClick={() => navigate('/customer/dashboard')} style={styles.link}>Dashboard</button></li>
-							<li><a href="#" style={styles.link}>Promotions</a></li>
+							<li><button onClick={() => navigate('/customer/dashboard')} style={styles.link}>Customer Console</button></li>
+							<li><button onClick={() => navigate('/vendor/dashboard')} style={styles.link}>Vendor Console</button></li>
 						</ul>
 					</div>
 
@@ -40,10 +40,10 @@ function Footer() {
 					<div style={styles.column}>
 						<h3 style={styles.columnTitle}>Support</h3>
 						<ul style={styles.linkList}>
-							<li><a href="mailto:support@mediq.com" style={styles.link}>Contact Us</a></li>
-							<li><a href="#" style={styles.link}>Help Center</a></li>
-							<li><a href="#" style={styles.link}>Track Order</a></li>
-							<li><a href="#" style={styles.link}>Return Policy</a></li>
+							<li><a href="mailto:support@pharmasense.ai" style={styles.link}>Contact Team</a></li>
+							<li><a href="#" style={styles.link}>AI Documentation</a></li>
+							<li><a href="#" style={styles.link}>Track Delivery</a></li>
+							<li><a href="#" style={styles.link}>Drug Compliance</a></li>
 						</ul>
 					</div>
 
@@ -53,7 +53,7 @@ function Footer() {
 						<ul style={styles.linkList}>
 							<li><a href="#" style={styles.link}>Privacy Policy</a></li>
 							<li><a href="#" style={styles.link}>Terms of Service</a></li>
-							<li><a href="#" style={styles.link}>Cookie Policy</a></li>
+							<li><a href="#" style={styles.link}>GST & License Policy</a></li>
 							<li><a href="#" style={styles.link}>Disclaimer</a></li>
 						</ul>
 					</div>
@@ -63,7 +63,7 @@ function Footer() {
 				<div style={styles.bottomSection}>
 					<div style={styles.bottomContent}>
 						<p style={styles.copyright}>
-							© {currentYear} MedIQ. All rights reserved.
+							© {currentYear} PharmaSense. Shri Ramdeobaba College of Engineering & Management, Nagpur (CSE AIML). All rights reserved.
 						</p>
 						<div style={styles.certifications}>
 							<span style={styles.certification}><ShieldCheck size={14} strokeWidth={1.5} /> Secure</span>

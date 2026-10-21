@@ -79,12 +79,8 @@ function Login() {
 		
 		if (targetRole === 'VENDOR') {
 			navigate('/vendor/dashboard');
-		} else if (targetRole === 'CUSTOMER') {
-			navigate('/customer/dashboard');
-		} else if (targetRole === 'ADMIN') {
-			navigate('/admin/dashboard');
 		} else {
-			navigate('/');
+			navigate('/customer/dashboard');
 		}
 	};
 
@@ -96,10 +92,10 @@ function Login() {
 		<main className="auth-care-page page">
 			<div className="container auth-care-container">
 				<section className="auth-care-hero reveal">
-					<p className="auth-care-kicker">Trusted Healthcare Commerce</p>
-					<h1 className="auth-care-title">Sign in to your MedIQ workspace</h1>
+					<p className="auth-care-kicker">AI-Powered Pharmaceutical Platform</p>
+					<h1 className="auth-care-title">Sign in to your PharmaSense workspace</h1>
 					<p className="auth-care-subtitle">
-						Built for hospitals, clinics, and verified suppliers with secure access and role-based control.
+						Built for healthcare buyers and verified pharmaceutical suppliers with AI demand forecasting and secure workflows.
 					</p>
 				</section>
 
@@ -199,21 +195,14 @@ function Login() {
 										className={formData.role === 'CUSTOMER' ? 'auth-care-role-btn active' : 'auth-care-role-btn'}
 										onClick={() => handleRoleSelect('CUSTOMER')}
 									>
-										Customer
+										Customer (Buyer)
 									</button>
 									<button
 										type="button"
 										className={formData.role === 'VENDOR' ? 'auth-care-role-btn active' : 'auth-care-role-btn'}
 										onClick={() => handleRoleSelect('VENDOR')}
 									>
-										Vendor
-									</button>
-									<button
-										type="button"
-										className={formData.role === 'ADMIN' ? 'auth-care-role-btn active' : 'auth-care-role-btn'}
-										onClick={() => handleRoleSelect('ADMIN')}
-									>
-										Admin
+										Vendor (Seller)
 									</button>
 								</div>
 							</div>

@@ -14,7 +14,7 @@ function ChatbotPanel({ isOpen, onClose }) {
 		{
 			id: 'welcome',
 			role: 'assistant',
-			text: 'Hi! I am your MedIQ Symptom Assistant. Tell me your symptoms and I can guide safe medicine options from our catalog.',
+			text: 'Hi! I am your PharmaSense AI Assistant. Tell me your symptoms and I can guide safe medicine options from our catalog.',
 			products: [],
 			timestamp: new Date().toISOString()
 		}
@@ -140,12 +140,12 @@ function ChatbotPanel({ isOpen, onClose }) {
 	return (
 		<>
 			<div className="chatbot-panel-backdrop" onClick={onClose} />
-			<section className="chatbot-panel" role="dialog" aria-modal="true" aria-label="MedIQ Assistant">
+			<section className="chatbot-panel" role="dialog" aria-modal="true" aria-label="PharmaSense Assistant">
 				<header className="chatbot-panel-header">
 					<div className="chatbot-panel-title-wrap">
-						<p className="chatbot-panel-kicker">AI Assistant</p>
-						<h3 className="chatbot-panel-title">MedIQ Chat</h3>
-						<p className="chatbot-panel-subtitle">Ask questions and get quick guidance</p>
+						<p className="chatbot-panel-kicker">AI Clinical Intelligence</p>
+						<h3 className="chatbot-panel-title">PharmaSense AI Chat</h3>
+						<p className="chatbot-panel-subtitle">Symptom-based guidance & drug assistance</p>
 					</div>
 					<button type="button" className="chatbot-panel-close" onClick={onClose} aria-label="Close chatbot">
 						✕

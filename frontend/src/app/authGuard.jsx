@@ -73,14 +73,10 @@ function AuthGuard({ children, requiredRole, requireCompleteProfile = false }) {
 
 	if (!hasAccess) {
 		// Redirect to appropriate dashboard based on user's primary role
-		if (user.role === 'CUSTOMER') {
-			return <Navigate to="/customer/catalog" replace />;
-		} else if (user.role === 'VENDOR') {
+		if (user.role === 'VENDOR') {
 			return <Navigate to="/vendor/dashboard" replace />;
-		} else if (user.role === 'ADMIN') {
-			return <Navigate to="/admin/dashboard" replace />;
 		}
-		return <Navigate to="/" replace />;
+		return <Navigate to="/customer/catalog" replace />;
 	}
 
 	// Check profile completion if required

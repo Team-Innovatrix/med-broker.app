@@ -8,50 +8,51 @@
 }
 
 :root {
-	/* Medical Green Theme - Healthcare & Trust */
-	--green-50: #F2FBF6;
-	--green-100: #DDF3E7;
-	--green-200: #BFE6D1;
-	--green-300: #92D7B2;
-	--green-400: #5CC58D;
-	--green-500: #157347; /* Primary Medical Green */
-	--green-600: #0E5E3A; /* Dark Green */
-	--green-700: #0A4B2F;
-	--green-800: #073B25;
-	--green-900: #052C1C;
+	/* PharmaSense AI-Powered Pharmaceutical Intelligence Theme */
+	--green-50: #f0fdfa;
+	--green-100: #ccfbf1;
+	--green-200: #99f6e4;
+	--green-300: #5eead4;
+	--green-400: #2dd4bf;
+	--green-500: #0d9488; /* Pharma Teal */
+	--green-600: #0f766e; /* Deep Teal */
+	--green-700: #115e59;
+	--green-800: #134e4a;
+	--green-900: #042f2e;
 	
 	/* Accent Colors */
-	--blue-500: #1F7A5F; /* Green-leaning support tone */
-	--blue-600: #165A46;
-	--purple-500: #8B5CF6;
-	--orange-500: #F97316;
-	--pink-500: #EC4899;
-	--teal-500: #14B8A6;
+	--blue-500: #0284c7; /* PharmaSense Cyan-Blue */
+	--blue-600: #0369a1;
+	--purple-500: #6366f1;
+	--orange-500: #ea580c; /* Slide 1 Accent Terracotta/Orange */
+	--pink-500: #ec4899;
+	--teal-500: #0d9488;
 	
 	/* Primary Palette */
-	--primary: #157347; /* Medical Green */
-	--primary-dark: #0E5E3A;
-	--primary-light: #E8F6EE;
-	--primary-rgb: 21, 115, 71;
-	--secondary: #1F7A5F;
-	--accent: #2FA66A;
+	--primary: #0284c7; /* Primary PharmaSense Blue */
+	--primary-dark: #0369a1;
+	--primary-light: #f0f9ff;
+	--primary-rgb: 2, 132, 199;
+	--secondary: #0f766e;
+	--accent: #06b6d4;
+	--accent-warm: #ea580c;
 	
 	/* Neutrals */
-	--background: #F5FBF7;
-	--surface: #FFFFFF;
-	--surface-dark: #EEF6F1;
-	--surface-hover: #F2F8F4;
-	--text-primary: #102017;
-	--text-secondary: #3D5A4C;
-	--text-light: #6E887C;
-	--border: #CFE0D6;
-	--border-light: #E4EFE8;
+	--background: #f8fafc;
+	--surface: #ffffff;
+	--surface-dark: #f1f5f9;
+	--surface-hover: #f8fafc;
+	--text-primary: #0f172a;
+	--text-secondary: #334155;
+	--text-light: #64748b;
+	--border: #e2e8f0;
+	--border-light: #f1f5f9;
 	
 	/* Semantic Colors */
-	--success: #157347;
-	--warning: #F59E0B;
-	--error: #EF4444;
-	--info: #1F7A5F;
+	--success: #059669;
+	--warning: #f59e0b;
+	--error: #ef4444;
+	--info: #0284c7;
 	
 	/* Shadows */
 	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -2961,31 +2962,33 @@ img {
 }
 
 .topnav-logo-med {
-	font-family: "Playfair Display", "Times New Roman", serif;
-	font-weight: 700;
+	font-family: "Space Grotesk", "Inter", sans-serif;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	color: var(--text-primary);
 }
 
 .topnav-logo-iq {
-	font-family: "Space Grotesk", "Segoe UI", sans-serif;
+	font-family: "Space Grotesk", "Inter", sans-serif;
 	font-weight: 800;
-	letter-spacing: 0.01em;
-	color: #0f7f56;
-	margin-left: 0.03em;
+	letter-spacing: -0.01em;
+	color: var(--primary);
+	margin-left: 0.04em;
 }
 
 .topnav-logo-trust {
-	font-family: "Space Grotesk", "Segoe UI", sans-serif;
-	font-size: 0.56rem;
+	font-family: "Space Grotesk", "Inter", sans-serif;
+	font-size: 0.58rem;
 	font-weight: 700;
-	letter-spacing: 0.12em;
+	letter-spacing: 0.1em;
 	text-transform: uppercase;
-	padding: 0.2rem 0.42rem;
+	padding: 0.2rem 0.5rem;
 	border-radius: 999px;
-	border: 1px solid rgba(24, 129, 89, 0.24);
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(234, 247, 241, 0.9) 100%);
-	color: #2f6e57;
+	border: 1px solid rgba(2, 132, 199, 0.25);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 249, 255, 0.95) 100%);
+	color: var(--primary);
 	transform: translateY(0.03rem);
-	box-shadow: 0 4px 10px rgba(19, 65, 47, 0.1);
+	box-shadow: 0 4px 10px rgba(2, 132, 199, 0.12);
 	animation: mediq-logo-pulse 3.8s ease-in-out infinite;
 }
 

@@ -270,16 +270,16 @@ function TopNav() {
 						<button
 							type="button"
 							className="topnav-logo"
-							onClick={() => navigate('/customer/dashboard')}
+							onClick={() => navigate(user?.role === 'VENDOR' ? '/vendor/dashboard' : '/customer/dashboard')}
 							style={styles.logo}
-							aria-label="MedIQ home"
+							aria-label="PharmaSense home"
 						>
-							<span className="topnav-logo-mark" aria-hidden="true">✚</span>
+							<span className="topnav-logo-mark" aria-hidden="true">⚛</span>
 							<span className="topnav-logo-word">
-								<span className="topnav-logo-med">Med</span>
-								<span className="topnav-logo-iq">IQ</span>
+								<span className="topnav-logo-med">Pharma</span>
+								<span className="topnav-logo-iq">Sense</span>
 							</span>
-							<span className="topnav-logo-trust" aria-hidden="true">Trusted Care</span>
+							<span className="topnav-logo-trust" aria-hidden="true">AI Platform</span>
 						</button>
 					</div>
 

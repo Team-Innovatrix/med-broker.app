@@ -51,9 +51,9 @@ export default function ContactUs() {
                 <div>
                   <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem' }}>Headquarters</h4>
                   <p style={{ color: 'var(--text-secondary)', lineHeight: '1.5' }}>
-                    MedIQ Technologies Pvt. Ltd.<br/>
-                    401, Healthcare Tech Park,<br/>
-                    Andheri East, Mumbai 400069<br/>
+                    PharmaSense Technologies<br/>
+                    Dept. of Computer Science & Engineering (AIML)<br/>
+                    RCOEM Campus, Katol Road, Nagpur 440013<br/>
                     Maharashtra, India
                   </p>
                 </div>
@@ -72,8 +72,8 @@ export default function ContactUs() {
                 <div style={{ background: 'var(--green-100)', padding: '0.8rem', borderRadius: '50%', height: 'fit-content' }}><IconMail /></div>
                 <div>
                   <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem' }}>Email</h4>
-                  <p style={{ color: 'var(--text-secondary)' }}>support@mediq.com (General)</p>
-                  <p style={{ color: 'var(--text-secondary)' }}>vendors@mediq.com (Vendor Setup)</p>
+                  <p style={{ color: 'var(--text-secondary)' }}>support@pharmasense.ai (General)</p>
+                  <p style={{ color: 'var(--text-secondary)' }}>vendors@pharmasense.ai (Vendor Setup)</p>
                 </div>
               </div>
 

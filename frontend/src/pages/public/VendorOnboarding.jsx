@@ -126,7 +126,7 @@ function VendorOnboarding() {
 					<div style={{ marginBottom: '2rem', textAlign: 'center' }}>
 						<h2 className="section-title">Vendor Onboarding</h2>
 						<p className="section-subtitle">
-							Complete your business profile to start selling on MedIQ
+							Complete your business profile to start selling on PharmaSense
 						</p>
 						<div style={{ marginTop: '1rem' }}>
 							<span className="badge">Step 2 of 2: Business Details</span>

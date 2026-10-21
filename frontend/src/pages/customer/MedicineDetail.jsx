@@ -235,7 +235,7 @@ function MedicineDetail() {
 
 					<div className={styles.summaryPanel}>
 						<div className={styles.summaryTopRow}>
-							<div className={styles.vendorBadge}>{medicine?.vendor ? medicine.vendor.toUpperCase() : 'MEDIQ PARTNER'}</div>
+							<div className={styles.vendorBadge}>{medicine?.vendor ? medicine.vendor.toUpperCase() : 'PHARMASENSE VERIFIED'}</div>
 							<button
 								onClick={() => toggleFavorite(medicine)}
 								className={`${styles.favoriteButton} ${isFavorited(favoriteTargetId) ? styles.favoriteButtonActive : ''}`}

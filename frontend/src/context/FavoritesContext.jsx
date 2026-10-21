@@ -3,7 +3,7 @@ import { useUser } from './UserContext';
 import favoritesService from '../services/favorites.service';
 
 const FavoritesContext = createContext();
-const STORAGE_KEY = 'mediq_favorites';
+const STORAGE_KEY = 'pharmasense_favorites';
 
 const readStoredFavorites = () => {
 	try {
@@ -88,8 +88,12 @@ export const FavoritesProvider = ({ children }) => {
 			}
 		};
 
+		window.addEventListener('pharmasense:auth-changed', handleAuthChanged);
 		window.addEventListener('mediq:auth-changed', handleAuthChanged);
-		return () => window.removeEventListener('mediq:auth-changed', handleAuthChanged);
+		return () => {
+			window.removeEventListener('pharmasense:auth-changed', handleAuthChanged);
+			window.removeEventListener('mediq:auth-changed', handleAuthChanged);
+		};
 	}, []);
 
 	useEffect(() => {

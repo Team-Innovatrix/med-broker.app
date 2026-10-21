@@ -12,13 +12,10 @@ export default function PublicLayout({ children }) {
         <div className="container">
           <div className="header-content">
             <div className="logo-section" style={{cursor: 'pointer'}} onClick={() => navigate('/')}>
-              <div className="logo-icon">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <path d="M20 5L20 35M5 20L35 20" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
-                  <circle cx="20" cy="20" r="17" stroke="currentColor" strokeWidth="3" fill="none"/>
-                </svg>
+              <div className="logo-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--primary)', color: 'white', borderRadius: '8px', width: '36px', height: '36px', fontSize: '20px' }}>
+                ⚛
               </div>
-              <h1 className="logo-text">MedIQ</h1>
+              <h1 className="logo-text" style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>PharmaSense</h1>
             </div>
             <nav className="header-nav">
               <a href="/#features" className="nav-link">Features</a>
@@ -41,8 +38,8 @@ export default function PublicLayout({ children }) {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-col">
-              <h4 className="footer-heading">MedIQ</h4>
-              <p className="footer-desc">Your trusted partner in medicine marketplace, connecting healthcare providers with quality products.</p>
+              <h4 className="footer-heading">PharmaSense</h4>
+              <p className="footer-desc">AI-powered pharmaceutical intelligence and predictive inventory platform connecting buyers with verified suppliers.</p>
             </div>
             <div className="footer-col">
               <h4 className="footer-heading">Quick Links</h4>
@@ -65,14 +62,14 @@ export default function PublicLayout({ children }) {
             <div className="footer-col">
               <h4 className="footer-heading">Contact</h4>
               <ul className="footer-links">
-                <li>support@mediq.com</li>
+                <li>support@pharmasense.ai</li>
                 <li>+91 1800-XXX-XXXX</li>
                 <li>24/7 Customer Support</li>
               </ul>
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; {new Date().getFullYear()} MedIQ. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} PharmaSense (RCOEM CSE AIML). All rights reserved.</p>
           </div>
         </div>
       </footer>

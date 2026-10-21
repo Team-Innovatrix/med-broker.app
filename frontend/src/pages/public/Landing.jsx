@@ -20,14 +20,14 @@ export default function Landing() {
               type="button"
               className="topnav-logo landing-logo"
               onClick={() => navigate('/')}
-              aria-label="MedIQ home"
+              aria-label="PharmaSense home"
             >
-              <span className="topnav-logo-mark" aria-hidden="true">✚</span>
+              <span className="topnav-logo-mark" aria-hidden="true">⚛</span>
               <span className="topnav-logo-word">
-                <span className="topnav-logo-med">Med</span>
-                <span className="topnav-logo-iq">IQ</span>
+                <span className="topnav-logo-med">Pharma</span>
+                <span className="topnav-logo-iq">Sense</span>
               </span>
-              <span className="topnav-logo-trust" aria-hidden="true">Trusted Care</span>
+              <span className="topnav-logo-trust" aria-hidden="true">AI Platform</span>
             </button>
             <nav className="header-nav">
               <a href="#features" className="nav-link">Features</a>
@@ -46,11 +46,11 @@ export default function Landing() {
           <div className="hero-content">
             <div className="hero-text">
               <h1 className="hero-title">
-                Your Trusted Partner in
-                <span className="highlight"> Medicine Marketplace</span>
+                AI-Powered Pharmaceutical
+                <span className="highlight"> Intelligence & Inventory</span>
               </h1>
               <p className="hero-subtitle">
-                Connect with verified vendors, access quality medicines, and streamline your healthcare supply chain with MedIQ's advanced B2B/B2C platform.
+                Connect with verified Indian vendors, access transparent wholesale medicine catalogs, and eliminate stockouts with PharmaSense deep learning demand forecasting.
               </p>
               <div className="hero-buttons">
                 <button onClick={() => navigate('/register')} className="btn-hero-primary">
@@ -131,51 +131,51 @@ export default function Landing() {
       <section id="features" className="features-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Why Choose MedIQ?</h2>
-            <p className="section-subtitle">Comprehensive features designed for modern healthcare supply chain</p>
+            <h2 className="section-title">Why Choose PharmaSense?</h2>
+            <p className="section-subtitle">AI-first architecture built for pharmaceutical wholesale intelligence</p>
           </div>
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-icon green-gradient">
                 <BadgeCheck size={32} />
               </div>
-              <h3 className="feature-title">Verified Vendors</h3>
-              <p className="feature-desc">All vendors are thoroughly verified with GSTIN and Drug License validation for your safety.</p>
+              <h3 className="feature-title">Verified Suppliers</h3>
+              <p className="feature-desc">Integrated compliance checking with GSTIN and Drug License verification before listing.</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon blue-gradient">
                 <Layers size={32} />
               </div>
-              <h3 className="feature-title">Bulk Orders</h3>
-              <p className="feature-desc">Special pricing for wholesale buyers with flexible payment terms and discount options.</p>
+              <h3 className="feature-title">Wholesale Trade</h3>
+              <p className="feature-desc">Transparent tiered pricing for bulk medicine orders with real-time currency conversion.</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon purple-gradient">
                 <Zap size={32} />
               </div>
-              <h3 className="feature-title">Real-time Tracking</h3>
-              <p className="feature-desc">Track your orders in real-time from dispatch to delivery with instant notifications.</p>
+              <h3 className="feature-title">Demand Prediction</h3>
+              <p className="feature-desc">AI evaluates seasonality & 6-month historical orders to predict bulk demand and avoid stockouts.</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon orange-gradient">
                 <MessageCircle size={32} />
               </div>
-              <h3 className="feature-title">AI Assistant</h3>
-              <p className="feature-desc">Get intelligent recommendations and instant support from our AI-powered chatbot.</p>
+              <h3 className="feature-title">AI Health Assistant</h3>
+              <p className="feature-desc">NLP diagnosis model assists buyers with symptom-based medication guidance.</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon teal-gradient">
                 <Users size={32} />
               </div>
-              <h3 className="feature-title">Multi-Role Access</h3>
-              <p className="feature-desc">Separate dashboards for customers, vendors, and admins with role-based permissions.</p>
+              <h3 className="feature-title">Dual RBAC Consoles</h3>
+              <p className="feature-desc">Tailored, high-productivity dashboards for Buyers (Customers) and Suppliers (Vendors).</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon pink-gradient">
                 <Wallet size={32} />
               </div>
-              <h3 className="feature-title">Secure Payments</h3>
-              <p className="feature-desc">Multiple payment options with encrypted transactions and automated invoice generation.</p>
+              <h3 className="feature-title">Secure Commerce Gate</h3>
+              <p className="feature-desc">Encrypted transactions, automated audit logs, and digital dispatch tracking.</p>
             </div>
           </div>
         </div>
@@ -263,7 +263,7 @@ export default function Landing() {
             <div className="trust-text">
               <h2 className="trust-title">Trusted by Healthcare Professionals</h2>
               <p className="trust-desc">
-                MedIQ is the preferred platform for pharmacies, hospitals, distributors, and healthcare providers across the country. Our commitment to quality, transparency, and reliability has made us the leader in medicine marketplace solutions.
+                PharmaSense is the preferred platform for pharmacies, hospitals, distributors, and healthcare providers across the country. Our commitment to quality, transparency, and AI-driven predictive logistics powers the future of medicine supply chains.
               </p>
               <div className="trust-features">
                 <div className="trust-feature">
@@ -307,7 +307,7 @@ export default function Landing() {
         <div className="container">
           <div className="cta-content">
             <h2 className="cta-title">Ready to Get Started?</h2>
-            <p className="cta-subtitle">Join thousands of customers and vendors on India's most trusted medicine marketplace</p>
+            <p className="cta-subtitle">Join pharmacies and verified suppliers on India's premier AI pharmaceutical intelligence platform</p>
             <button onClick={() => navigate('/register')} className="cta-button">
               Create Your Account
               <ArrowRight size={20} />
@@ -321,8 +321,8 @@ export default function Landing() {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-col">
-              <h4 className="footer-heading">MedIQ</h4>
-              <p className="footer-desc">Your trusted partner in medicine marketplace, connecting healthcare providers with quality products.</p>
+              <h4 className="footer-heading">PharmaSense</h4>
+              <p className="footer-desc">AI-powered pharmaceutical intelligence and predictive inventory platform connecting buyers with verified suppliers.</p>
             </div>
             <div className="footer-col">
               <h4 className="footer-heading">Quick Links</h4>
@@ -345,14 +345,14 @@ export default function Landing() {
             <div className="footer-col">
               <h4 className="footer-heading">Contact</h4>
               <ul className="footer-links">
-                <li>support@mediq.com</li>
+                <li>support@pharmasense.ai</li>
                 <li>+91 1800-XXX-XXXX</li>
                 <li>24/7 Customer Support</li>
               </ul>
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2026 MedIQ. All rights reserved.</p>
+            <p>&copy; 2026 PharmaSense (RCOEM CSE AIML). All rights reserved.</p>
           </div>
         </div>
       </footer>

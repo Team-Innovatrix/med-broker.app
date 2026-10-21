@@ -21,25 +21,19 @@ function VendorLayout({ children }) {
 			items: [
 				{ path: '/vendor/dashboard', label: 'Dashboard', icon: <BarChart2 size={18} strokeWidth={1.5} />, hint: 'Business overview', description: 'Track sales, orders and stock alerts' },
 				{ path: '/vendor/orders', label: 'Orders', icon: <Package size={18} strokeWidth={1.5} />, hint: 'Incoming demand', description: 'Process and update order statuses' },
-				{ path: '/vendor/products', label: 'Inventory & Products', icon: <Pill size={18} strokeWidth={1.5} />, hint: 'Add / update products', description: 'Manage medicines, pricing, images and listing details' },
-				{ path: '/vendor/stock', label: 'Stock Manager', icon: <PackageSearch size={18} strokeWidth={1.5} />, hint: 'Live quantity control', description: 'Adjust medicine stock levels and sync customer availability' },
-				{ path: '/vendor/shipping', label: 'Shipping', icon: <Truck size={18} strokeWidth={1.5} />, hint: 'Dispatch tracking', description: 'Track deliveries and shipment status' }
+				{ path: '/vendor/products', label: 'Inventory & Products', icon: <Pill size={18} strokeWidth={1.5} />, hint: 'Catalog & listings', description: 'Manage medicines, pricing, and stock details' }
 			]
 		},
 		{
-			title: 'Business Intelligence',
+			title: 'AI Intelligence',
 			items: [
-				{ path: '/vendor/analytics', label: 'Analytics', icon: <TrendingUp size={18} strokeWidth={1.5} />, hint: 'Performance insights', description: 'Monitor trends and business KPIs' },
-				{ path: '/vendor/demand-forecasting', label: 'Demand Forecast', icon: <Brain size={18} strokeWidth={1.5} />, hint: 'AI insights', description: 'Predictive inventory and market trends' },
-				{ path: '/vendor/payments', label: 'Payments', icon: <Wallet size={18} strokeWidth={1.5} />, hint: 'Payouts & ledger', description: 'Review transactions and settlement details' },
-				{ path: '/vendor/compliance', label: 'Compliance', icon: <ClipboardList size={18} strokeWidth={1.5} />, hint: 'Document health', description: 'Manage documents, audits and compliance tasks' }
+				{ path: '/vendor/demand-forecasting', label: 'AI Demand Forecast', icon: <Brain size={18} strokeWidth={1.5} />, hint: 'Predictive ML Model', description: 'Sequence modeling & stockout prevention' }
 			]
 		},
 		{
-			title: 'Support',
+			title: 'Account',
 			items: [
-				{ path: '/vendor/chat', label: 'Chat', icon: <MessageSquare size={18} strokeWidth={1.5} />, hint: 'Conversations', description: 'Respond to customer and partner messages' },
-				{ path: '/vendor/settings', label: 'Settings', icon: <Settings size={18} strokeWidth={1.5} />, hint: 'Account controls', description: 'Update account, notification and security settings' }
+				{ path: '/vendor/settings', label: 'Settings', icon: <Settings size={18} strokeWidth={1.5} />, hint: 'Store controls', description: 'Update profile and notification settings' }
 			]
 		}
 	];
@@ -107,12 +101,12 @@ function VendorLayout({ children }) {
 						onClick={() => navigate('/vendor/dashboard')}
 						aria-label="Go to vendor dashboard"
 					>
-						<span className="topnav-logo-mark" aria-hidden="true">✚</span>
+						<span className="topnav-logo-mark" aria-hidden="true">⚛</span>
 						{!isCollapsed && (
 							<div className="vendor-brand-text">
 								<span className="topnav-logo-word">
-									<span className="topnav-logo-med">Med</span>
-									<span className="topnav-logo-iq">IQ</span>
+									<span className="topnav-logo-med">Pharma</span>
+									<span className="topnav-logo-iq">Sense</span>
 								</span>
 								<span className="topnav-logo-trust">Vendor Console</span>
 							</div>
