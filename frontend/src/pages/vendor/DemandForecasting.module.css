@@ -22,8 +22,8 @@
 .headerInfo h1 {
     font-size: 2.5rem;
     font-weight: 800;
-    font-family: 'Space Grotesk', sans-serif;
-    background: linear-gradient(135deg, #157347 0%, #0d9488 100%);
+    font-family: inherit;
+    background: linear-gradient(135deg, var(--color-primary-hover) 0%, var(--color-primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0;
@@ -38,9 +38,9 @@
 }
 
 .aiBadge {
-    background: rgba(16, 185, 129, 0.1);
-    color: #059669;
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--color-primary-hover);
+    border: 1px solid rgba(124, 58, 237, 0.2);
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 0.75rem;
@@ -52,7 +52,7 @@
 
 .heuristicBadge {
     background: rgba(245, 158, 11, 0.1);
-    color: #d97706;
+    color: var(--color-warning, #D97706);
     border: 1px solid rgba(245, 158, 11, 0.2);
     padding: 4px 12px;
     border-radius: 20px;
@@ -97,13 +97,13 @@
     font-weight: 600;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(21, 115, 71, 0.2);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
 }
 
 .refreshButton:hover {
     background: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(21, 115, 71, 0.3);
+    box-shadow: 0 6px 16px rgba(124, 58, 237, 0.3);
 }
 
 .refreshButton:active {
@@ -171,7 +171,7 @@
     font-size: 1.875rem;
     font-weight: 800;
     color: var(--text-primary);
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: inherit;
 }
 
 .tableContainer {
@@ -189,7 +189,7 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border-light);
-    background: linear-gradient(to right, #ffffff, var(--surface));
+    background: linear-gradient(to right, var(--color-bg), var(--surface));
 }
 
 .tableHeader h2 {
@@ -254,25 +254,25 @@
 }
 
 .trendBadge_up {
-    background: rgba(16, 185, 129, 0.15);
-    color: #059669;
+    background: rgba(124, 58, 237, 0.15);
+    color: var(--color-primary-hover);
 }
 
 .trendBadge_down {
     background: rgba(239, 68, 68, 0.12);
-    color: #dc2626;
+    color: var(--color-error, #DC2626);
 }
 
 .trendBadge_stable {
-    background: rgba(100, 116, 139, 0.1);
-    color: #475569;
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--color-primary-hover);
 }
 
 .predictedValue {
     font-weight: 800;
     color: var(--text-primary);
     font-size: 1.125rem;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: inherit;
 }
 
 .unit {
@@ -311,7 +311,7 @@
 }
 
 .recommendation_up {
-    color: #059669;
+    color: var(--color-primary-hover);
     font-size: 0.9375rem;
     font-weight: 600;
     display: flex;
@@ -320,7 +320,7 @@
 }
 
 .recommendation_down {
-    color: #dc2626;
+    color: var(--color-error, #DC2626);
     font-size: 0.9375rem;
     font-weight: 600;
     display: flex;
@@ -378,13 +378,13 @@
 }
 
 .aiNote {
-    background: linear-gradient(135deg, #157347 0%, #0d9488 100%);
+    background: linear-gradient(135deg, var(--color-primary-hover) 0%, var(--color-primary) 100%);
     border-radius: 20px;
     padding: 32px;
     display: flex;
     gap: 24px;
     align-items: center;
-    box-shadow: 0 10px 30px rgba(21, 115, 71, 0.25);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.25);
     color: white;
 }
 
@@ -394,7 +394,7 @@
 }
 
 .aiNote strong {
-    color: #8ce4bf;
+    color: var(--color-lavender);
     font-weight: 800;
 }
 
@@ -463,17 +463,17 @@
         align-items: flex-start;
         gap: 24px;
     }
-    
+
     .headerActions {
         align-items: flex-start;
         width: 100%;
     }
-    
+
     .refreshButton {
         width: 100%;
         justify-content: center;
     }
-    
+
     .forecastTable th:nth-child(4),
     .forecastTable td:nth-child(4) {
         display: none;
@@ -487,3 +487,24 @@
         font-size: 2rem;
     }
 }
+
+
+/* Lavender workspace surfaces and keyboard interaction. */
+
+.container { background: var(--color-bg-secondary); color: var(--color-text); padding: clamp(1rem, 2.3vw, 2rem); min-width: 0; }
+
+.statCard { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 20px; box-shadow: 0 4px 20px rgba(31, 41, 55, 0.035); min-width: 0; }
+
+.header { gap: 1rem; flex-wrap: wrap; }
+
+.tableContainer { overflow-x: auto; max-width: 100%; border-radius: 16px; border: 1px solid var(--color-border); }
+
+.container :is(button, input, select, textarea, a):focus-visible { outline: 3px solid var(--color-lavender); outline-offset: 3px; }
+
+@media (max-width: 640px) { .header { flex-direction: column; align-items: stretch; } }
+
+@media (prefers-reduced-motion: reduce) { .container, .container * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+.headerInfo h1 { font-family: inherit; background: none; -webkit-text-fill-color: var(--color-text); color: var(--color-text); font-size: clamp(1.75rem, 3vw, 2.5rem); }
+.aiNote { background: var(--color-bg-secondary); color: var(--color-text); border: 1px solid var(--color-lavender); box-shadow: none; }
+.aiNote strong { color: var(--color-primary-hover); }

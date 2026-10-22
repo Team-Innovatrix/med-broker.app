@@ -63,9 +63,9 @@ const AdminCatalog = () => {
     const isBlocked = medicine.status === 'BLOCKED';
     const newStatus = isBlocked ? 'PUBLISHED' : 'BLOCKED';
     const verb = isBlocked ? 'unblock' : 'block';
-    
+
     if (!window.confirm(`Are you sure you want to ${verb} "${medicine.name}"?`)) return;
-    
+
     setActionLoading((p) => ({ ...p, [`block-${medicine.id}`]: true }));
     try {
       await adminService.updateMedicineStatus(medicine.id, newStatus);
@@ -81,7 +81,7 @@ const AdminCatalog = () => {
     }
   };
 
-  if (loading) return <div className="admin-loading"><div className="spinner"></div>Loading catalog...</div>;
+  if (loading) return <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading catalog...</div>;
   if (error) return <div className="admin-error">{error}</div>;
 
   return (
@@ -103,7 +103,7 @@ const AdminCatalog = () => {
       <div className="admin-ops-toolbar">
         <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search by name, brand, SKU" />
         <button className="btn btn-secondary" onClick={handleSearch}>Search</button>
-        <select value={status} onChange={(e) => { setStatus(e.target.value); setCurrentPage(1); }}>
+        <select aria-label="Filter catalog status" value={status} onChange={(e) => { setStatus(e.target.value); setCurrentPage(1); }}>
           <option value="">All statuses</option>
           <option value="PUBLISHED">Published</option>
           <option value="DRAFT">Draft</option>

@@ -109,7 +109,7 @@ const Settings = () => {
     setTimeout(() => setCopiedKey(null), 2000);
   };
 
-  if (loading) return <div className="admin-loading"><div className="spinner"></div>Loading settings...</div>;
+  if (loading) return <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading settings...</div>;
 
   const categories = {};
   rawConfig.forEach(s => {
@@ -133,11 +133,11 @@ const Settings = () => {
 
   const getCategoryColor = (cat) => {
     const lower = cat.toLowerCase();
-    if (lower.includes('pricing')) return { bg: '#fef3c7', border: '#fbbf24', text: '#92400e' };
-    if (lower.includes('automation')) return { bg: '#dbeafe', border: '#3b82f6', text: '#1e40af' };
-    if (lower.includes('default')) return { bg: '#dcfce7', border: '#22c55e', text: '#166534' };
-    if (lower.includes('security')) return { bg: '#fee2e2', border: '#ef4444', text: '#991b1b' };
-    return { bg: '#f3f4f6', border: '#d1d5db', text: '#374151' };
+    if (lower.includes('pricing')) return { bg: 'var(--color-bg-secondary)', border: 'var(--color-warning, #D97706)', text: 'var(--color-warning, #D97706)' };
+    if (lower.includes('automation')) return { bg: 'var(--color-bg-secondary)', border: 'var(--color-primary)', text: 'var(--color-primary-hover)' };
+    if (lower.includes('default')) return { bg: 'var(--color-bg-secondary)', border: 'var(--color-success, #0D9488)', text: 'var(--color-text)' };
+    if (lower.includes('security')) return { bg: 'var(--color-bg-secondary)', border: 'var(--color-error, #DC2626)', text: 'var(--color-error, #DC2626)' };
+    return { bg: 'var(--color-bg-secondary)', border: 'var(--color-border)', text: 'var(--color-text)' };
   };
 
   return (

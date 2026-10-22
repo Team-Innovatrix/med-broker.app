@@ -79,10 +79,10 @@ function CustomerOnboarding() {
 
 		try {
 			await authService.completeCustomerOnboarding(formData);
-			
+
 			// Show success message
 			alert('Welcome to MedIQ! Your profile is now complete.');
-			
+
 			// Redirect to customer catalog
 			navigate('/customer/catalog');
 		} catch (err) {
@@ -113,10 +113,10 @@ function CustomerOnboarding() {
 						{error && (
 							<div style={{
 								padding: '0.75rem',
-								backgroundColor: '#fee',
-								border: '1px solid #fcc',
+								backgroundColor: 'color-mix(in srgb, var(--color-error) 9%, white)',
+								border: '1px solid color-mix(in srgb, var(--color-error) 9%, white)',
 								borderRadius: '8px',
-								color: '#c33'
+								color: 'var(--color-error)'
 							}}>
 								{error}
 							</div>
@@ -141,8 +141,8 @@ function CustomerOnboarding() {
 								</button>
 							</div>
 							<p className="section-subtitle" style={{ marginTop: '0.5rem' }}>
-								{formData.buyerType === 'RETAIL' 
-									? 'Perfect for hospitals, clinics, and small pharmacies' 
+								{formData.buyerType === 'RETAIL'
+									? 'Perfect for hospitals, clinics, and small pharmacies'
 									: 'Ideal for distributors, large chains, and bulk buyers (with pricing benefits)'}
 							</p>
 						</div>
@@ -191,7 +191,7 @@ function CustomerOnboarding() {
 										onChange={handleInputChange}
 										maxLength={15}
 									/>
-									<small style={{ color: '#666', fontSize: '0.85rem' }}>
+									<small style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem' }}>
 										Required for tax invoice generation
 									</small>
 								</div>
@@ -244,12 +244,12 @@ function CustomerOnboarding() {
 						<div style={{
 							marginTop: '1rem',
 							padding: '1rem',
-							backgroundColor: '#e8f8e9',
+							backgroundColor: 'var(--color-bg-secondary)',
 							borderRadius: '8px',
-							border: '1px solid #b3e8b5'
+							border: '1px solid var(--color-lavender)'
 						}}>
-							<strong style={{ color: '#43A047' }}>✓ Benefits of completing your profile</strong>
-							<ul style={{ margin: '0.5rem 0 0 1.2rem', color: '#5a6b76', fontSize: '0.9rem' }}>
+							<strong style={{ color: 'var(--color-primary)' }}>✓ Benefits of completing your profile</strong>
+							<ul style={{ margin: '0.5rem 0 0 1.2rem', color: 'var(--color-text-secondary)', fontSize: '0.9rem' }}>
 								<li>Access to verified medicine catalog from multiple vendors</li>
 								<li>Real-time pricing based on your buyer type</li>
 								<li>Secure payment gateway integration</li>

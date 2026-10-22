@@ -1,16 +1,16 @@
 .paymentPage {
---pay-ink: #16302f;
---pay-subtle: #5f7473;
---pay-line: #dce9e8;
---pay-bg-soft: #f5fbfa;
---pay-accent: #0f9f8f;
---pay-accent-dark: #0b7c6f;
---pay-accent-mint: #d7f2ee;
---pay-shadow: 0 24px 60px rgba(10, 55, 52, 0.08);
+--pay-ink: var(--color-text);
+--pay-subtle: var(--color-text-secondary);
+--pay-line: var(--color-lavender);
+--pay-bg-soft: var(--color-bg-secondary);
+--pay-accent: var(--color-primary-hover);
+--pay-accent-dark: var(--color-primary-hover);
+--pay-accent-mint: var(--color-lavender);
+--pay-shadow: 0 24px 60px rgba(124, 58, 237, 0.08);
 background:
-radial-gradient(1200px 480px at 0% -10%, rgba(143, 227, 215, 0.2), transparent 60%),
-radial-gradient(900px 420px at 95% -8%, rgba(20, 180, 151, 0.15), transparent 62%),
-linear-gradient(180deg, #f7fcfb 0%, #f0f8f7 100%);
+radial-gradient(1200px 480px at 0% -10%, rgba(124, 58, 237, 0.2), transparent 60%),
+radial-gradient(900px 420px at 95% -8%, rgba(124, 58, 237, 0.15), transparent 62%),
+linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg-secondary) 100%);
 }
 
 .paymentContainer {
@@ -58,7 +58,7 @@ align-items: start;
 .formPanel,
 .summaryPanel {
 background: rgba(255, 255, 255, 0.9);
-border: 1px solid rgba(220, 233, 232, 0.9);
+border: 1px solid rgba(255, 255, 255, 0.9);
 border-radius: 22px;
 box-shadow: var(--pay-shadow);
 backdrop-filter: blur(7px);
@@ -106,7 +106,7 @@ padding: 0.95rem;
 border: 1px solid var(--pay-line);
 border-radius: 15px;
 cursor: pointer;
-background: #ffffff;
+background: var(--color-bg);
 transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
 }
 
@@ -116,13 +116,13 @@ accent-color: var(--pay-accent);
 
 .methodCard:hover {
 transform: translateY(-1px);
-border-color: #b9ded8;
+border-color: var(--color-lavender);
 }
 
 .methodCardActive {
-border-color: #7dc9bf;
-background: linear-gradient(180deg, #ffffff 0%, #f4fcfa 100%);
-box-shadow: 0 12px 28px rgba(13, 123, 109, 0.08);
+border-color: var(--color-primary);
+background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
+box-shadow: 0 12px 28px rgba(124, 58, 237, 0.08);
 }
 
 .methodCardDisabled {
@@ -165,7 +165,7 @@ color: var(--pay-accent-dark);
 border: 1px solid var(--pay-line);
 border-radius: 16px;
 padding: 1rem;
-background: linear-gradient(180deg, #ffffff 0%, #f8fcfc 100%);
+background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
 }
 
 .qrBlock {
@@ -186,7 +186,7 @@ color: var(--pay-subtle);
 
 .qrCanvasWrap {
 padding: 1rem;
-background: #ffffff;
+background: var(--color-bg);
 border: 1px solid var(--pay-line);
 border-radius: 14px;
 display: flex;
@@ -237,14 +237,14 @@ border-radius: 10px;
 border: 1px solid var(--pay-line);
 font-size: 0.95rem;
 color: var(--pay-ink);
-background: #fff;
+background: var(--color-bg);
 outline: none;
 transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .input:focus {
-border-color: #7ec8bf;
-box-shadow: 0 0 0 3px rgba(15, 159, 143, 0.14);
+border-color: var(--color-primary);
+box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.14);
 }
 
 .twoColumn {
@@ -255,7 +255,7 @@ gap: 0.7rem;
 
 .walletCard {
 padding: 1rem;
-border: 1px dashed #badfd9;
+border: 1px dashed var(--color-lavender);
 border-radius: 12px;
 background: var(--pay-bg-soft);
 display: grid;
@@ -277,9 +277,9 @@ color: var(--pay-ink);
 
 .walletButton {
 width: fit-content;
-border: 1px solid #9ed4cc;
-background: #fff;
-color: #0f6f64;
+border: 1px solid var(--color-lavender);
+background: var(--color-bg);
+color: var(--color-primary-hover);
 font-weight: 700;
 padding: 0.45rem 0.8rem;
 border-radius: 9px;
@@ -291,7 +291,7 @@ height: 48px;
 border: none;
 border-radius: 12px;
 background: linear-gradient(135deg, var(--pay-accent) 0%, var(--pay-accent-dark) 100%);
-color: #fff;
+color: var(--color-bg);
 font-size: 0.97rem;
 font-weight: 700;
 letter-spacing: 0.01em;
@@ -312,7 +312,7 @@ filter: brightness(1.03);
 .disclaimer {
 margin: 0;
 font-size: 0.8rem;
-color: #728786;
+color: var(--color-text-secondary);
 }
 
 .summaryPanel {
@@ -335,8 +335,8 @@ display: grid;
 gap: 0.5rem;
 padding: 0.85rem;
 border-radius: 14px;
-background: linear-gradient(135deg, #f4fbfa 0%, #ecf8f6 100%);
-border: 1px solid #d4ece8;
+background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-secondary) 100%);
+border: 1px solid var(--color-lavender);
 }
 
 .orderMetaCard p {
@@ -375,7 +375,7 @@ color: var(--pay-subtle);
 margin: 0;
 font-size: 0.88rem;
 line-height: 1.55;
-color: #2f4746;
+color: var(--color-text);
 }
 
 .itemRow {
@@ -384,7 +384,7 @@ justify-content: space-between;
 gap: 0.6rem;
 padding: 0.42rem 0;
 font-size: 0.86rem;
-color: #38504f;
+color: var(--color-text);
 }
 
 .amountRows {
@@ -405,16 +405,16 @@ font-size: 0.9rem;
 }
 
 .pricingRow span {
-color: #587070;
+color: var(--color-text);
 }
 
 .pricingRow strong {
-color: #314948;
+color: var(--color-text);
 }
 
 .pricingRowDiscount span,
 .pricingRowDiscount strong {
-color: #0d8a70;
+color: var(--color-primary-hover);
 font-weight: 700;
 }
 
@@ -427,7 +427,7 @@ gap: 0.3rem;
 .totalRow {
 margin-top: 0.3rem;
 padding-top: 0.65rem;
-border-top: 1px dashed #c9e3e0;
+border-top: 1px dashed var(--color-lavender);
 font-size: 1.03rem;
 font-weight: 700;
 color: var(--pay-ink);
@@ -440,9 +440,9 @@ gap: 0.65rem;
 align-items: start;
 padding: 0.82rem;
 border-radius: 12px;
-background: linear-gradient(180deg, #f1fbf8 0%, #e9f8f4 100%);
-border: 1px solid #cdebe5;
-color: #0d6e62;
+background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg-secondary) 100%);
+border: 1px solid var(--color-lavender);
+color: var(--color-primary-hover);
 }
 
 .securityTitle {
@@ -454,7 +454,7 @@ font-weight: 700;
 .securityText {
 margin: 0.15rem 0 0;
 font-size: 0.78rem;
-color: #2d6760;
+color: var(--color-primary-hover);
 }
 
 .loadingContainer,
@@ -470,7 +470,7 @@ color: var(--text-secondary);
 .loadingSpinner {
 width: 44px;
 height: 44px;
-border: 3px solid #dce9e8;
+border: 3px solid var(--color-lavender);
 border-top-color: var(--pay-accent);
 border-radius: 50%;
 animation: spin 0.9s linear infinite;
@@ -484,7 +484,7 @@ padding: 0 1rem;
 border: none;
 border-radius: 10px;
 background: var(--pay-accent);
-color: #fff;
+color: var(--color-bg);
 font-weight: 700;
 cursor: pointer;
 }
@@ -529,3 +529,8 @@ display: none;
 grid-template-columns: 1fr;
 }
 }
+
+/* Shared lavender-white surface treatment. */
+.formPanel,
+.summaryPanel,
+.methodCard { background: var(--color-bg); border-color: var(--color-border); border-radius: 18px; box-shadow: 0 4px 20px rgba(70, 36, 117, .035); }

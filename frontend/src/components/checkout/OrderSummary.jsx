@@ -43,7 +43,7 @@ export function OrderSummary({ cartItems, getTotalPrice, discountPercent, applie
             <span>{formatPrice(subtotal)}</span>
           </div>
           {discountPercent > 0 && (
-            <div className={styles.pricingRow} style={{ color: 'var(--success)' }}>
+            <div className={styles.pricingRow} style={{ color: 'var(--success-dark)' }}>
               <span>Discount ({discountPercent}%)</span>
               <span>−{formatPrice(discount)}</span>
             </div>

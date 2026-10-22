@@ -184,10 +184,10 @@ function Register() {
 						contactNumber: formData.mobile, // Reuse mobile
 						bankAccountDetails: formData.bankAccountDetails
 					});
-					
+
 					// Refresh user data to get updated roles and currency
 					await authService.getCurrentUser();
-					
+
 					navigate('/vendor/dashboard');
 				} else if (result.user.role === 'CUSTOMER') {
 					await authService.completeCustomerOnboarding({
@@ -212,7 +212,7 @@ function Register() {
 				else if (result.user.role === 'CUSTOMER') navigate('/onboarding/customer');
 				else navigate('/');
 			}
-			
+
 		} catch (err) {
 			setError(err.response?.data?.message || err.message || 'Registration failed. Please try again.');
 		} finally {
@@ -233,7 +233,7 @@ function Register() {
 
 				<section className="auth-care-card card reveal">
 					<form onSubmit={handleSubmit} className="auth-care-form">
-						{error && <div className="auth-care-error" style={{ marginBottom: '1.5rem', padding: '1rem', backgroundColor: '#fee', border: '1px solid #fcc', borderRadius: '8px', color: '#c33' }}>{error}</div>}
+						{error && <div className="auth-care-error" style={{ marginBottom: '1.5rem', padding: '1rem', backgroundColor: 'color-mix(in srgb, var(--color-error) 9%, white)', border: '1px solid color-mix(in srgb, var(--color-error) 9%, white)', borderRadius: '8px', color: 'var(--color-error)' }}>{error}</div>}
 
 						<div>
 							<label className="label">Register as</label>
@@ -260,7 +260,7 @@ function Register() {
 						<div className="form-row auth-care-row">
 							<div className="auth-care-field-group">
 								<label className="label">Email address *</label>
-								<input
+								<input aria-label="Email address"
 									className="input"
 									type="email"
 									name="email"
@@ -273,7 +273,7 @@ function Register() {
 							<div className="auth-care-field-group">
 								<label className="label">Phone *</label>
 								<div className="form-row auth-care-row" style={{ margin: 0 }}>
-									<input
+									<input aria-label="Country calling code"
 										className="input"
 										type="text"
 										name="phoneDial"
@@ -281,7 +281,7 @@ function Register() {
 										readOnly
 										style={{ maxWidth: '110px' }}
 									/>
-									<input
+									<input aria-label="Phone number"
 										className="input"
 										type="tel"
 										name="mobile"
@@ -298,7 +298,7 @@ function Register() {
 							<div className="auth-care-field-group">
 								<label className="label">Password *</label>
 								<div className="auth-care-password-wrap">
-									<input
+									<input aria-label="Password"
 										className="input"
 										type={showPassword ? 'text' : 'password'}
 										name="password"
@@ -320,7 +320,7 @@ function Register() {
 							<div className="auth-care-field-group">
 								<label className="label">Confirm password *</label>
 								<div className="auth-care-password-wrap">
-									<input
+									<input aria-label="Confirm Password"
 										className="input"
 										type={showConfirmPassword ? 'text' : 'password'}
 										name="confirmPassword"
@@ -351,7 +351,7 @@ function Register() {
 								<div className="form-row auth-care-row">
 									<div className="auth-care-field-group">
 										<label className="label">Full Name *</label>
-										<input
+										<input aria-label="Full Name"
 											className="input"
 											type="text"
 											name="fullName"
@@ -363,7 +363,7 @@ function Register() {
 									</div>
 									<div className="auth-care-field-group">
 										<label className="label">Buyer Type *</label>
-										<select
+										<select aria-label="Buyer type"
 											className="select input"
 											name="buyerType"
 											value={formData.buyerType}
@@ -381,7 +381,7 @@ function Register() {
 									<div className="form-row auth-care-row">
 										<div className="auth-care-field-group">
 											<label className="label">Business Name *</label>
-											<input
+											<input aria-label="Customer Business Name"
 												className="input"
 												type="text"
 												name="customerBusinessName"
@@ -393,7 +393,7 @@ function Register() {
 										</div>
 										<div className="auth-care-field-group">
 											<label className="label">GSTIN Number *</label>
-											<input
+											<input aria-label="Customer Gstin"
 												className="input"
 												type="text"
 												name="customerGstin"
@@ -410,7 +410,7 @@ function Register() {
 								<div className="form-row auth-care-row">
 									<div className="auth-care-field-group">
 										<label className="label">Country *</label>
-										<select
+										<select aria-label="Country"
 											className="select input"
 											name="country"
 											value={formData.country}
@@ -425,7 +425,7 @@ function Register() {
 									<div className="auth-care-field-group">
 										<label className="label">State / Region *</label>
 										{(COUNTRY_OPTIONS.find((country) => country.name === formData.country)?.states || []).length > 0 ? (
-											<select
+											<select aria-label="State or region"
 												className="select input"
 												name="state"
 												value={formData.state}
@@ -438,7 +438,7 @@ function Register() {
 												))}
 											</select>
 										) : (
-											<input
+											<input aria-label="State or region"
 												className="input"
 												type="text"
 												name="state"
@@ -451,7 +451,7 @@ function Register() {
 									</div>
 									<div className="auth-care-field-group">
 										<label className="label">City *</label>
-										<input
+										<input aria-label="City"
 											className="input"
 											type="text"
 											name="city"
@@ -465,7 +465,7 @@ function Register() {
 
 								<div className="auth-care-field-group" style={{ marginTop: '1rem' }}>
 									<label className="label">Delivery Address *</label>
-									<textarea
+									<textarea aria-label="Delivery Address"
 										className="input"
 										name="deliveryAddress"
 										placeholder="Complete delivery address"
@@ -485,7 +485,7 @@ function Register() {
 								<div className="form-row auth-care-row">
 									<div className="auth-care-field-group">
 										<label className="label">Company Name *</label>
-										<input
+										<input aria-label="Company Name"
 											className="input"
 											type="text"
 											name="companyName"
@@ -497,7 +497,7 @@ function Register() {
 									</div>
 									<div className="auth-care-field-group">
 										<label className="label">Vendor Type *</label>
-										<select
+										<select aria-label="Vendor type"
 											className="select input"
 											name="vendorType"
 											value={formData.vendorType}
@@ -514,7 +514,7 @@ function Register() {
 								<div className="form-row auth-care-row">
 									<div className="auth-care-field-group">
 										<label className="label">Contact Person *</label>
-										<input
+										<input aria-label="Contact Person Name"
 											className="input"
 											type="text"
 											name="contactPersonName"
@@ -526,7 +526,7 @@ function Register() {
 									</div>
 									<div className="auth-care-field-group">
 										<label className="label">Drug License Number *</label>
-										<input
+										<input aria-label="Drug License Number"
 											className="input"
 											type="text"
 											name="drugLicenseNumber"
@@ -541,7 +541,7 @@ function Register() {
 								<div className="form-row auth-care-row">
 									<div className="auth-care-field-group">
 										<label className="label">GSTIN Number *</label>
-										<input
+										<input aria-label="Gstin Number"
 											className="input"
 											type="text"
 											name="gstinNumber"
@@ -555,7 +555,7 @@ function Register() {
 									</div>
 									<div className="auth-care-field-group">
 										<label className="label">Country *</label>
-										<select
+										<select aria-label="Country"
 											className="select input"
 											name="country"
 											value={formData.country}
@@ -573,7 +573,7 @@ function Register() {
 									<div className="auth-care-field-group">
 										<label className="label">State / Region *</label>
 										{(COUNTRY_OPTIONS.find((country) => country.name === formData.country)?.states || []).length > 0 ? (
-											<select
+											<select aria-label="State or region"
 												className="select input"
 												name="state"
 												value={formData.state}
@@ -586,7 +586,7 @@ function Register() {
 												))}
 											</select>
 										) : (
-											<input
+											<input aria-label="State or region"
 												className="input"
 												type="text"
 												name="state"
@@ -601,7 +601,7 @@ function Register() {
 
 								<div className="auth-care-field-group" style={{ marginTop: '1rem' }}>
 									<label className="label">Business Address *</label>
-									<textarea
+									<textarea aria-label="Business Address"
 										className="input"
 										name="businessAddress"
 										placeholder="Complete business address with pincode"
@@ -615,41 +615,41 @@ function Register() {
 
 								{/* VENDOR BANKING DETAILS */}
 								<h3 style={{ marginTop: '2rem', marginBottom: '1rem', borderBottom: '1px solid var(--border)', paddingBottom: '0.5rem' }}>Banking Details <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', fontWeight: 'normal' }}>(Optional)</span></h3>
-								
+
 								<div className="form-row auth-care-row">
 									<div className="auth-care-field-group">
 										<label className="label">Account Holder Name</label>
-										<input className="input" type="text" value={formData.bankAccountDetails.accountHolderName} onChange={(e) => handleBankDetailChange('accountHolderName', e.target.value)} placeholder="Business / personal name" />
+										<input aria-label="Account Holder Name" className="input" type="text" value={formData.bankAccountDetails.accountHolderName} onChange={(e) => handleBankDetailChange('accountHolderName', e.target.value)} placeholder="Business / personal name" />
 									</div>
 									<div className="auth-care-field-group">
 										<label className="label">Account Number</label>
-										<input className="input" type="text" value={formData.bankAccountDetails.accountNumber} onChange={(e) => handleBankDetailChange('accountNumber', e.target.value)} placeholder="123456789012" />
+										<input aria-label="Account Number" className="input" type="text" value={formData.bankAccountDetails.accountNumber} onChange={(e) => handleBankDetailChange('accountNumber', e.target.value)} placeholder="123456789012" />
 									</div>
 								</div>
 								<div className="form-row auth-care-row">
 									<div className="auth-care-field-group">
 										<label className="label">Bank Name</label>
-										<input className="input" type="text" value={formData.bankAccountDetails.bankName} onChange={(e) => handleBankDetailChange('bankName', e.target.value)} placeholder="State Bank of India" />
+										<input aria-label="Bank Name" className="input" type="text" value={formData.bankAccountDetails.bankName} onChange={(e) => handleBankDetailChange('bankName', e.target.value)} placeholder="State Bank of India" />
 									</div>
 									<div className="auth-care-field-group">
 										<label className="label">IFSC Code</label>
-										<input className="input" type="text" value={formData.bankAccountDetails.ifscCode} onChange={(e) => handleBankDetailChange('ifscCode', e.target.value.toUpperCase())} placeholder="SBIN0001234" />
+										<input aria-label="Ifsc Code" className="input" type="text" value={formData.bankAccountDetails.ifscCode} onChange={(e) => handleBankDetailChange('ifscCode', e.target.value.toUpperCase())} placeholder="SBIN0001234" />
 									</div>
 								</div>
 								<div className="form-row auth-care-row">
 									<div className="auth-care-field-group">
 										<label className="label">Branch Name</label>
-										<input className="input" type="text" value={formData.bankAccountDetails.branchName} onChange={(e) => handleBankDetailChange('branchName', e.target.value)} placeholder="Main Branch" />
+										<input aria-label="Branch Name" className="input" type="text" value={formData.bankAccountDetails.branchName} onChange={(e) => handleBankDetailChange('branchName', e.target.value)} placeholder="Main Branch" />
 									</div>
 									<div className="auth-care-field-group">
 										<label className="label">UPI ID</label>
-										<input className="input" type="text" value={formData.bankAccountDetails.upiId} onChange={(e) => handleBankDetailChange('upiId', e.target.value)} placeholder="vendor@upi" />
+										<input aria-label="Upi Id" className="input" type="text" value={formData.bankAccountDetails.upiId} onChange={(e) => handleBankDetailChange('upiId', e.target.value)} placeholder="vendor@upi" />
 									</div>
 								</div>
-								
-								<div style={{ marginTop: '1rem', padding: '1rem', backgroundColor: '#e8f4f8', borderRadius: '8px', border: '1px solid #b3d9e8' }}>
-									<strong style={{ color: '#0f7f8a', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}><Info size={14} strokeWidth={1.75} /> Account Verification</strong>
-									<p style={{ margin: '0.5rem 0 0 0', color: '#5a6b76', fontSize: '0.9rem' }}>
+
+								<div style={{ marginTop: '1rem', padding: '1rem', backgroundColor: 'var(--color-bg-secondary)', borderRadius: '8px', border: '1px solid var(--color-lavender)' }}>
+									<strong style={{ color: 'var(--color-primary-hover)', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}><Info size={14} strokeWidth={1.75} /> Account Verification</strong>
+									<p style={{ margin: '0.5rem 0 0 0', color: 'var(--color-text-secondary)', fontSize: '0.9rem' }}>
 										Your vendor profile will be submitted for verification. Our team will review your GSTIN and drug license details before you can start selling.
 									</p>
 								</div>

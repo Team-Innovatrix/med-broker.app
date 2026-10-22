@@ -1,8 +1,8 @@
 .aboutPage {
-  --primary-glow: rgba(16, 185, 129, 0.15);
-  --secondary-glow: rgba(5, 150, 105, 0.1);
+  --primary-glow: rgba(124, 58, 237, 0.15);
+  --secondary-glow: rgba(124, 58, 237, 0.1);
   min-height: 100vh;
-  color: #1a202c;
+  color: var(--color-text);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
 }
@@ -10,7 +10,7 @@
 .hero {
   position: relative;
   padding: 120px 20px 80px;
-  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg) 100%);
   text-align: center;
   overflow: hidden;
 }
@@ -37,8 +37,8 @@
 .badge {
   display: inline-block;
   padding: 8px 16px;
-  background: rgba(16, 185, 129, 0.1);
-  color: #059669;
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--color-primary-hover);
   border-radius: 99px;
   font-size: 0.875rem;
   font-weight: 600;
@@ -52,12 +52,12 @@
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 24px;
-  color: #064e3b;
+  color: var(--color-text);
 }
 
 .subtitle {
   font-size: 1.25rem;
-  color: #4b5563;
+  color: var(--color-text);
   max-width: 700px;
   margin: 0 auto 40px;
   line-height: 1.6;
@@ -76,23 +76,23 @@
 
 .card {
   padding: 40px;
-  background: #ffffff;
+  background: var(--color-bg);
   border-radius: 24px;
-  border: 1px solid rgba(16, 185, 129, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  box-shadow: 0 10px 30px rgba(31, 41, 55, 0.05);
   transition: all 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 20px 40px rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.3);
 }
 
 .cardIcon {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -105,11 +105,11 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 16px;
-  color: #064e3b;
+  color: var(--color-text);
 }
 
 .cardText {
-  color: #4b5563;
+  color: var(--color-text);
   line-height: 1.6;
 }
 
@@ -122,20 +122,20 @@
 
 .contentImage {
   flex: 1;
-  min-width: 300px;
+  min-width: min(300px, 100%);
   border-radius: 32px;
   overflow: hidden;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 30px 60px rgba(31, 41, 55, 0.1);
 }
 
 .contentText {
   flex: 1;
-  min-width: 300px;
+  min-width: min(300px, 100%);
 }
 
 .statsSection {
-  background: #064e3b;
-  color: white;
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
   border-radius: 40px;
   margin: 40px 20px;
   padding: 80px 40px;
@@ -152,7 +152,7 @@
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -160,7 +160,7 @@
 
 .statItem p {
   font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-text-secondary-strong);
   font-weight: 500;
 }
 
@@ -168,7 +168,7 @@
   .hero {
     padding: 80px 20px 60px;
   }
-  
+
   .section {
     padding: 60px 20px;
   }

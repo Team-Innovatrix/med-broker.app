@@ -17,12 +17,12 @@ const helpDocuments = {
       <>
         <h3>Introduction</h3>
         <p>Welcome to MedIQ, the premier B2B and B2C marketplace for pharmaceutical products. This guide will walk you through setting up your account so you can start browsing and purchasing medicines.</p>
-        
+
         <h3>Step 1: Account Registration</h3>
         <p>To begin, click on the <strong>Register</strong> button at the top right of the homepage. You will be prompted to choose whether you are creating a Customer (Buyer) or Vendor (Seller) account. For customers, simply provide your full name, email address, and a secure password.</p>
-        
+
         <h3>Step 2: Profile Verification</h3>
-        <p>Before placing any orders, especially for prescription medicines, you must verify your identity. 
+        <p>Before placing any orders, especially for prescription medicines, you must verify your identity.
         <ul>
           <li>Go to your <strong>Dashboard</strong> {'>'} <strong>Profile Settings</strong>.</li>
           <li>Enter your active mobile number and verify it via OTP.</li>
@@ -32,7 +32,7 @@ const helpDocuments = {
 
         <h3>Step 3: Browsing the Marketplace</h3>
         <p>Use the global search bar to look up specific drug compositions or brand names. Our AI engine will automatically highlight verified sellers offering the best rates near your location.</p>
-        
+
         <div style={{ background: 'var(--green-50)', padding: '1rem', borderLeft: '4px solid var(--primary)', marginTop: '2rem' }}>
           <strong>Pro Tip:</strong> Look for the "Verified Badge" next to a seller's name to guarantee they have an active drug license on file with us.
         </div>
@@ -79,7 +79,7 @@ const helpDocuments = {
 
         <h3>How to Initiate a Refund</h3>
         <p>Go to your <strong>My Orders</strong> page, select the specific order, and click "Request Return". You will be asked to upload 2 clear photos of the product and packaging. Once approved by our team (usually within 12 hours), a pickup will be arranged.</p>
-        
+
         <h3>Refund Timelines</h3>
         <p>Refunds are processed to the original payment source over a period of T+3 working days after the returned product reaches the vendor facility.</p>
       </>
@@ -173,10 +173,10 @@ export default function HelpArticle() {
   return (
     <PublicLayout>
       <div className="container" style={{ maxWidth: '800px', paddingBottom: '4rem' }}>
-        
+
         {/* Breadcrumb Navigation */}
-        <button 
-          onClick={() => navigate('/support/help-center')} 
+        <button
+          onClick={() => navigate('/support/help-center')}
           style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', marginBottom: '2rem', padding: 0, fontSize: '1rem', fontWeight: '500' }}
           className="hover-underline"
         >
@@ -212,9 +212,9 @@ export default function HelpArticle() {
                 }
               `}
             </style>
-            
+
             {article.content}
-            
+
           </div>
         </div>
 

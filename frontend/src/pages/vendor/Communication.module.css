@@ -38,7 +38,7 @@
 }
 
 .searchBox:focus-visible {
-	outline: 2px solid rgba(21, 115, 71, 0.34);
+	outline: 2px solid rgba(124, 58, 237, 0.34);
 	outline-offset: 2px;
 	border-color: var(--primary);
 }
@@ -60,7 +60,7 @@
 }
 
 .conversationItem:focus-visible {
-	outline: 2px solid rgba(21, 115, 71, 0.34);
+	outline: 2px solid rgba(124, 58, 237, 0.34);
 	outline-offset: -2px;
 	border-radius: 6px;
 }
@@ -200,7 +200,7 @@
 }
 
 .inputField:focus-visible {
-	outline: 2px solid rgba(21, 115, 71, 0.34);
+	outline: 2px solid rgba(124, 58, 237, 0.34);
 	outline-offset: 2px;
 	border-color: var(--primary);
 }
@@ -223,7 +223,7 @@
 }
 
 .sendButton:focus-visible {
-	outline: 2px solid rgba(21, 115, 71, 0.34);
+	outline: 2px solid rgba(124, 58, 237, 0.34);
 	outline-offset: 2px;
 }
 
@@ -295,3 +295,12 @@
 		max-width: 90%;
 	}
 }
+
+
+/* Lavender workspace surfaces and keyboard interaction. */
+
+.container { background: var(--color-bg-secondary); color: var(--color-text); padding: clamp(1rem, 2.3vw, 2rem); min-width: 0; }
+
+.container :is(button, input, select, textarea, a):focus-visible { outline: 3px solid var(--color-lavender); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) { .container, .container * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }

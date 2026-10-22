@@ -113,11 +113,11 @@ function VendorMedicineManager() {
 			};
 
 			const inventory = await inventoryService.addMedicineToInventory(payload);
-			
+
 			// If images are selected, upload them now
 			let finalImageUrls = [];
 			let finalImageUrl = null;
-			
+
 			if (uploadFiles.length > 0) {
 				try {
 					const uploadResult = await inventoryService.uploadMedicineImage(inventory.id, uploadFiles);
@@ -274,7 +274,7 @@ function VendorMedicineManager() {
 			setSavingStock(true);
 			const retailPriceCents = Math.round(toBaseAmount(Number(selectedMedicine.price)) * 100);
 			const wholesalePriceCents = selectedMedicine.wholesalePrice ? Math.round(toBaseAmount(Number(selectedMedicine.wholesalePrice)) * 100) : retailPriceCents;
-			
+
 			const updated = await inventoryService.updateInventoryItem(selectedMedicine.id, {
 				quantity: normalizedQuantity,
 				name: selectedMedicine.name.trim(),
@@ -285,8 +285,8 @@ function VendorMedicineManager() {
 
 			setMedicines((prev) => prev.map((m) => (
 				m.id === selectedMedicine.id
-					? { 
-							...m, 
+					? {
+							...m,
 							stock: updated.quantity,
 							name: updated.medicine?.name || selectedMedicine.name,
 							description: updated.medicine?.description || selectedMedicine.description,
@@ -297,8 +297,8 @@ function VendorMedicineManager() {
 			)));
 
 			setSelectedMedicine((prev) => (
-				prev ? { 
-					...prev, 
+				prev ? {
+					...prev,
 					stock: updated.quantity,
 					price: Number(convert((updated.medicine?.priceCents || retailPriceCents) / 100, 'INR').toFixed(2)),
 					wholesalePrice: Number(convert((updated.medicine?.wholesalePriceCents || wholesalePriceCents) / 100, 'INR').toFixed(2))
@@ -331,14 +331,14 @@ function VendorMedicineManager() {
 					</button>
 				)}
 			>
-			
+
 			{vendorStatus && vendorStatus !== 'VERIFIED' && (
 				<div className={styles.verificationBanner}>
 					<AlertCircle className={styles.bannerIcon} size={24} />
 					<div className={styles.bannerText}>
 						<h4>Profile Verification {vendorStatus === 'REJECTED' ? 'Rejected' : 'Pending'}</h4>
-						<p>{vendorStatus === 'REJECTED' 
-							? 'Your profile was not approved. Please contact support to resolve issues with your documentation.' 
+						<p>{vendorStatus === 'REJECTED'
+							? 'Your profile was not approved. Please contact support to resolve issues with your documentation.'
 							: 'Your products will be visible to customers once your profile is verified by our team. You can still manage your inventory in the meantime.'}</p>
 					</div>
 				</div>
@@ -474,7 +474,7 @@ function VendorMedicineManager() {
 							/>
 						</div>
 					<div className={styles.formGroup}>
-						<label className={styles.label}>Selling Price ({currencySymbol}) <span style={{ fontSize: '0.85em', color: '#666' }}>Retail</span></label>
+						<label className={styles.label}>Selling Price ({currencySymbol}) <span style={{ fontSize: '0.85em', color: 'var(--color-text-secondary)' }}>Retail</span></label>
 						<input
 							type="number"
 							className={styles.input}
@@ -483,10 +483,10 @@ function VendorMedicineManager() {
 							value={newMedicine.price}
 							onChange={(e) => setNewMedicine({ ...newMedicine, price: e.target.value })}
 						/>
-						<small style={{ color: '#888', marginTop: '4px', display: 'block' }}>What retail customers pay</small>
+						<small style={{ color: 'var(--color-text-secondary)', marginTop: '4px', display: 'block' }}>What retail customers pay</small>
 					</div>
 					<div className={styles.formGroup}>
-						<label className={styles.label}>B2B Standard Price ({currencySymbol}) <span style={{ fontSize: '0.85em', color: '#666' }}>Wholesale</span></label>
+						<label className={styles.label}>B2B Standard Price ({currencySymbol}) <span style={{ fontSize: '0.85em', color: 'var(--color-text-secondary)' }}>Wholesale</span></label>
 						<input
 							type="number"
 							className={styles.input}
@@ -495,7 +495,7 @@ function VendorMedicineManager() {
 							value={newMedicine.wholesalePrice}
 							onChange={(e) => setNewMedicine({ ...newMedicine, wholesalePrice: e.target.value })}
 						/>
-						<small style={{ color: '#888', marginTop: '4px', display: 'block' }}>For B2B buyers (requires GSTIN)</small>
+						<small style={{ color: 'var(--color-text-secondary)', marginTop: '4px', display: 'block' }}>For B2B buyers (requires GSTIN)</small>
 					</div>
 					</div>
 
@@ -630,7 +630,7 @@ function VendorMedicineManager() {
 										{(selectedMedicine.imageUrls || []).map((imageUrl, index) => (
 											<div key={`${imageUrl}-${index}`} className={styles.previewContainer}>
 												<img src={imageUrl} alt={`${selectedMedicine.name} ${index + 1}`} className={styles.previewThumb} />
-												<button 
+												<button
 													className={styles.deleteImageIcon}
 													onClick={() => handleDeleteImage(imageUrl)}
 													disabled={uploadingId === selectedMedicine.id}

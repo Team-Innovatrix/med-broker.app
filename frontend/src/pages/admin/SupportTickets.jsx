@@ -114,7 +114,7 @@ const AdminSupportTickets = () => {
     setReplyTarget(null);
   };
 
-  if (loading) return <div className="admin-loading"><div className="spinner"></div>Loading support tickets...</div>;
+  if (loading) return <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading support tickets...</div>;
   if (error) return <div className="admin-error">{error}</div>;
 
   return (

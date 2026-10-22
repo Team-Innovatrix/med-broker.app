@@ -10,9 +10,11 @@ function NotificationBar() {
 	const isSuccess = notification.type === 'success';
 
 	return (
-		<div style={{
+		<div role={isSuccess ? 'status' : 'alert'} style={{
 			...styles.bar,
-			backgroundColor: isSuccess ? 'var(--success)' : 'var(--error)'
+			backgroundColor: isSuccess ? 'var(--success-light)' : 'var(--error-light)',
+            color: isSuccess ? 'var(--success-dark)' : 'var(--error-dark)',
+            border: `1px solid ${isSuccess ? 'var(--success)' : 'var(--error)'}`
 		}}>
 			<span style={styles.icon}>{isSuccess ? <CheckCircle2 size={16} strokeWidth={1.75} /> : <AlertTriangle size={16} strokeWidth={1.75} />}</span>
 			<span style={styles.message}>{notification.message}</span>

@@ -5,7 +5,7 @@ import styles from './About.module.css';
 
 const About = () => {
     const navigate = useNavigate();
-    
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -13,15 +13,15 @@ const About = () => {
     return (
         <div className={styles.aboutPage}>
             <div className={styles.container} style={{ marginBottom: '20px' }}>
-                <button 
+                <button
                     onClick={() => navigate('/')}
-                    style={{ 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        gap: '8px', 
-                        background: 'none', 
-                        border: 'none', 
-                        color: 'var(--primary)', 
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        background: 'none',
+                        border: 'none',
+                        color: 'var(--primary)',
                         cursor: 'pointer',
                         fontWeight: 600,
                         padding: 0
@@ -40,19 +40,19 @@ const About = () => {
                             <p className={styles.cardText} style={{ fontSize: '1.1rem', marginBottom: '32px' }}>
                                 To democratize access to authentic medicines and healthcare supplies across India, ensuring that quality healthcare is never more than a click away. We strive to eliminate supply chain inefficiencies and combat counterfeit products through rigorous verification.
                             </p>
-                            
+
                             <div className={styles.cardTitle}>Our Vision</div>
                             <p className={styles.cardText} style={{ fontSize: '1.1rem' }}>
                                 To become India's most trusted healthcare supply platform, where transparency, speed, and reliability empower millions of healthcare professionals and patients alike.
                             </p>
                         </div>
                         <div className={styles.contentImage}>
-                             <div style={{ 
-                                background: 'linear-gradient(135deg, #10b981 0%, #064e3b 100%)', 
-                                height: '400px', 
-                                display: 'flex', 
+                             <div style={{
+                                background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary) 100%)',
+                                height: '400px',
+                                display: 'flex',
                                 flexDirection: 'column',
-                                alignItems: 'center', 
+                                alignItems: 'center',
                                 justifyContent: 'center',
                                 padding: '40px',
                                 gap: '20px'
@@ -101,7 +101,7 @@ const About = () => {
                         <h2 className={styles.cardTitle} style={{ fontSize: '2.5rem' }}>Our Core Values</h2>
                         <p className={styles.cardText}>The principles that guide every decision we make.</p>
                     </div>
-                    
+
                     <div className={styles.grid}>
                         <div className={styles.card}>
                             <div className={styles.cardIcon}>
@@ -137,12 +137,12 @@ const About = () => {
             </section>
 
             {/* Why Choose Us */}
-            <section className={styles.section} style={{ backgroundColor: '#f9fafb' }}>
+            <section className={styles.section} style={{ backgroundColor: 'var(--color-bg-secondary)' }}>
                 <div className={styles.container}>
                     <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                          <h2 className={styles.cardTitle} style={{ fontSize: '2.5rem' }}>Why Healthcare Partners Choose MedIQ</h2>
                     </div>
-                    
+
                     <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                         {[
                             '100% Authentic Products Sourcing',
@@ -152,15 +152,15 @@ const About = () => {
                             'Dedicated 24/7 Professional Support',
                             'Secure Encrypted Payment Gateway'
                         ].map((item, index) => (
-                            <div key={index} style={{ 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                gap: '16px', 
-                                padding: '16px', 
-                                borderBottom: '1px solid #e5e7eb' 
+                            <div key={index} style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '16px',
+                                padding: '16px',
+                                borderBottom: '1px solid var(--color-border)'
                             }}>
-                                <CheckCircle2 size={24} color="#10b981" />
-                                <span style={{ fontSize: '1.1rem', color: '#374151', fontWeight: 500 }}>{item}</span>
+                                <CheckCircle2 size={24} color="var(--color-primary)" />
+                                <span style={{ fontSize: '1.1rem', color: 'var(--color-text)', fontWeight: 500 }}>{item}</span>
                             </div>
                         ))}
                     </div>

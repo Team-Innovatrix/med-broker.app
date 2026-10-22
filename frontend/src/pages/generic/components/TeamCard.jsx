@@ -4,7 +4,7 @@ import styles from './TeamCard.module.css';
 
 /**
  * TeamCard Component
- * 
+ *
  * Displays team member information with responsive image
  * Used in About page
  */

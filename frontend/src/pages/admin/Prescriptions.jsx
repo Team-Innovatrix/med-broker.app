@@ -39,7 +39,7 @@ const AdminPrescriptions = () => {
     }
   };
 
-  if (loading) return <div className="admin-loading"><div className="spinner"></div>Loading prescription queue...</div>;
+  if (loading) return <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading prescription queue...</div>;
 
   return (
     <section className="admin-ops-page">

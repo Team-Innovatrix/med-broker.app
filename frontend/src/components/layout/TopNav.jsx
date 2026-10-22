@@ -4,6 +4,7 @@ import { useCart } from '../../context/CartContext';
 import authService from '../../services/auth.service';
 import { useUser } from '../../context/UserContext';
 import Avatar from '../common/Avatar';
+import './WorkspaceNavigation.css';
 import { Home, Settings, Pill, ShoppingCart, Package, CheckCircle, CreditCard, Search, LogOut, User, Menu, X } from 'lucide-react';
 
 function TopNav() {
@@ -306,9 +307,9 @@ function TopNav() {
 										alignItems: 'center',
 										gap: '0.5rem',
 										padding: '0.5rem 0.85rem',
-										backgroundColor: 'rgba(21, 115, 71, 0.1)',
+										backgroundColor: 'rgba(124, 58, 237, 0.1)',
 										color: 'var(--primary)',
-										border: '1px solid rgba(21, 115, 71, 0.2)',
+										border: '1px solid rgba(124, 58, 237, 0.2)',
 										borderRadius: '8px',
 										fontSize: '0.85rem',
 										fontWeight: 600,
@@ -419,7 +420,7 @@ function TopNav() {
 																		style={{
 																			...styles.menuItem,
 																			...(item.isRoleSwitch ? { 
-																				backgroundColor: 'rgba(21, 115, 71, 0.08)',
+																				backgroundColor: 'rgba(124, 58, 237, 0.06)',
 																				color: 'var(--primary)',
 																				fontWeight: 600
 																			} : {})
@@ -530,7 +531,7 @@ const styles = {
 		contain: 'none'
 	},
 	utilityBar: {
-		background: 'linear-gradient(90deg, rgba(12, 73, 50, 0.98) 0%, rgba(15, 93, 63, 0.98) 100%)',
+		background: 'var(--color-bg, #FFFFFF)',
 		borderBottom: '1px solid rgba(255, 255, 255, 0.12)'
 	},
 	utilityContainer: {
@@ -557,7 +558,7 @@ const styles = {
 	utilityLink: {
 		background: 'none',
 		border: 'none',
-		color: '#dcfce7',
+		color: 'var(--color-text, #1F2937)',
 		fontSize: '0.76rem',
 		fontWeight: 600,
 		cursor: 'pointer',
@@ -566,7 +567,7 @@ const styles = {
 	mainBar: {
 		backgroundColor: 'rgba(255, 255, 255, 0.88)',
 		backdropFilter: 'blur(10px)',
-		borderBottom: '1px solid rgba(21, 115, 71, 0.16)',
+		borderBottom: '1px solid rgba(124, 58, 237, 0.16)',
 		boxShadow: '0 4px 14px rgba(16, 32, 23, 0.08)',
 		padding: '0.68rem 0'
 	},
@@ -599,7 +600,7 @@ const styles = {
 	},
 	hamburgerButton: {
 		background: 'rgba(255, 255, 255, 0.86)',
-		border: '1px solid rgba(21, 115, 71, 0.2)',
+		border: '1px solid rgba(124, 58, 237, 0.2)',
 		padding: '0.35rem 0.7rem',
 		borderRadius: 'var(--radius)',
 		cursor: 'pointer',
@@ -623,7 +624,7 @@ const styles = {
 	searchInput: {
 		flex: 1,
 		padding: '0.78rem 1rem',
-		border: '1px solid rgba(21, 115, 71, 0.2)',
+		border: '1px solid rgba(124, 58, 237, 0.2)',
 		borderRadius: 'var(--radius) 0 0 var(--radius)',
 		fontSize: '0.95rem',
 		fontFamily: 'inherit',
@@ -634,8 +635,8 @@ const styles = {
 		padding: '0.7rem 0.85rem',
 		backgroundColor: 'rgba(255, 255, 255, 0.92)',
 		color: 'var(--text-secondary)',
-		borderTop: '1px solid rgba(21, 115, 71, 0.2)',
-		borderBottom: '1px solid rgba(21, 115, 71, 0.2)',
+		borderTop: '1px solid rgba(124, 58, 237, 0.2)',
+		borderBottom: '1px solid rgba(124, 58, 237, 0.2)',
 		borderLeft: 'none',
 		borderRight: 'none',
 		cursor: 'pointer',
@@ -666,7 +667,7 @@ const styles = {
 		justifyContent: 'center',
 		gap: '0.35rem',
 		background: 'rgba(255, 255, 255, 0.86)',
-		border: '1px solid rgba(21, 115, 71, 0.2)',
+		border: '1px solid rgba(124, 58, 237, 0.2)',
 		cursor: 'pointer',
 		padding: '0.5rem 0.75rem',
 		minHeight: '40px',
@@ -707,7 +708,7 @@ const styles = {
 	},
 	profileButton: {
 		background: 'rgba(255, 255, 255, 0.88)',
-		border: '1px solid rgba(21, 115, 71, 0.2)',
+		border: '1px solid rgba(124, 58, 237, 0.2)',
 		cursor: 'pointer',
 		padding: '4px 8px',
 		borderRadius: 'var(--radius-full)',
@@ -735,7 +736,7 @@ const styles = {
 		right: 0,
 		backgroundColor: 'rgba(255, 255, 255, 0.96)',
 		backdropFilter: 'blur(12px)',
-		border: '1px solid rgba(21, 115, 71, 0.16)',
+		border: '1px solid rgba(124, 58, 237, 0.16)',
 		borderRadius: '14px',
 		boxShadow: '0 16px 36px rgba(16, 32, 23, 0.2)',
 		minWidth: '320px',
@@ -746,7 +747,7 @@ const styles = {
 	},
 	profileMenuHeader: {
 		padding: '1rem',
-		backgroundColor: 'rgba(21, 115, 71, 0.08)',
+		backgroundColor: 'rgba(124, 58, 237, 0.06)',
 		display: 'flex',
 		alignItems: 'center',
 		gap: '1rem'
@@ -804,10 +805,10 @@ const styles = {
 		right: 0,
 		bottom: 0,
 		zIndex: 9999,
-		backgroundColor: 'rgba(16, 32, 23, 0.14)'
+		backgroundColor: 'rgba(124, 58, 237, 0.12)'
 	},
 	categoryBar: {
-		background: 'linear-gradient(90deg, rgba(10, 58, 40, 0.98) 0%, rgba(12, 73, 50, 0.98) 100%)',
+		background: 'var(--color-bg-secondary, #F5F3FF)',
 		borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
 		transition: 'opacity 0.18s ease'
 	},
@@ -828,7 +829,7 @@ const styles = {
 		background: 'none',
 		border: '1px solid transparent',
 		borderRadius: '8px',
-		color: '#e2f9ee',
+		color: 'var(--color-text, #1F2937)',
 		fontSize: '0.84rem',
 		fontWeight: 600,
 		padding: '0.4rem 0.62rem',

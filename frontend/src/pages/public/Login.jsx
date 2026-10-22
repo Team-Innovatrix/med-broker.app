@@ -49,7 +49,7 @@ function Login() {
 
 			// Check for multiple workspaces
 			const workspaces = result.user.availableRoles || [];
-			
+
 			if (workspaces.length > 1 && !availableWorkspaces) {
 				setAvailableWorkspaces(workspaces);
 				setLoginResult(result);
@@ -76,7 +76,7 @@ function Login() {
 
 	const handleWorkspaceRedirect = (result, selectedRole) => {
 		const targetRole = result.user.role === 'ADMIN' ? 'ADMIN' : (selectedRole || result.user.role);
-		
+
 		if (targetRole === 'VENDOR') {
 			navigate('/vendor/dashboard');
 		} else if (targetRole === 'CUSTOMER') {
@@ -110,23 +110,23 @@ function Login() {
 							<p className="auth-care-form-subtitle" style={{ textAlign: 'center', marginBottom: '2rem' }}>
 								Your account is authorized for multiple roles. Please select your destination.
 							</p>
-							
+
 							<div className="workspace-options" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
 								{availableWorkspaces.includes('VENDOR') && (
-									<button 
-										className="auth-care-btn-primary" 
+									<button
+										className="auth-care-btn-primary"
 										onClick={() => selectWorkspace('VENDOR')}
-										style={{ 
-											padding: '1.25rem', 
-											display: 'flex', 
-											flexDirection: 'column', 
+										style={{
+											padding: '1.25rem',
+											display: 'flex',
+											flexDirection: 'column',
 											alignItems: 'center',
 											gap: '0.35rem',
 											width: '100%',
 											border: 'none',
 											borderRadius: '12px',
 											cursor: 'pointer',
-											background: 'linear-gradient(135deg, #157347 0%, #0e5e3a 100%)',
+											background: 'linear-gradient(135deg, var(--color-primary-hover) 0%, var(--color-primary) 100%)',
 											color: 'white'
 										}}
 									>
@@ -134,23 +134,23 @@ function Login() {
 										<span style={{ fontSize: '0.75rem', opacity: 0.8 }}>Manage products, orders and analytics</span>
 									</button>
 								)}
-								
+
 								{availableWorkspaces.includes('CUSTOMER') && (
-									<button 
-										className="auth-care-btn-secondary" 
+									<button
+										className="auth-care-btn-secondary"
 										onClick={() => selectWorkspace('CUSTOMER')}
-										style={{ 
-											padding: '1.25rem', 
-											display: 'flex', 
-											flexDirection: 'column', 
+										style={{
+											padding: '1.25rem',
+											display: 'flex',
+											flexDirection: 'column',
 											alignItems: 'center',
 											gap: '0.35rem',
 											width: '100%',
 											borderRadius: '12px',
 											cursor: 'pointer',
 											background: 'white',
-											color: '#157347',
-											border: '2px solid #157347'
+											color: 'var(--color-primary-hover)',
+											border: '2px solid var(--color-primary-hover)'
 										}}
 									>
 										<span style={{ fontSize: '1.1rem', fontWeight: 700 }}>Customer Dashboard</span>
@@ -158,17 +158,17 @@ function Login() {
 									</button>
 								)}
 							</div>
-							
-							<button 
+
+							<button
 								type="button"
-								className="auth-care-btn-link" 
+								className="auth-care-btn-link"
 								onClick={() => setAvailableWorkspaces(null)}
-								style={{ 
-									marginTop: '1.5rem', 
-									width: '100%', 
-									background: 'none', 
-									border: 'none', 
-									color: '#6e887c', 
+								style={{
+									marginTop: '1.5rem',
+									width: '100%',
+									background: 'none',
+									border: 'none',
+									color: 'var(--color-text-secondary)',
 									cursor: 'pointer',
 									fontSize: '0.9rem',
 									textDecoration: 'underline'
@@ -185,11 +185,11 @@ function Login() {
 							</div>
 
 							{suspended && (
-								<div className="auth-care-error auth-care-suspended">
+								<div className="auth-care-error auth-care-suspended" role="alert">
 									⚠️ Your account has been suspended. Please contact support.
 								</div>
 							)}
-							{error && <div className="auth-care-error">{error}</div>}
+							{error && <div className="auth-care-error" role="alert">{error}</div>}
 
 							<div>
 								<label className="label">Continue as</label>
@@ -219,11 +219,12 @@ function Login() {
 							</div>
 
 							<div className="auth-care-field-group">
-								<label className="label">Email address</label>
+								<label className="label" htmlFor="login-email">Email address</label>
 								<input
 									className="input"
 									type="email"
 									name="email"
+                                    id="login-email"
 									placeholder="name@hospital.com"
 									value={formData.email}
 									onChange={handleInputChange}
@@ -232,12 +233,13 @@ function Login() {
 							</div>
 
 							<div className="auth-care-field-group">
-								<label className="label">Password</label>
+								<label className="label" htmlFor="login-password">Password</label>
 								<div className="auth-care-password-wrap">
 									<input
 										className="input"
 										type={showPassword ? 'text' : 'password'}
 										name="password"
+                                    id="login-password"
 										placeholder="Enter your password"
 										value={formData.password}
 										onChange={handleInputChange}

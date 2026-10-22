@@ -102,10 +102,10 @@ function VendorDashboard() {
 		};
 
 		if (status === 'VERIFIED') {
-			return <span style={{ ...badgeStyle, backgroundColor: 'var(--success-light)', color: 'var(--success)' }}><Check size={14} /> Verified Vendor</span>;
+			return <span style={{ ...badgeStyle, backgroundColor: 'var(--success-light)', color: 'var(--success-dark)' }}><Check size={14} /> Verified Vendor</span>;
 		}
 		if (status === 'PENDING') {
-			return <span style={{ ...badgeStyle, backgroundColor: 'var(--warning-light)', color: 'var(--warning)' }}><Clock size={14} /> Review Pending</span>;
+			return <span style={{ ...badgeStyle, backgroundColor: 'var(--warning-light)', color: 'var(--warning-dark)' }}><Clock size={14} /> Review Pending</span>;
 		}
 		if (status === 'REJECTED') {
 			return <span style={{ ...badgeStyle, backgroundColor: 'var(--error-light)', color: 'var(--error)' }}><X size={14} /> Rejected</span>;
@@ -129,16 +129,16 @@ function VendorDashboard() {
 	const todaySalesVal = salesTrend[salesTrend.length - 1]?.sales || 0;
 	const yesterdaySalesVal = salesTrend[salesTrend.length - 2]?.sales || 0;
 	const salesDiff = todaySalesVal - yesterdaySalesVal;
-	const salesGrowthPercent = yesterdaySalesVal > 0 
-		? ((salesDiff / yesterdaySalesVal) * 100).toFixed(1) 
+	const salesGrowthPercent = yesterdaySalesVal > 0
+		? ((salesDiff / yesterdaySalesVal) * 100).toFixed(1)
 		: (todaySalesVal > 0 ? '100' : '0');
 	const salesGrowthText = `${salesDiff >= 0 ? '↑' : '↓'} ${Math.abs(salesGrowthPercent)}% from yesterday`;
 
 	const todayOrdersVal = salesTrend[salesTrend.length - 1]?.orders || 0;
 	const yesterdayOrdersVal = salesTrend[salesTrend.length - 2]?.orders || 0;
 	const ordersDiff = todayOrdersVal - yesterdayOrdersVal;
-	const ordersGrowthPercent = yesterdayOrdersVal > 0 
-		? ((ordersDiff / yesterdayOrdersVal) * 100).toFixed(1) 
+	const ordersGrowthPercent = yesterdayOrdersVal > 0
+		? ((ordersDiff / yesterdayOrdersVal) * 100).toFixed(1)
 		: (todayOrdersVal > 0 ? '100' : '0');
 	const ordersGrowthText = `${ordersDiff >= 0 ? '↑' : '↓'} ${Math.abs(ordersGrowthPercent)}% from yesterday`;
 
@@ -161,15 +161,15 @@ function VendorDashboard() {
 				{user?.vendor?.verificationStatus === 'PENDING' && (
 					<div className={styles.alertBox}>
 						<div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-							<div style={{ padding: '0.5rem', background: 'var(--warning-light)', borderRadius: '50%', color: 'var(--warning)' }}>
+							<div style={{ padding: '0.5rem', background: 'var(--warning-light)', borderRadius: '50%', color: 'var(--warning-dark)' }}>
 								<Clock size={20} strokeWidth={2} />
 							</div>
 							<div>
 								<h4 style={{ margin: '0 0 0.35rem 0', fontWeight: 700 }}>Profile Verification in Progress</h4>
 								<p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
 									Our team is currently reviewing your compliance documents. Verified status will be granted within 48 hours.
-									<button 
-										onClick={() => navigate('/vendor/compliance')} 
+									<button
+										onClick={() => navigate('/vendor/compliance')}
 										style={{ background: 'none', border: 'none', color: 'var(--primary)', fontWeight: 600, padding: '0 0 0 0.5rem', cursor: 'pointer' }}
 									>
 										Check Status →
@@ -212,7 +212,7 @@ function VendorDashboard() {
 					<div className={styles.metricCard}>
 						<div className={styles.metricLabel}>Pending Orders</div>
 						<div className={styles.metricValue}>{dashboardData.pendingOrders}</div>
-						<div className={styles.metricChange} style={{ color: 'var(--warning)', fontWeight: 600 }}>Action Required</div>
+						<div className={styles.metricChange} style={{ color: 'var(--warning-dark)', fontWeight: 600 }}>Action Required</div>
 					</div>
 					<div className={styles.metricCard}>
 						<div className={styles.metricLabel}>Trust Score</div>
@@ -374,7 +374,7 @@ function VendorDashboard() {
 								))}
 							</div>
 						) : (
-							<p style={{ color: 'var(--success)', textAlign: 'center', padding: '1rem' }}><Check size={16} /> All products are well-stocked!</p>
+							<p style={{ color: 'var(--success-dark)', textAlign: 'center', padding: '1rem' }}><Check size={16} /> All products are well-stocked!</p>
 						)}
 					</div>
 				</div>

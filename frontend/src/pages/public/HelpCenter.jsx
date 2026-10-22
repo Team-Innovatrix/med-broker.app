@@ -38,12 +38,12 @@ export default function HelpCenter() {
           <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', marginBottom: '2rem' }}>
             Search through our knowledge base or browse categories below to find answers.
           </p>
-          
+
           <div style={{ display: 'flex', alignItems: 'center', background: 'white', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-md)', padding: '0.5rem 1rem', border: '1px solid var(--border)' }}>
             <span style={{ color: 'var(--text-light)', marginRight: '0.5rem' }}><Search size={20} strokeWidth={1.5} /></span>
-            <input 
-              type="text" 
-              placeholder="Search for articles, guides, or topics..." 
+            <input
+              type="text"
+              placeholder="Search for articles, guides, or topics..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{ flex: 1, border: 'none', padding: '0.75rem', fontSize: '1.1rem', outline: 'none', background: 'transparent' }}
@@ -54,16 +54,16 @@ export default function HelpCenter() {
       </div>
 
       <div className="container" style={{ maxWidth: '1000px' }}>
-        
+
         {/* Categories Grid */}
         <h2 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', textAlign: 'center' }}>Browse by Topic</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
           {categories.map((cat, idx) => (
-            <div key={idx} className="card-soft" 
+            <div key={idx} className="card-soft"
                  onClick={() => navigate(`/support/help-center/${cat.id}`)}
-                 style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', cursor: 'pointer', transition: 'all 0.3s' }} 
+                 style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', cursor: 'pointer', transition: 'all 0.3s' }}
                  onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = 'var(--shadow-md)'; e.currentTarget.style.borderColor = 'var(--primary)'; }}
-                 onMouseOut={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.borderColor = 'rgba(21, 115, 71, 0.14)'; }}>
+                 onMouseOut={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.borderColor = 'rgba(124, 58, 237, 0.14)'; }}>
               <div style={{ background: 'var(--green-100)', padding: '1rem', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 {cat.icon}
               </div>
@@ -78,7 +78,7 @@ export default function HelpCenter() {
         {/* Popular Articles */}
         <div className="card" style={{ padding: '2.5rem', marginBottom: '2rem' }}>
           <h2 style={{ fontSize: '1.8rem', marginBottom: '1.5rem' }}>Popular Articles</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))', gap: '1rem' }}>
             {popularArticles.map((article, idx) => (
               <a key={idx} href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem', textDecoration: 'none', color: 'var(--text-primary)', border: '1px solid var(--border-light)', borderRadius: 'var(--radius)', transition: 'background 0.2s' }}
                  onMouseOver={(e) => e.currentTarget.style.background = 'var(--green-50)'}
@@ -98,7 +98,7 @@ export default function HelpCenter() {
           </p>
           <a href="/support/contact-us" className="button button-outline">Contact Support Team</a>
         </div>
-        
+
       </div>
     </PublicLayout>
   );

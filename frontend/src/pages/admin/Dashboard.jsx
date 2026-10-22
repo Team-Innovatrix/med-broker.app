@@ -129,7 +129,7 @@ const AdminDashboard = () => {
         }
     };
 
-    if (loading) return <div className="admin-loading"><div className="spinner"></div>Loading Analytics...</div>;
+    if (loading) return <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading Analytics...</div>;
     if (!stats) return <div className="admin-error">Failed to load analytics</div>;
 
     const formatCents = (cents) => formatCurrency((cents || 0) / 100);
@@ -147,26 +147,26 @@ const AdminDashboard = () => {
                     <p>Operations and financial overview across your marketplace.</p>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '10px' }}>
-                    <div className="admin-date-filters" style={{ display: 'flex', gap: '8px', alignItems: 'center', background: '#ffffff', border: '1px solid #dfe7e1', borderRadius: '10px', padding: '6px', boxShadow: '0 2px 8px rgba(16,33,23,0.03)' }}>
+                    <div className="admin-date-filters" style={{ display: 'flex', gap: '8px', alignItems: 'center', background: 'var(--color-bg)', border: '1px solid var(--color-border)', borderRadius: '10px', padding: '6px', boxShadow: '0 2px 8px rgba(124, 58, 237, 0.03)' }}>
                         <div style={{ position: 'relative', display: 'flex', alignItems: 'center', padding: '6px 10px', borderRadius: '6px', cursor: 'pointer' }} className="admin-date-hover">
-                            <Calendar size={15} color="#6b7280" style={{ marginRight: '8px' }} />
-                            <span style={{ fontSize: '0.88rem', color: startDate ? '#1c3124' : '#9ca3af', fontWeight: 600 }}>
+                            <Calendar size={15} color="var(--color-text-secondary-strong)" style={{ marginRight: '8px' }} />
+                            <span style={{ fontSize: '0.88rem', color: startDate ? 'var(--color-text)' : 'var(--color-text-secondary-strong)', fontWeight: 600 }}>
                                 {formatDateDisplay(startDate)}
                             </span>
-                            <input
+                            <input aria-label="Start date"
                                 type="date"
                                 value={startDate}
                                 onChange={handleStartDateChange}
                                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0, cursor: 'pointer' }}
                             />
                         </div>
-                        <span style={{ color: '#d1d5db', fontSize: '0.9rem', fontWeight: 600 }}>→</span>
+                        <span style={{ color: 'var(--color-border)', fontSize: '0.9rem', fontWeight: 600 }}>→</span>
                         <div style={{ position: 'relative', display: 'flex', alignItems: 'center', padding: '6px 10px', borderRadius: '6px', cursor: 'pointer' }} className="admin-date-hover">
-                            <Calendar size={15} color="#6b7280" style={{ marginRight: '8px' }} />
-                            <span style={{ fontSize: '0.88rem', color: endDate ? '#1c3124' : '#9ca3af', fontWeight: 600 }}>
+                            <Calendar size={15} color="var(--color-text-secondary-strong)" style={{ marginRight: '8px' }} />
+                            <span style={{ fontSize: '0.88rem', color: endDate ? 'var(--color-text)' : 'var(--color-text-secondary-strong)', fontWeight: 600 }}>
                                 {formatDateDisplay(endDate)}
                             </span>
-                            <input
+                            <input aria-label="End date"
                                 type="date"
                                 value={endDate}
                                 onChange={handleEndDateChange}
@@ -176,10 +176,10 @@ const AdminDashboard = () => {
                         {(startDate || endDate) && (
                             <button
                                 onClick={() => handlePreset('month')}
-                                style={{ border: 'none', background: '#f3f4f6', borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', marginLeft: '6px' }}
+                                style={{ border: 'none', background: 'var(--color-bg-secondary)', borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', marginLeft: '6px' }}
                                 title="Clear to default"
                             >
-                                <X size={13} color="#4b5563" />
+                                <X size={13} color="var(--color-text)" />
                             </button>
                         )}
                     </div>
@@ -206,32 +206,32 @@ const AdminDashboard = () => {
                     </div>
 
                     {totalTasks === 0 ? (
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, gap: '8px', color: '#00A86B' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, gap: '8px', color: 'var(--color-primary-hover)' }}>
                             <CheckCircle size={28} />
-                            <p style={{ margin: 0, fontSize: '0.8rem', fontWeight: 500, textAlign: 'center', color: '#6b7280' }}>All caught up — no pending tasks!</p>
+                            <p style={{ margin: 0, fontSize: '0.8rem', fontWeight: 500, textAlign: 'center', color: 'var(--color-text-secondary-strong)' }}>All caught up — no pending tasks!</p>
                         </div>
                     ) : (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '4px' }}>
                             <div
-                                style={{ display: 'flex', justifyContent: 'space-between', cursor: 'pointer', padding: '7px 8px', borderRadius: '6px', backgroundColor: 'rgba(0,0,0,0.02)' }}
+                                style={{ display: 'flex', justifyContent: 'space-between', cursor: 'pointer', padding: '7px 8px', borderRadius: '6px', backgroundColor: 'rgba(31, 41, 55, 0.02)' }}
                                 onClick={(e) => { e.stopPropagation(); navigate('/admin/vendors'); }}
                             >
-                                <span style={{ color: kycCount === 0 ? '#9ca3af' : '#374151', fontSize: '0.85rem' }}>🛡️ Vendors awaiting KYC</span>
-                                <strong style={{ color: kycCount > 0 ? '#ef4444' : '#9ca3af', fontSize: '0.85rem' }}>{kycCount > 0 ? kycCount : '—'}</strong>
+                                <span style={{ color: kycCount === 0 ? 'var(--color-text-secondary-strong)' : 'var(--color-text)', fontSize: '0.85rem' }}>🛡️ Vendors awaiting KYC</span>
+                                <strong style={{ color: kycCount > 0 ? 'var(--color-error, #DC2626)' : 'var(--color-text-secondary-strong)', fontSize: '0.85rem' }}>{kycCount > 0 ? kycCount : '—'}</strong>
                             </div>
                             <div
-                                style={{ display: 'flex', justifyContent: 'space-between', cursor: 'pointer', padding: '7px 8px', borderRadius: '6px', backgroundColor: 'rgba(0,0,0,0.02)' }}
+                                style={{ display: 'flex', justifyContent: 'space-between', cursor: 'pointer', padding: '7px 8px', borderRadius: '6px', backgroundColor: 'rgba(31, 41, 55, 0.02)' }}
                                 onClick={(e) => { e.stopPropagation(); navigate('/admin/disputes'); }}
                             >
-                                <span style={{ color: disputeCount === 0 ? '#9ca3af' : '#374151', fontSize: '0.85rem' }}>⚖️ Active disputes</span>
-                                <strong style={{ color: disputeCount > 0 ? '#ef4444' : '#9ca3af', fontSize: '0.85rem' }}>{disputeCount > 0 ? disputeCount : '—'}</strong>
+                                <span style={{ color: disputeCount === 0 ? 'var(--color-text-secondary-strong)' : 'var(--color-text)', fontSize: '0.85rem' }}>⚖️ Active disputes</span>
+                                <strong style={{ color: disputeCount > 0 ? 'var(--color-error, #DC2626)' : 'var(--color-text-secondary-strong)', fontSize: '0.85rem' }}>{disputeCount > 0 ? disputeCount : '—'}</strong>
                             </div>
                             <div
-                                style={{ display: 'flex', justifyContent: 'space-between', cursor: 'pointer', padding: '7px 8px', borderRadius: '6px', backgroundColor: 'rgba(0,0,0,0.02)' }}
+                                style={{ display: 'flex', justifyContent: 'space-between', cursor: 'pointer', padding: '7px 8px', borderRadius: '6px', backgroundColor: 'rgba(31, 41, 55, 0.02)' }}
                                 onClick={(e) => { e.stopPropagation(); navigate('/admin/prescriptions'); }}
                             >
-                                <span style={{ color: prescriptionCount === 0 ? '#9ca3af' : '#374151', fontSize: '0.85rem' }}>💊 Prescriptions pending</span>
-                                <strong style={{ color: prescriptionCount > 0 ? '#ef4444' : '#9ca3af', fontSize: '0.85rem' }}>{prescriptionCount > 0 ? prescriptionCount : '—'}</strong>
+                                <span style={{ color: prescriptionCount === 0 ? 'var(--color-text-secondary-strong)' : 'var(--color-text)', fontSize: '0.85rem' }}>💊 Prescriptions pending</span>
+                                <strong style={{ color: prescriptionCount > 0 ? 'var(--color-error, #DC2626)' : 'var(--color-text-secondary-strong)', fontSize: '0.85rem' }}>{prescriptionCount > 0 ? prescriptionCount : '—'}</strong>
                             </div>
                         </div>
                     )}
@@ -256,7 +256,7 @@ const AdminDashboard = () => {
 
                     <div style={{ width: '100%', height: '44px', marginTop: '12px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                            <small style={{ color: '#6b7280', fontSize: '0.75rem' }}>Fees from completed vendor payouts only</small>
+                            <small style={{ color: 'var(--color-text-secondary-strong)', fontSize: '0.75rem' }}>Fees from completed vendor payouts only</small>
                         </div>
                     </div>
                 </article>
@@ -279,8 +279,8 @@ const AdminDashboard = () => {
                     </p>
 
                     <div style={{ width: '100%', height: '52px', marginTop: '10px' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', background: 'rgba(59,130,246,0.04)', borderRadius: '6px' }}>
-                            <small style={{ color: '#6b7280', fontSize: '0.75rem' }}>{stats?.rolling30DayOrderCount || 0} orders in last 30 days</small>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', background: 'rgba(124, 58, 237, 0.04)', borderRadius: '6px' }}>
+                            <small style={{ color: 'var(--color-text-secondary-strong)', fontSize: '0.75rem' }}>{stats?.rolling30DayOrderCount || 0} orders in last 30 days</small>
                         </div>
                     </div>
                 </article>
@@ -354,7 +354,7 @@ const AdminDashboard = () => {
                                             </span>
                                         </td>
                                         <td>{new Date(tx.date).toLocaleDateString()}</td>
-                                        <td style={{ color: tx.type === 'PAYOUT' ? '#ef4444' : '#10b981', fontWeight: 600 }}>
+                                        <td style={{ color: tx.type === 'PAYOUT' ? 'var(--color-error, #DC2626)' : 'var(--color-success, #0D9488)', fontWeight: 600 }}>
                                             {tx.type === 'PAYOUT' ? '-' : '+'}{formatCurrency(tx.amountCents / 100)}
                                         </td>
                                         <td><button className="admin-detail-btn" onClick={() => navigate(tx.type === 'PAYOUT' ? '/admin/payouts' : '/admin/orders')}>Details</button></td>
@@ -362,7 +362,7 @@ const AdminDashboard = () => {
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan="6" style={{ textAlign: 'center', padding: '20px', color: '#6b7280' }}>No transactions found.</td>
+                                    <td colSpan="6" style={{ textAlign: 'center', padding: '20px', color: 'var(--color-text-secondary-strong)' }}>No transactions found.</td>
                                 </tr>
                             )}
                         </tbody>

@@ -1,7 +1,7 @@
 .admin-sidebar {
   width: 260px;
-  background: linear-gradient(180deg, #103726 0%, #174b35 100%);
-  border-right: 1px solid rgba(16, 185, 129, 0.2);
+  background: linear-gradient(180deg, var(--color-text) 0%, var(--color-primary-hover) 100%);
+  border-right: 1px solid rgba(124, 58, 237, 0.2);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -9,7 +9,7 @@
   left: 0;
   top: 0;
   z-index: 100;
-  color: #f0fdf4;
+  color: var(--color-bg-secondary);
   box-shadow: 4px 0 15px rgba(10, 31, 22, 0.2);
 }
 
@@ -30,12 +30,12 @@
 
 .admin-badge {
   font-size: 0.75rem;
-  background: rgba(34, 197, 94, 0.2);
-  color: #4ade80;
+  background: rgba(124, 58, 237, 0.2);
+  color: var(--color-primary);
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   font-weight: 600;
-  border: 1px solid rgba(34, 197, 94, 0.4);
+  border: 1px solid rgba(124, 58, 237, 0.4);
 }
 
 .sidebar-nav {
@@ -64,9 +64,9 @@
 }
 
 .nav-item.active {
-  background: rgba(34, 197, 94, 0.15);
-  color: #4ade80;
-  border-left: 3px solid #22c55e;
+  background: rgba(124, 58, 237, 0.15);
+  color: var(--color-primary);
+  border-left: 3px solid var(--color-primary);
 }
 
 .sidebar-footer {
@@ -84,9 +84,9 @@
 .user-avatar {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
   border-radius: 50%;
-  border: 2px solid #34d399;
+  border: 2px solid var(--color-lavender);
   display: flex;
   align-items: center;
   justify-content: center;

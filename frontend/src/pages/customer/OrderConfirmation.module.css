@@ -1,15 +1,15 @@
 .confirmationPage {
---confirm-ink: #133432;
---confirm-subtle: #607978;
---confirm-line: #d8e9e8;
---confirm-soft: #f3fbfa;
---confirm-accent: #0f9f8f;
---confirm-accent-dark: #0b7f71;
---confirm-shadow: 0 24px 60px rgba(11, 67, 62, 0.08);
+--confirm-ink: var(--color-text);
+--confirm-subtle: var(--color-text-secondary);
+--confirm-line: var(--color-lavender);
+--confirm-soft: var(--color-bg-secondary);
+--confirm-accent: var(--color-primary-hover);
+--confirm-accent-dark: var(--color-primary-hover);
+--confirm-shadow: 0 24px 60px rgba(124, 58, 237, 0.08);
 background:
-radial-gradient(1200px 520px at 0% -15%, rgba(141, 228, 214, 0.2), transparent 60%),
-radial-gradient(900px 420px at 95% -8%, rgba(12, 163, 143, 0.16), transparent 64%),
-linear-gradient(180deg, #f8fdfc 0%, #eef8f7 100%);
+radial-gradient(1200px 520px at 0% -15%, rgba(124, 58, 237, 0.2), transparent 60%),
+radial-gradient(900px 420px at 95% -8%, rgba(124, 58, 237, 0.16), transparent 64%),
+linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg-secondary) 100%);
 }
 
 .confirmationContainer {
@@ -20,10 +20,10 @@ gap: 1.25rem;
 }
 
 .heroCard {
-border: 1px solid rgba(216, 233, 232, 0.9);
+border: 1px solid rgba(255, 255, 255, 0.9);
 border-radius: 24px;
 padding: 1.5rem;
-background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(241, 252, 250, 0.92));
+background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.92));
 backdrop-filter: blur(7px);
 box-shadow: var(--confirm-shadow);
 }
@@ -39,8 +39,8 @@ font-weight: 700;
 letter-spacing: 0.02em;
 text-transform: uppercase;
 border-radius: 999px;
-background: #daf4ef;
-color: #0f7366;
+background: var(--color-lavender);
+color: var(--color-primary-hover);
 }
 
 .heroTitle {
@@ -68,7 +68,7 @@ gap: 0.75rem;
 margin: 0;
 padding: 0.75rem;
 border-radius: 12px;
-border: 1px solid #d4eae8;
+border: 1px solid var(--color-lavender);
 background: rgba(255, 255, 255, 0.8);
 display: grid;
 gap: 0.25rem;
@@ -78,7 +78,7 @@ gap: 0.25rem;
 font-size: 0.75rem;
 text-transform: uppercase;
 letter-spacing: 0.02em;
-color: #678280;
+color: var(--color-text-secondary);
 font-weight: 700;
 }
 
@@ -105,7 +105,7 @@ gap: 0.95rem;
 .contentCard,
 .summaryPanel {
 background: rgba(255, 255, 255, 0.92);
-border: 1px solid rgba(216, 233, 232, 0.95);
+border: 1px solid rgba(255, 255, 255, 0.95);
 border-radius: 18px;
 box-shadow: var(--confirm-shadow);
 }
@@ -130,7 +130,7 @@ display: inline-flex;
 align-items: center;
 gap: 0.35rem;
 font-size: 0.84rem;
-color: #557170;
+color: var(--color-text);
 }
 
 .stageCard {
@@ -146,8 +146,8 @@ align-items: center;
 gap: 0.55rem;
 padding: 0.65rem;
 border-radius: 10px;
-background: #f5fbfa;
-color: #2d5250;
+background: var(--color-bg-secondary);
+color: var(--color-primary-hover);
 font-size: 0.87rem;
 }
 
@@ -157,7 +157,7 @@ font-weight: 600;
 
 .stageRow small {
 font-size: 0.78rem;
-color: #6d8583;
+color: var(--color-text-secondary);
 }
 
 .contentCard {
@@ -170,7 +170,7 @@ font-size: 0.9rem;
 font-weight: 800;
 letter-spacing: 0.02em;
 text-transform: uppercase;
-color: #56706f;
+color: var(--color-text);
 }
 
 .itemRow {
@@ -178,7 +178,7 @@ display: flex;
 justify-content: space-between;
 gap: 0.6rem;
 padding: 0.65rem 0;
-border-bottom: 1px solid #e2efee;
+border-bottom: 1px solid var(--color-lavender);
 }
 
 .itemRow:last-child {
@@ -195,7 +195,7 @@ color: var(--confirm-ink);
 .itemVendor {
 margin: 0.2rem 0 0;
 font-size: 0.8rem;
-color: #627b7a;
+color: var(--color-text-secondary);
 }
 
 .itemRight {
@@ -205,14 +205,14 @@ text-align: right;
 .itemQty {
 margin: 0;
 font-size: 0.8rem;
-color: #6f8786;
+color: var(--color-text-secondary);
 }
 
 .itemPrice {
 margin: 0.2rem 0 0;
 font-size: 0.93rem;
 font-weight: 700;
-color: #1e5954;
+color: var(--color-primary-hover);
 }
 
 .addressBox {
@@ -220,14 +220,14 @@ display: grid;
 gap: 0.4rem;
 padding: 0.9rem;
 border-radius: 12px;
-background: #f4fbfa;
-border: 1px solid #d9ecea;
+background: var(--color-bg-secondary);
+border: 1px solid var(--color-lavender);
 }
 
 .addressBox p {
 margin: 0;
 font-size: 0.88rem;
-color: #2f4c4a;
+color: var(--color-text);
 display: inline-flex;
 align-items: center;
 gap: 0.35rem;
@@ -245,9 +245,9 @@ align-items: center;
 gap: 0.35rem;
 font-size: 0.82rem;
 font-weight: 700;
-color: #0e7568;
-background: #ddf5f0;
-border: 1px solid #c4ebe4;
+color: var(--color-primary-hover);
+background: var(--color-lavender);
+border: 1px solid var(--color-lavender);
 padding: 0.4rem 0.6rem;
 border-radius: 999px;
 }
@@ -256,7 +256,7 @@ border-radius: 999px;
 margin: 0;
 font-size: 0.9rem;
 line-height: 1.6;
-color: #466563;
+color: var(--color-text);
 }
 
 .actionGrid {
@@ -282,13 +282,13 @@ transition: transform 0.15s ease, filter 0.15s ease;
 .primaryAction {
 border: none;
 background: linear-gradient(135deg, var(--confirm-accent) 0%, var(--confirm-accent-dark) 100%);
-color: #fff;
+color: var(--color-bg);
 }
 
 .secondaryAction {
-border: 1px solid #b9ddda;
-background: #fff;
-color: #1d5a54;
+border: 1px solid var(--color-lavender);
+background: var(--color-bg);
+color: var(--color-primary-hover);
 }
 
 .primaryAction:hover,
@@ -306,15 +306,15 @@ font-weight: 600;
 }
 
 .feedbackSuccess {
-background: #def7e7;
-border: 1px solid #bceccf;
-color: #176844;
+background: var(--color-lavender);
+border: 1px solid var(--color-lavender);
+color: var(--color-primary-hover);
 }
 
 .feedbackError {
-background: #fee9ea;
-border: 1px solid #f6c9cd;
-color: #8f2432;
+background: color-mix(in srgb, var(--color-error) 9%, white);
+border: 1px solid color-mix(in srgb, var(--color-error) 9%, white);
+color: var(--color-error);
 }
 
 .summaryPanel {
@@ -333,10 +333,10 @@ color: var(--confirm-ink);
 }
 
 .summaryCard {
-border: 1px solid #dbeceb;
+border: 1px solid var(--color-lavender);
 border-radius: 12px;
 padding: 0.8rem;
-background: #f9fdfd;
+background: var(--color-bg-secondary);
 display: grid;
 gap: 0.55rem;
 }
@@ -352,33 +352,33 @@ font-size: 0.88rem;
 }
 
 .summaryRow span {
-color: #5f7675;
+color: var(--color-text-secondary);
 }
 
 .summaryRow strong {
-color: #2a4a48;
+color: var(--color-primary-hover);
 }
 
 .summaryDiscount span,
 .summaryDiscount strong {
-color: #0f876e;
+color: var(--color-primary-hover);
 font-weight: 700;
 }
 
 .summaryTotal {
 margin-top: 0.35rem;
 padding-top: 0.6rem;
-border-top: 1px dashed #c7e2df;
+border-top: 1px dashed var(--color-lavender);
 font-size: 1rem;
 font-weight: 750;
 color: var(--confirm-ink);
 }
 
 .statusCard {
-border: 1px solid #dbeceb;
+border: 1px solid var(--color-lavender);
 border-radius: 12px;
 padding: 0.8rem;
-background: #fff;
+background: var(--color-bg);
 display: grid;
 gap: 0.45rem;
 }
@@ -392,25 +392,25 @@ font-size: 0.83rem;
 }
 
 .statusCard span {
-color: #5d7472;
+color: var(--color-text-secondary);
 }
 
 .statusCard strong {
 font-weight: 700;
-color: #2a4a48;
+color: var(--color-primary-hover);
 text-align: right;
 }
 
 .statusSuccess {
-color: #0d876e;
+color: var(--color-primary-hover);
 }
 
 .trackButton {
 height: 44px;
 border: none;
 border-radius: 11px;
-background: #123f3a;
-color: #f5fffd;
+background: var(--color-primary);
+color: var(--color-bg-secondary);
 font-size: 0.9rem;
 font-weight: 700;
 display: inline-flex;
@@ -423,8 +423,8 @@ cursor: pointer;
 .supportCard {
 padding: 0.85rem;
 border-radius: 12px;
-background: #f3fbff;
-border: 1px solid #cde6f7;
+background: var(--color-bg-secondary);
+border: 1px solid var(--color-lavender);
 display: grid;
 gap: 0.45rem;
 }
@@ -433,7 +433,7 @@ gap: 0.45rem;
 margin: 0;
 font-size: 0.86rem;
 font-weight: 700;
-color: #2e4f61;
+color: var(--color-primary-hover);
 }
 
 .supportLink,
@@ -444,7 +444,7 @@ align-items: center;
 gap: 0.35rem;
 font-size: 0.84rem;
 font-weight: 600;
-color: #20506f;
+color: var(--color-primary-hover);
 text-decoration: none;
 }
 
@@ -455,13 +455,13 @@ display: grid;
 place-items: center;
 text-align: center;
 padding: 2rem;
-color: #496463;
+color: var(--color-text);
 }
 
 .loadingSpinner {
 width: 44px;
 height: 44px;
-border: 3px solid #dbeae9;
+border: 3px solid var(--color-lavender);
 border-top-color: var(--confirm-accent);
 border-radius: 999px;
 animation: spin 0.8s linear infinite;
@@ -506,3 +506,10 @@ grid-template-columns: 1fr;
 grid-template-columns: 1fr;
 }
 }
+
+/* Shared lavender-white surface treatment. */
+.heroCard,
+.customerCard,
+.stageCard,
+.contentCard,
+.summaryPanel { background: var(--color-bg); border-color: var(--color-border); border-radius: 18px; box-shadow: 0 4px 20px rgba(70, 36, 117, .035); }

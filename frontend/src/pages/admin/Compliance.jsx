@@ -43,7 +43,7 @@ const AdminCompliance = () => {
     }
   };
 
-  if (loading) return <div className="admin-loading"><div className="spinner"></div>Loading compliance data...</div>;
+  if (loading) return <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading compliance data...</div>;
   if (!data) return <div className="admin-error">Failed to load compliance overview.</div>;
 
   return (

@@ -26,7 +26,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper contact-demo">
       {/* --- Navbar --- */}
       <nav className="navbar">
         <div className="container nav-container">
@@ -54,51 +54,51 @@ const ContactPage = () => {
       {/* --- Main Content --- */}
       <div className="main-content">
         <div className="container content-grid">
-          
+
           {/* Left: Contact Form (Clean White) */}
           <section className="card form-card">
             <h2>Send a Message</h2>
             <form onSubmit={handleSubmit}>
               <div className="input-group">
                 <label>Full Name</label>
-                <input 
-                  type="text" 
-                  name="fullName" 
-                  value={formData.fullName} 
-                  onChange={handleChange} 
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
                   placeholder="Ex. Amit Saw"
                 />
               </div>
 
               <div className="input-group">
                 <label>Email Address</label>
-                <input 
-                  type="email" 
-                  name="email" 
-                  value={formData.email} 
-                  onChange={handleChange} 
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="amit@medai.com"
                 />
               </div>
 
               <div className="input-group">
                 <label>Subject</label>
-                <input 
-                  type="text" 
-                  name="subject" 
-                  value={formData.subject} 
-                  onChange={handleChange} 
+                <input
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   placeholder="Partnership Inquiry"
                 />
               </div>
 
               <div className="input-group">
                 <label>Message</label>
-                <textarea 
-                  name="message" 
-                  value={formData.message} 
-                  onChange={handleChange} 
-                  rows="5" 
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows="5"
                   placeholder="How can we collaborate?"
                 ></textarea>
               </div>
@@ -120,7 +120,7 @@ const ContactPage = () => {
                   <p>shubham@medai.com</p>
                 </div>
               </div>
-              
+
               <div className="info-item">
                 <div className="icon-box"><MapPin size={18} strokeWidth={1.75} /></div>
                 <div>
@@ -140,12 +140,12 @@ const ContactPage = () => {
 
             {/* Google Map (Standard Color) */}
             <div className="map-container" style={{ marginTop: '2rem', height: '200px', width: '100%' }}>
-              <iframe 
+              <iframe
                 title="Google Map"
-                width="100%" 
-                height="100%" 
-                style={{ border: 0, borderRadius: '8px' }} 
-                loading="lazy" 
+                width="100%"
+                height="100%"
+                style={{ border: 0, borderRadius: '8px' }}
+                loading="lazy"
                 allowFullScreen
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.3908650295393!2d79.05904737623315!3d21.176626382681537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c1a8970c08e9%3A0xfe4a9c97e7e671cb!2sShri%20Ramdeobaba%20College%20of%20Engineering%20and%20Management!5e0!3m2!1sen!2sin!4v1770665972033!5m2!1sen!2sin"
               ></iframe>

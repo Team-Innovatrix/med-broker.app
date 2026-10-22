@@ -597,7 +597,7 @@ function VendorSettings() {
 						Sign Out From All Devices
 					</button>
 				</div>
-				
+
 					<h2 className={styles.sectionTitle}>Notification Preferences</h2>
 
 					<div className={styles.notificationItem}>

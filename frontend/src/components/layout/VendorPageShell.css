@@ -71,3 +71,5 @@
 		width: 100%;
 	}
 }
+
+.vendor-page-shell-header { padding: 10px 0 20px; border-bottom: 1px solid var(--color-border); }.vendor-page-shell-title { letter-spacing: -.8px; font-weight: 650; }.vendor-page-shell-subtitle { color: var(--color-text); }

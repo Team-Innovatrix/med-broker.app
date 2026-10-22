@@ -47,7 +47,7 @@ const Integrations = () => {
     }
   };
 
-  if (loading) return <div className="admin-loading"><div className="spinner"></div>Loading integrations...</div>;
+  if (loading) return <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading integrations...</div>;
   if (!integrationData) return <div className="admin-error">Unable to load integrations overview.</div>;
 
   return (

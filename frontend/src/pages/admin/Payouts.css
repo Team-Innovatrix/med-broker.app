@@ -15,7 +15,7 @@
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.85);
   border-radius: 16px;
-  box-shadow: 0 12px 24px rgba(16, 72, 48, 0.06), 0 0 0 1px rgba(34, 197, 94, 0.1);
+  box-shadow: 0 12px 24px rgba(124, 58, 237, 0.06), 0 0 0 1px rgba(124, 58, 237, 0.1);
   backdrop-filter: blur(12px);
 }
 
@@ -24,15 +24,15 @@
   height: 56px;
   border-radius: 50%;
   background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
+  color: var(--color-error, #DC2626);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .card-icon.success {
-  background: rgba(34, 197, 94, 0.15);
-  color: #10b981;
+  background: rgba(124, 58, 237, 0.15);
+  color: var(--color-success, #0D9488);
 }
 
 .card-icon svg {
@@ -46,7 +46,7 @@
 
 .card-info h3 {
   font-size: 0.875rem;
-  color: #4a6f5f;
+  color: var(--color-primary-hover);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin: 0 0 0.25rem 0;
@@ -56,17 +56,17 @@
 .card-value {
   font-size: 2rem;
   font-weight: 800;
-  color: #103726;
+  color: var(--color-text);
   margin: 0;
 }
 
 .card-value.success {
-  color: #10b981;
+  color: var(--color-success, #0D9488);
 }
 
 .card-subtitle {
   font-size: 0.75rem;
-  color: #64748b;
+  color: var(--color-text-secondary);
   display: block;
   margin-top: 0.25rem;
   font-weight: 500;
@@ -77,12 +77,12 @@
 }
 
 .commission-text {
-  color: #10b981;
+  color: var(--color-success, #0D9488);
   font-weight: 600;
 }
 
 .pending-amount {
-  color: #ef4444;
+  color: var(--color-error, #DC2626);
   font-size: 1.1rem;
   font-weight: 700;
 }
@@ -90,11 +90,11 @@
 .btn-action:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  background: #cbd5e1;
+  background: var(--color-lavender);
 }
 
 .btn-action:disabled:hover {
-  background: #cbd5e1;
+  background: var(--color-lavender);
 }
 
 .table-container {
@@ -102,6 +102,6 @@
   padding: 0;
   background: rgba(255, 255, 255, 0.85);
   border-radius: 16px;
-  box-shadow: 0 12px 24px rgba(16, 72, 48, 0.06), 0 0 0 1px rgba(34, 197, 94, 0.1);
+  box-shadow: 0 12px 24px rgba(124, 58, 237, 0.06), 0 0 0 1px rgba(124, 58, 237, 0.1);
   backdrop-filter: blur(12px);
 }

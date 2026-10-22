@@ -91,7 +91,7 @@ function VendorShipping() {
 				<div className={styles.statCard}>
 					<div className={styles.statLabel}>Pending Shipments</div>
 					<div className={styles.statNumber}>3</div>
-					<small style={{ color: 'var(--warning)' }}><AlertTriangle size={12} strokeWidth={1.5} /> Action needed</small>
+					<small style={{ color: 'var(--warning-dark)' }}><AlertTriangle size={12} strokeWidth={1.5} /> Action needed</small>
 				</div>
 				<div className={styles.statCard}>
 					<div className={styles.statLabel}>In Transit</div>
@@ -101,7 +101,7 @@ function VendorShipping() {
 				<div className={styles.statCard}>
 					<div className={styles.statLabel}>Delivered</div>
 					<div className={styles.statNumber}>148</div>
-					<small style={{ color: 'var(--success)' }}><Check size={12} strokeWidth={1.5} /> This month</small>
+					<small style={{ color: 'var(--success-dark)' }}><Check size={12} strokeWidth={1.5} /> This month</small>
 				</div>
 				<div className={styles.statCard}>
 					<div className={styles.statLabel}>Avg Delivery</div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { ArrowUp, Sparkles, X, Plus } from 'lucide-react';
 import aiService from '../../services/ai.service';
 import { useCart } from '../../context/CartContext';
 import { useUser } from '../../context/UserContext';
@@ -14,7 +15,7 @@ function ChatbotPanel({ isOpen, onClose }) {
 		{
 			id: 'welcome',
 			role: 'assistant',
-			text: 'Hi! I am your MedIQ Symptom Assistant. Tell me your symptoms and I can guide safe medicine options from our catalog.',
+			text: 'Hello, I’m your MedIQ assistant. I can help you explore the catalog, understand your next steps, or find general health information.',
 			products: [],
 			timestamp: new Date().toISOString()
 		}
@@ -22,6 +23,8 @@ function ChatbotPanel({ isOpen, onClose }) {
 	const [input, setInput] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
 	const messagesEndRef = useRef(null);
+	const panelRef = useRef(null);
+	const inputRef = useRef(null);
 
 	const currencyCode = currency || localStorage.getItem('preferredCurrency') || 'INR';
 	const formatProductPrice = (product) => {
@@ -33,10 +36,11 @@ function ChatbotPanel({ isOpen, onClose }) {
 	const quickPrompts = useMemo(() => [
 		'I have fever and headache since yesterday',
 		'I have sore throat and dry cough',
-		'I have acidity after meals'
+		'How do I place an order?'
 	], []);
 
 	const handleAddRecommendedProduct = (product) => {
+		if (product.isDemo || product.purchasable === false || product.inStock === false) return;
 		const buyerType = user?.customer?.buyerType || 'RETAIL';
 		addToCart(
 			{
@@ -61,21 +65,36 @@ function ChatbotPanel({ isOpen, onClose }) {
 
 	useEffect(() => {
 		if (!isOpen) return;
-		messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		messagesEndRef.current?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'nearest' });
 	}, [messages, isOpen]);
 
 	useEffect(() => {
 		if (!isOpen) return;
 
+		const previousFocus = document.activeElement;
+		inputRef.current?.focus();
 		const onEscape = (event) => {
 			if (event.key === 'Escape') {
 				onClose();
 			}
+			if (event.key === 'Tab') {
+				const focusable = Array.from(panelRef.current?.querySelectorAll('button:not(:disabled), input:not(:disabled), [tabindex="0"]') || []);
+				const first = focusable[0];
+				const last = focusable[focusable.length - 1];
+				if (event.shiftKey && (document.activeElement === first || !panelRef.current?.contains(document.activeElement))) { event.preventDefault(); last?.focus(); }
+				else if (!event.shiftKey && (document.activeElement === last || !panelRef.current?.contains(document.activeElement))) { event.preventDefault(); first?.focus(); }
+			}
 		};
 
 		window.addEventListener('keydown', onEscape);
-		return () => window.removeEventListener('keydown', onEscape);
+		return () => { window.removeEventListener('keydown', onEscape); previousFocus?.focus?.(); };
 	}, [isOpen, onClose]);
+
+	// Capture the opening trigger above before any autofocus effect runs.
+	useEffect(() => {
+		if (isOpen && !isLoading) inputRef.current?.focus();
+	}, [isOpen, isLoading]);
 
 	if (!isOpen) {
 		return null;
@@ -139,21 +158,22 @@ function ChatbotPanel({ isOpen, onClose }) {
 
 	return (
 		<>
-			<div className="chatbot-panel-backdrop" onClick={onClose} />
-			<section className="chatbot-panel" role="dialog" aria-modal="true" aria-label="MedIQ Assistant">
+			<div className="chatbot-panel-backdrop" onClick={onClose} aria-hidden="true" />
+			<section id="mediq-chat-panel" ref={panelRef} className="chatbot-panel" role="dialog" aria-modal="true" aria-labelledby="mediq-chat-title" aria-describedby="mediq-chat-subtitle">
 				<header className="chatbot-panel-header">
+					<span className="chatbot-header-avatar" aria-hidden="true"><Sparkles size={22} strokeWidth={1.7} /></span>
 					<div className="chatbot-panel-title-wrap">
-						<p className="chatbot-panel-kicker">AI Assistant</p>
-						<h3 className="chatbot-panel-title">MedIQ Chat</h3>
-						<p className="chatbot-panel-subtitle">Ask questions and get quick guidance</p>
+						<p className="chatbot-panel-kicker">A little clarity, anytime</p>
+						<h3 id="mediq-chat-title" className="chatbot-panel-title">Your MedIQ assistant</h3>
+						<p id="mediq-chat-subtitle" className="chatbot-panel-subtitle">Catalog help &amp; thoughtful guidance</p>
 					</div>
 					<button type="button" className="chatbot-panel-close" onClick={onClose} aria-label="Close chatbot">
-						✕
+						<X size={19} strokeWidth={1.8} aria-hidden="true" />
 					</button>
 				</header>
 
 				<div className="chatbot-panel-prompts">
-					<p className="chatbot-prompts-label">Try asking</p>
+					<p className="chatbot-prompts-label">A place to start</p>
 					<div className="chatbot-prompts-grid">
 					{quickPrompts.map((prompt) => (
 						<button
@@ -169,10 +189,11 @@ function ChatbotPanel({ isOpen, onClose }) {
 					</div>
 				</div>
 
-				<div className="chatbot-messages">
+				<div className="chatbot-messages" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions text">
 					{messages.map((msg) => (
 						<div key={msg.id} className={`chatbot-message-row ${msg.role === 'user' ? 'user' : 'assistant'}`}>
 							<div className={`chatbot-message-bubble ${msg.role === 'user' ? 'user' : 'assistant'}`}>
+								<span className="chatbot-message-author">{msg.role === 'user' ? 'You' : 'MedIQ'}</span>
 								<p className="chatbot-message-text">{msg.text}</p>
 								{msg.role === 'assistant' && Array.isArray(msg.products) && msg.products.length > 0 && (
 									<div className="chatbot-products-list">
@@ -181,16 +202,17 @@ function ChatbotPanel({ isOpen, onClose }) {
 												<div className="chatbot-product-main">
 													<p className="chatbot-product-name">{product.name}</p>
 													<p className="chatbot-product-meta">
-														{product.vendor} • {product.requiresPrescription ? 'Rx Required' : 'OTC'}
+														{product.isDemo ? 'Demo listing • not available for purchase' : `${product.vendor} • ${product.requiresPrescription ? 'Rx Required' : 'OTC'}`}
 													</p>
 													<p className="chatbot-product-price">{formatProductPrice(product)}</p>
 												</div>
 												<button
 													type="button"
 													className="chatbot-product-add"
+													disabled={product.isDemo || product.purchasable === false || product.inStock === false}
 													onClick={() => handleAddRecommendedProduct(product)}
 												>
-													Add to Cart
+													<Plus size={13} aria-hidden="true" /> {product.isDemo ? 'Demo only' : 'Add to cart'}
 												</button>
 											</div>
 										))}
@@ -201,10 +223,10 @@ function ChatbotPanel({ isOpen, onClose }) {
 					))}
 					{isLoading && (
 						<div className="chatbot-message-row assistant">
-							<div className="chatbot-message-bubble assistant typing">
-								<span />
-								<span />
-								<span />
+							<div className="chatbot-message-bubble assistant typing" role="status" aria-label="MedIQ is replying">
+								<span aria-hidden="true" />
+								<span aria-hidden="true" />
+								<span aria-hidden="true" />
 							</div>
 						</div>
 					)}
@@ -213,21 +235,26 @@ function ChatbotPanel({ isOpen, onClose }) {
 
 				<form className="chatbot-input-row" onSubmit={handleSubmit}>
 					<input
+						ref={inputRef}
 						type="text"
+						aria-label="Message MedIQ assistant"
+						maxLength={4000}
 						value={input}
 						onChange={(event) => setInput(event.target.value)}
-						placeholder="Ask anything..."
+						placeholder="What can I help you with?"
 						className="chatbot-input"
 						disabled={isLoading}
 					/>
 					<button
 						type="submit"
 						className="chatbot-send"
+						aria-label="Send message"
 						disabled={!input.trim() || isLoading}
 					>
-						Send
+						<ArrowUp size={20} strokeWidth={2} aria-hidden="true" />
 					</button>
 				</form>
+				<p className="chatbot-disclaimer">General information, not a diagnosis.</p>
 			</section>
 		</>
 	);

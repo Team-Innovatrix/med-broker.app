@@ -24,7 +24,7 @@ const AdminReports = () => {
 		load();
 	}, []);
 
-	if (loading) return <div className="admin-loading"><div className="spinner"></div>Loading reports...</div>;
+	if (loading) return <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading reports...</div>;
 	if (!report) return <div className="admin-error">Unable to load report overview.</div>;
 
 	return (

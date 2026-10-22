@@ -9,7 +9,7 @@
 	display: flex;
 	gap: 0.5rem;
 	flex-wrap: wrap;
-	background: #ffffff;
+	background: var(--color-bg);
 	border: 1px solid var(--border-light);
 	border-radius: 1rem;
 	padding: 0.55rem;
@@ -32,9 +32,9 @@
 }
 
 .panelTabActive {
-	background: rgba(16, 185, 129, 0.13);
-	border-color: rgba(16, 185, 129, 0.35);
-	color: #0b6a46;
+	background: rgba(124, 58, 237, 0.13);
+	border-color: rgba(124, 58, 237, 0.35);
+	color: var(--color-primary-hover);
 }
 
 .panelArea {
@@ -43,11 +43,11 @@
 }
 
 .card {
-	background: #ffffff;
+	background: var(--color-bg);
 	border: 1px solid var(--border-light);
 	border-radius: 1rem;
 	padding: 1rem;
-	box-shadow: 0 8px 24px rgba(16, 32, 23, 0.05);
+	box-shadow: 0 8px 24px rgba(31, 41, 55, 0.05);
 }
 
 .cardHeader {
@@ -69,7 +69,7 @@
 	padding: 0.4rem 0.75rem;
 	border: 1px solid var(--border);
 	border-radius: 999px;
-	background: #fff;
+	background: var(--color-bg);
 	font-size: 0.82rem;
 	font-weight: 700;
 	cursor: pointer;
@@ -101,7 +101,7 @@
 	font-weight: 700;
 	border-radius: 999px;
 	border: 1px solid var(--border);
-	background: #fff;
+	background: var(--color-bg);
 	cursor: pointer;
 	position: relative;
 	overflow: hidden;
@@ -149,7 +149,7 @@
 	border-radius: 0.62rem;
 	font-size: 0.9rem;
 	font-family: inherit;
-	background: #fff;
+	background: var(--color-bg);
 	color: var(--text-primary);
 }
 
@@ -220,7 +220,7 @@
 
 .ghostButton {
 	border: 1px solid var(--border);
-	background: #fff;
+	background: var(--color-bg);
 	color: var(--text-primary);
 }
 
@@ -232,7 +232,7 @@
 .primaryButton {
 	border: 1px solid transparent;
 	background: var(--primary);
-	color: #fff;
+	color: var(--color-bg);
 }
 
 .primaryButton:disabled {
@@ -241,9 +241,9 @@
 }
 
 .dangerButton {
-	border: 1px solid #fca5a5;
-	background: #fee2e2;
-	color: #b91c1c;
+	border: 1px solid color-mix(in srgb, var(--color-error) 9%, white);
+	background: color-mix(in srgb, var(--color-error) 9%, white);
+	color: var(--color-error);
 }
 
 .helpText {
@@ -269,3 +269,7 @@
 		align-items: flex-start;
 	}
 }
+
+/* Shared lavender-white surface treatment. */
+.card,
+.panelTabs { background: var(--color-bg); border-color: var(--color-border); border-radius: 18px; box-shadow: 0 4px 20px rgba(70, 36, 117, .035); }

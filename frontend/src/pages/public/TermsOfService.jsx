@@ -1,3 +1,4 @@
+import './PublicPages.css';
 import React, { useState, useEffect } from 'react';
 import PublicLayout from '../../components/layout/PublicLayout';
 
@@ -27,7 +28,7 @@ export default function TermsOfService() {
   return (
     <PublicLayout>
       <div className="container" style={{ maxWidth: '1200px' }}>
-        
+
         {/* Header */}
         <div style={{ marginBottom: '3rem', borderBottom: '1px solid var(--border)', paddingBottom: '2rem' }}>
           <h1 style={{ fontSize: '3rem', fontWeight: '700', color: 'var(--primary-dark)', marginBottom: '1rem' }}>Terms of Service</h1>
@@ -37,21 +38,21 @@ export default function TermsOfService() {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: '4rem', alignItems: 'start' }}>
-          
+        <div className="legal-layout">
+
           {/* Sticky Sidebar Navigation */}
           <div style={{ position: 'sticky', top: '100px' }} className="hide-on-mobile">
             <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-light)', marginBottom: '1rem' }}>Contents</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {navItems.map(item => (
                 <li key={item.id}>
-                  <button 
+                  <button
                     onClick={() => scrollTo(item.id)}
-                    style={{ 
-                      background: 'none', 
-                      border: 'none', 
-                      padding: '0.5rem 0', 
-                      textAlign: 'left', 
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      padding: '0.5rem 0',
+                      textAlign: 'left',
                       width: '100%',
                       cursor: 'pointer',
                       fontSize: '0.95rem',
@@ -74,7 +75,7 @@ export default function TermsOfService() {
             <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '2rem' }}>
               Welcome to MedIQ. Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the MedIQ website and mobile application (the "Service") operated by MedIQ Technologies Pvt. Ltd. ("us", "we", or "our").
             </p>
-            
+
             <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '3rem' }}>
               Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users, vendors, and others who access or use the Service.
             </p>
@@ -133,14 +134,14 @@ export default function TermsOfService() {
                 <li>Any product banned by the FDA or CDSCO.</li>
               </ul>
             </section>
-            
+
             <section id="privacy" style={{ scrollMarginTop: '100px', marginBottom: '3rem' }}>
               <h2 style={{ fontSize: '1.8rem', color: 'var(--text-primary)', marginBottom: '1rem' }}>6. Privacy & Data</h2>
               <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1rem' }}>
                 Your use of the Service is also governed by our Privacy Policy. We take data protection seriously, specifically concerning patient prescriptions and health-related data, which are encrypted and handled in compliance with applicable healthcare data privacy laws.
               </p>
             </section>
-            
+
             <section id="disputes" style={{ scrollMarginTop: '100px', marginBottom: '3rem' }}>
               <h2 style={{ fontSize: '1.8rem', color: 'var(--text-primary)', marginBottom: '1rem' }}>7. Dispute Resolution</h2>
               <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1rem' }}>
@@ -150,7 +151,7 @@ export default function TermsOfService() {
 
           </div>
         </div>
-        
+
       </div>
     </PublicLayout>
   );

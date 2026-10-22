@@ -45,14 +45,14 @@ function AuthGuard({ children, requiredRole, requireCompleteProfile = false }) {
 				justifyContent: 'center',
 				alignItems: 'center',
 				minHeight: '100vh',
-				color: '#1E88E5'
+				color: 'var(--color-primary)'
 			}}>
 				<div style={{ textAlign: 'center' }}>
 					<div className="spinner" style={{
 						width: '50px',
 						height: '50px',
-						border: '4px solid #e0e0e0',
-						borderTop: '4px solid #1E88E5',
+						border: '4px solid var(--color-lavender)',
+						borderTop: '4px solid var(--color-primary)',
 						borderRadius: '50%',
 						margin: '0 auto 1rem'
 					}}></div>

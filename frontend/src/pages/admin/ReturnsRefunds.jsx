@@ -44,7 +44,7 @@ const AdminReturnsRefunds = () => {
     }
   };
 
-  if (loading) return <div className="admin-loading"><div className="spinner"></div>Loading refund center...</div>;
+  if (loading) return <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading refund center...</div>;
 
   return (
     <section className="admin-ops-page">
@@ -91,8 +91,8 @@ const AdminReturnsRefunds = () => {
                   <div>{formatCurrency((payment.amountCents || 0) / 100)}</div>
                   {refundBd && (
                     <div style={{ fontSize: '0.78rem', marginTop: 2 }}>
-                      <span style={{ color: '#15803d', fontWeight: 600 }}>Refundable: {formatCurrency(refundableAmount / 100)}</span>
-                      <span style={{ color: '#94a3b8', marginLeft: 6 }}>(medicine only)</span>
+                      <span style={{ color: 'var(--color-primary-hover)', fontWeight: 600 }}>Refundable: {formatCurrency(refundableAmount / 100)}</span>
+                      <span style={{ color: 'var(--color-primary)', marginLeft: 6 }}>(medicine only)</span>
                     </div>
                   )}
                 </td>

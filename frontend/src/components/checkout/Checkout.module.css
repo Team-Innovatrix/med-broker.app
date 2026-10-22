@@ -237,7 +237,7 @@
 
 .couponBadgeRow {
   padding: 0.75rem;
-  background-color: #DCFCE7;
+  background-color: var(--color-lavender);
   border-radius: var(--radius);
   margin-top: 0.5rem;
 }

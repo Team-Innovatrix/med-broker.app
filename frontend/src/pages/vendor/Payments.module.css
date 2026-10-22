@@ -59,7 +59,7 @@
 
 .metricChange {
 	font-size: 0.8rem;
-	color: var(--success);
+	color: var(--success-dark);
 	font-weight: 600;
 }
 
@@ -186,7 +186,7 @@
 }
 
 .amountPositive {
-	color: var(--success);
+	color: var(--success-dark);
 	font-weight: 600;
 }
 
@@ -237,7 +237,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(10, 18, 14, 0.48);
+	background-color: rgba(124, 58, 237, 0.48);
 	backdrop-filter: blur(6px);
 	-webkit-backdrop-filter: blur(6px);
 	z-index: 1000;
@@ -411,3 +411,27 @@
 		flex-direction: column;
 	}
 }
+
+
+/* Lavender workspace surfaces and keyboard interaction. */
+
+.container { background: var(--color-bg-secondary); color: var(--color-text); padding: clamp(1rem, 2.3vw, 2rem); min-width: 0; }
+
+.metricCard,
+.section { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 20px; box-shadow: 0 4px 20px rgba(31, 41, 55, 0.035); min-width: 0; }
+
+.title { color: var(--color-text); font-size: clamp(1.65rem, 2.5vw, 2.2rem); letter-spacing: -0.035em; line-height: 1.2; }
+
+.subtitle { color: var(--color-text-secondary); line-height: 1.65; max-width: 66ch; }
+
+.header { gap: 1rem; flex-wrap: wrap; }
+
+.table { width: 100%; }
+.table th { background: var(--color-bg-secondary); color: var(--color-text-secondary); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.035em; }
+.table td { border-color: var(--color-border); }
+
+.container :is(button, input, select, textarea, a):focus-visible { outline: 3px solid var(--color-lavender); outline-offset: 3px; }
+
+@media (max-width: 640px) { .header { flex-direction: column; align-items: stretch; } }
+
+@media (prefers-reduced-motion: reduce) { .container, .container * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }

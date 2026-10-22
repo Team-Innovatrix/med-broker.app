@@ -46,7 +46,7 @@ const AdminOrders = () => {
 		}
 	};
 
-	if (loading) return <div className="admin-loading"><div className="spinner"></div>Loading orders...</div>;
+	if (loading) return <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading orders...</div>;
 
 	return (
 		<section className="admin-ops-page">

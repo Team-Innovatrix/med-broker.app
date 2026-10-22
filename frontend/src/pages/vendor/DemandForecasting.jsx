@@ -37,9 +37,9 @@ const DemandForecasting = () => {
     };
 
     const getConfidenceColor = (score) => {
-        if (score >= 0.8) return '#10b981'; // Green
-        if (score >= 0.6) return '#f59e0b'; // Amber
-        return '#ef4444'; // Red
+        if (score >= 0.8) return 'var(--color-success, #0D9488)'; // Green
+        if (score >= 0.6) return 'var(--color-warning, #D97706)'; // Amber
+        return 'var(--color-error, #DC2626)'; // Red
     };
 
     if (loading && !data) {
@@ -54,7 +54,7 @@ const DemandForecasting = () => {
     if (error && !data) {
         return (
             <div className={styles.errorContainer}>
-                <AlertCircle size={48} color="#ef4444" />
+                <AlertCircle size={48} color="var(--color-error, #DC2626)" />
                 <h3>Oops! Something went wrong</h3>
                 <p>{error}</p>
                 <button onClick={fetchData} className={styles.retryButton}>Retry Analysis</button>
@@ -78,7 +78,7 @@ const DemandForecasting = () => {
                 </div>
                 <div className={styles.headerActions}>
                     <span className={styles.lastUpdated}>
-                        <RefreshCw size={14} /> 
+                        <RefreshCw size={14} />
                         Last prediction sync: {lastUpdated?.toLocaleTimeString()}
                     </span>
                     <button onClick={fetchData} disabled={loading} className={styles.refreshButton}>
@@ -90,25 +90,25 @@ const DemandForecasting = () => {
 
             <div className={styles.statsOverview}>
                 <div className={styles.statCard}>
-                    <div className={styles.statIcon}><Zap size={28} color="#157347" /></div>
+                    <div className={styles.statIcon}><Zap size={28} color="var(--color-text)" /></div>
                     <div className={styles.statContent}>
                         <span className={styles.statLabel}>Active Forecasts</span>
                         <span className={styles.statValue}>{data?.forecasts?.length || 0}</span>
                     </div>
                 </div>
                 <div className={styles.statCard}>
-                    <div className={styles.statIcon}><TrendingUp size={28} color="#059669" /></div>
+                    <div className={styles.statIcon}><TrendingUp size={28} color="var(--color-primary-hover)" /></div>
                     <div className={styles.statContent}>
                         <span className={styles.statLabel}>High Demand Products</span>
                         <span className={styles.statValue}>{data?.forecasts?.filter(f => f.trend === 'up').length || 0}</span>
                     </div>
                 </div>
                 <div className={styles.statCard}>
-                    <div className={styles.statIcon}><Brain size={28} color="#0d9488" /></div>
+                    <div className={styles.statIcon}><Brain size={28} color="var(--color-success, #0D9488)" /></div>
                     <div className={styles.statContent}>
                         <span className={styles.statLabel}>System Confidence</span>
                         <span className={styles.statValue}>
-                            {data?.forecasts?.length 
+                            {data?.forecasts?.length
                                 ? Math.round((data.forecasts.reduce((acc, curr) => acc + curr.confidence_score, 0) / data.forecasts.length) * 100)
                                 : 0}%
                         </span>
@@ -151,9 +151,9 @@ const DemandForecasting = () => {
                                 <td>
                                     <div className={styles.confidenceScore}>
                                         <div className={styles.confidenceBar}>
-                                            <div 
-                                                className={styles.confidenceFill} 
-                                                style={{ 
+                                            <div
+                                                className={styles.confidenceFill}
+                                                style={{
                                                     width: `${item.confidence_score * 100}%`,
                                                     backgroundColor: getConfidenceColor(item.confidence_score)
                                                 }}
@@ -165,13 +165,13 @@ const DemandForecasting = () => {
                                 <td>
                                     {item.trend === 'up' && (
                                         <div className={styles.recommendation_up}>
-                                            <ArrowUpRight size={18} /> 
+                                            <ArrowUpRight size={18} />
                                             Restock +{Math.round(item.predicted_demand * 0.2)} units
                                         </div>
                                     )}
                                     {item.trend === 'down' && (
                                         <div className={styles.recommendation_down}>
-                                            <ArrowDownRight size={18} /> 
+                                            <ArrowDownRight size={18} />
                                             Liquidate excess
                                         </div>
                                     )}
@@ -212,9 +212,9 @@ const DemandForecasting = () => {
             <div className={styles.aiNote}>
                 <Brain size={48} />
                 <p>
-                    <strong>MedBroker AI Intelligence:</strong> Our predictive engine has detected a 
-                    stabilizing trend in your top 5 SKUs. However, based on regional market signals, we expect a 
-                    surge in pediatric medications next month. 
+                    <strong>MedBroker AI Intelligence:</strong> Our predictive engine has detected a
+                    stabilizing trend in your top 5 SKUs. However, based on regional market signals, we expect a
+                    surge in pediatric medications next month.
                     <em> Consider preemptive stock adjustments for child-safe formulations.</em>
                 </p>
             </div>

@@ -80,6 +80,9 @@ import AdminIntegrations from '../pages/admin/Integrations';
 import AdminSettings from '../pages/admin/Settings';
 import { useUser } from '../context/UserContext';
 
+// Load canonical primitives after legacy component styles.
+import '../styles/theme.css';
+
 function ChatbotAccessGate({ isChatOpen, onToggle, onClose }) {
     const location = useLocation();
     const { user, loading } = useUser();

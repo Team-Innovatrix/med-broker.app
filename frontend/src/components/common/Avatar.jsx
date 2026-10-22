@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * Reusable Avatar Component
  * Displays user profile picture or initials fallback
- * 
+ *
  * @param {Object} props
  * @param {string} props.src - Profile image URL
  * @param {string} props.name - User's full name (for fallback initials)
@@ -30,7 +30,7 @@ function Avatar({ src, name = 'User', size = 60, className = '', style = {} }) {
 		width: `${size}px`,
 		height: `${size}px`,
 		borderRadius: '50%',
-		backgroundColor: 'var(--primary, #00A86B)',
+		backgroundColor: 'var(--primary, var(--color-primary-hover))',
 		color: 'white',
 		display: 'flex',
 		alignItems: 'center',

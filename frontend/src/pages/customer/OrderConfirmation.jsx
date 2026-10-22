@@ -59,7 +59,7 @@ function OrderConfirmation() {
 	const normalizeOrderData = (source) => {
 		const snapshot = source?.checkoutSnapshot && typeof source.checkoutSnapshot === 'object' ? source.checkoutSnapshot : {};
 		const pricingSummary = snapshot.pricingSummary && typeof snapshot.pricingSummary === 'object' ? snapshot.pricingSummary : {};
-		
+
 		const backendItems = Array.isArray(source?.items)
 			? source.items.map((item) => ({
 				medicineId: item.medicineId,

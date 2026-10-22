@@ -1,39 +1,23 @@
-import React, { useState } from 'react';
-import { MessageCircle } from 'lucide-react';
+import React from 'react';
+import { MessageCircle, X } from 'lucide-react';
 import './ChatbotFloatingButton.css';
 
 function ChatbotFloatingButton({ isOpen = false, onClick }) {
-	const imageSrc = '/assets/chatbot-bot.png';
-	const [imageError, setImageError] = useState(false);
-
 	return (
 		<button
 			type="button"
-			className={`chatbot-fab ${imageError ? 'image-error' : ''}`}
-			aria-label="Open chatbot"
-			title="Chat with MedIQ Assistant"
+			className={`chatbot-fab${isOpen ? ' is-open' : ''}`}
+			aria-label={isOpen ? 'Close MedIQ assistant' : 'Open MedIQ assistant'}
+			title="MedIQ Assistant"
 			onClick={onClick}
 			aria-expanded={isOpen}
+			aria-controls="mediq-chat-panel"
 			aria-haspopup="dialog"
 		>
-			<span className="chatbot-fab-pulse" aria-hidden="true" />
-			<span className="chatbot-fab-core" aria-hidden="true" />
-			<img
-				src={imageSrc}
-				alt=""
-				aria-hidden="true"
-				className="chatbot-fab-image"
-				onError={() => setImageError(true)}
-				onLoad={() => setImageError(false)}
-			/>
-			<span className="chatbot-fab-icon chatbot-fab-fallback-icon" aria-hidden="true">
-				<MessageCircle
-					size={22}
-					strokeWidth={1.5}
-					fill="currentColor"
-				/>
+			<span className="chatbot-fab-icon" aria-hidden="true">
+				{isOpen ? <X size={23} strokeWidth={1.8} /> : <MessageCircle size={24} strokeWidth={1.8} />}
 			</span>
-			{!isOpen && <span className="chatbot-fab-badge" aria-hidden="true" />}
+			{!isOpen && <span className="chatbot-fab-label">Ask MedIQ</span>}
 		</button>
 	);
 }
