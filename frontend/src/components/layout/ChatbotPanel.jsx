@@ -15,7 +15,7 @@ function ChatbotPanel({ isOpen, onClose }) {
 		{
 			id: 'welcome',
 			role: 'assistant',
-			text: 'Hello, I’m your MedIQ assistant. I can help you explore the catalog, understand your next steps, or find general health information.',
+			text: 'Hello, I’m your PharmaSense assistant. I can help you explore the catalog, understand your next steps, or find general health information.',
 			products: [],
 			timestamp: new Date().toISOString()
 		}
@@ -159,13 +159,13 @@ function ChatbotPanel({ isOpen, onClose }) {
 	return (
 		<>
 			<div className="chatbot-panel-backdrop" onClick={onClose} aria-hidden="true" />
-			<section id="mediq-chat-panel" ref={panelRef} className="chatbot-panel" role="dialog" aria-modal="true" aria-labelledby="mediq-chat-title" aria-describedby="mediq-chat-subtitle">
+			<section id="pharmasense-chat-panel" ref={panelRef} className="chatbot-panel" role="dialog" aria-modal="true" aria-labelledby="pharmasense-chat-title" aria-describedby="pharmasense-chat-subtitle">
 				<header className="chatbot-panel-header">
 					<span className="chatbot-header-avatar" aria-hidden="true"><Sparkles size={22} strokeWidth={1.7} /></span>
 					<div className="chatbot-panel-title-wrap">
 						<p className="chatbot-panel-kicker">A little clarity, anytime</p>
-						<h3 id="mediq-chat-title" className="chatbot-panel-title">Your MedIQ assistant</h3>
-						<p id="mediq-chat-subtitle" className="chatbot-panel-subtitle">Catalog help &amp; thoughtful guidance</p>
+						<h3 id="pharmasense-chat-title" className="chatbot-panel-title">Your PharmaSense assistant</h3>
+						<p id="pharmasense-chat-subtitle" className="chatbot-panel-subtitle">Catalog help &amp; thoughtful guidance</p>
 					</div>
 					<button type="button" className="chatbot-panel-close" onClick={onClose} aria-label="Close chatbot">
 						<X size={19} strokeWidth={1.8} aria-hidden="true" />
@@ -193,7 +193,7 @@ function ChatbotPanel({ isOpen, onClose }) {
 					{messages.map((msg) => (
 						<div key={msg.id} className={`chatbot-message-row ${msg.role === 'user' ? 'user' : 'assistant'}`}>
 							<div className={`chatbot-message-bubble ${msg.role === 'user' ? 'user' : 'assistant'}`}>
-								<span className="chatbot-message-author">{msg.role === 'user' ? 'You' : 'MedIQ'}</span>
+								<span className="chatbot-message-author">{msg.role === 'user' ? 'You' : 'PharmaSense'}</span>
 								<p className="chatbot-message-text">{msg.text}</p>
 								{msg.role === 'assistant' && Array.isArray(msg.products) && msg.products.length > 0 && (
 									<div className="chatbot-products-list">
@@ -223,7 +223,7 @@ function ChatbotPanel({ isOpen, onClose }) {
 					))}
 					{isLoading && (
 						<div className="chatbot-message-row assistant">
-							<div className="chatbot-message-bubble assistant typing" role="status" aria-label="MedIQ is replying">
+							<div className="chatbot-message-bubble assistant typing" role="status" aria-label="PharmaSense is replying">
 								<span aria-hidden="true" />
 								<span aria-hidden="true" />
 								<span aria-hidden="true" />
@@ -237,7 +237,7 @@ function ChatbotPanel({ isOpen, onClose }) {
 					<input
 						ref={inputRef}
 						type="text"
-						aria-label="Message MedIQ assistant"
+						aria-label="Message PharmaSense assistant"
 						maxLength={4000}
 						value={input}
 						onChange={(event) => setInput(event.target.value)}

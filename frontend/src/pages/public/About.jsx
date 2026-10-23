@@ -63,7 +63,7 @@ const About = () => {
                                         <circle cx="20" cy="20" r="17" stroke="currentColor" strokeWidth="3" fill="none" />
                                     </svg>
                                 </div>
-                                <h2 style={{ color: 'white', fontSize: '3rem', margin: 0, fontWeight: 700 }}>MedIQ</h2>
+                                <h2 style={{ color: 'white', fontSize: '3rem', margin: 0, fontWeight: 700 }}>PharmaSense</h2>
                              </div>
                         </div>
                     </div>
@@ -140,7 +140,7 @@ const About = () => {
             <section className={styles.section} style={{ backgroundColor: 'var(--color-bg-secondary)' }}>
                 <div className={styles.container}>
                     <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-                         <h2 className={styles.cardTitle} style={{ fontSize: '2.5rem' }}>Why Healthcare Partners Choose MedIQ</h2>
+                         <h2 className={styles.cardTitle} style={{ fontSize: '2.5rem' }}>Why Healthcare Partners Choose PharmaSense</h2>
                     </div>
 
                     <div style={{ maxWidth: '800px', margin: '0 auto' }}>

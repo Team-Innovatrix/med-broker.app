@@ -34,7 +34,7 @@ function VendorShipping() {
 						items: (order.items || []).map((item) => `${item.name} x ${item.quantity}`).join(', '),
 						status: shipmentStatus,
 						trackingId: order.id.slice(0, 12).toUpperCase(),
-						carrier: 'MedIQ Logistics',
+						carrier: 'PharmaSense Logistics',
 						estimatedDelivery: order.status === 'shipped' ? 'In progress' : 'Pending dispatch',
 						shippedDate: order.createdAt ? new Date(order.createdAt).toISOString().slice(0, 10) : '-',
 						deliveryDate: order.status === 'shipped' ? null : order.status === 'delivered' ? new Date().toISOString().slice(0, 10) : null

@@ -7,17 +7,17 @@ function ChatbotFloatingButton({ isOpen = false, onClick }) {
 		<button
 			type="button"
 			className={`chatbot-fab${isOpen ? ' is-open' : ''}`}
-			aria-label={isOpen ? 'Close MedIQ assistant' : 'Open MedIQ assistant'}
-			title="MedIQ Assistant"
+			aria-label={isOpen ? 'Close PharmaSense assistant' : 'Open PharmaSense assistant'}
+			title="PharmaSense Assistant"
 			onClick={onClick}
 			aria-expanded={isOpen}
-			aria-controls="mediq-chat-panel"
+			aria-controls="pharmasense-chat-panel"
 			aria-haspopup="dialog"
 		>
 			<span className="chatbot-fab-icon" aria-hidden="true">
 				{isOpen ? <X size={23} strokeWidth={1.8} /> : <MessageCircle size={24} strokeWidth={1.8} />}
 			</span>
-			{!isOpen && <span className="chatbot-fab-label">Ask MedIQ</span>}
+			{!isOpen && <span className="chatbot-fab-label">Ask PharmaSense</span>}
 		</button>
 	);
 }

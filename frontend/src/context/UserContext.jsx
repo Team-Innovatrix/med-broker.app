@@ -39,8 +39,8 @@ export const UserProvider = ({ children }) => {
 			setLoading(false);
 		};
 
-		window.addEventListener('mediq:auth-changed', handleAuthChanged);
-		return () => window.removeEventListener('mediq:auth-changed', handleAuthChanged);
+		window.addEventListener('pharmasense:auth-changed', handleAuthChanged);
+		return () => window.removeEventListener('pharmasense:auth-changed', handleAuthChanged);
 	}, []);
 
 	const value = {

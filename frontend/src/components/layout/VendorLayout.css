@@ -85,7 +85,7 @@
 	font-size: 0.84rem;
 	font-weight: 800;
 	box-shadow: 0 8px 16px rgba(14, 110, 74, 0.28);
-	animation: mediq-logo-float 4.6s ease-in-out infinite;
+	animation: pharmasense-logo-float 4.6s ease-in-out infinite;
 }
 
 .vendor-brand-text {
@@ -116,7 +116,7 @@
 	height: 0.13rem;
 	background: linear-gradient(90deg, rgba(24, 129, 89, 0) 0%, rgba(24, 129, 89, 0.42) 52%, rgba(24, 129, 89, 0) 100%);
 	border-radius: 999px;
-	animation: mediq-logo-sweep 5s ease-in-out infinite;
+	animation: pharmasense-logo-sweep 5s ease-in-out infinite;
 }
 
 .vendor-brand .topnav-logo-med {
@@ -145,11 +145,11 @@
 	background: linear-gradient(180deg, rgba(20, 95, 66, 0.78) 0%, rgba(14, 77, 54, 0.76) 100%);
 	color: rgba(232, 246, 238, 0.92);
 	box-shadow: 0 4px 10px rgba(8, 39, 28, 0.2);
-	animation: mediq-logo-pulse 3.8s ease-in-out infinite;
+	animation: pharmasense-logo-pulse 3.8s ease-in-out infinite;
 	white-space: nowrap;
 }
 
-@keyframes mediq-logo-float {
+@keyframes pharmasense-logo-float {
 	0%,
 	100% {
 		transform: translateY(0);
@@ -159,7 +159,7 @@
 	}
 }
 
-@keyframes mediq-logo-pulse {
+@keyframes pharmasense-logo-pulse {
 	0%,
 	100% {
 		box-shadow: 0 4px 10px rgba(8, 39, 28, 0.2);
@@ -169,7 +169,7 @@
 	}
 }
 
-@keyframes mediq-logo-sweep {
+@keyframes pharmasense-logo-sweep {
 	0%,
 	100% {
 		opacity: 0.25;

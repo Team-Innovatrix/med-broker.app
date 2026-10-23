@@ -6,13 +6,13 @@ if (!import.meta.env.VITE_API_URL) {
   console.warn("Frontend is falling back to localhost; check Vercel environment variables.");
 }
 
-const AUTH_CHANGED_EVENT = 'mediq:auth-changed';
+const AUTH_CHANGED_EVENT = 'pharmasense:auth-changed';
 const ACCOUNT_SCOPED_KEYS = [
-  'mediq_cart',
-  'mediq_favorites',
+  'pharmasense_cart',
+  'pharmasense_favorites',
   'pending_order',
   'completed_order',
-  'mediq_chat_session_id',
+  'pharmasense_chat_session_id',
   'preferredCurrency'
 ];
 

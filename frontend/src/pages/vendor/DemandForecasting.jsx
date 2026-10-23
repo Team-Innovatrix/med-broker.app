@@ -74,7 +74,7 @@ const DemandForecasting = () => {
                             </span>
                         )}
                     </div>
-                    <p>Advanced predictive analytics powered by the MedBroker Deep Learning engine.</p>
+                    <p>Advanced predictive analytics powered by the PharmaSense Deep Learning engine.</p>
                 </div>
                 <div className={styles.headerActions}>
                     <span className={styles.lastUpdated}>
@@ -212,7 +212,7 @@ const DemandForecasting = () => {
             <div className={styles.aiNote}>
                 <Brain size={48} />
                 <p>
-                    <strong>MedBroker AI Intelligence:</strong> Our predictive engine has detected a
+                    <strong>PharmaSense AI Intelligence:</strong> Our predictive engine has detected a
                     stabilizing trend in your top 5 SKUs. However, based on regional market signals, we expect a
                     surge in pediatric medications next month.
                     <em> Consider preemptive stock adjustments for child-safe formulations.</em>

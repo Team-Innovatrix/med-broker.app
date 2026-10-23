@@ -64,11 +64,11 @@ const AdminSidebar = ({ sidebarOpen, setSidebarOpen }) => {
   return (
     <aside id="admin-sidebar-navigation" className={`admin-sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
       <div className="admin-sidebar-header">
-        <Link to="/admin/dashboard" className="admin-logo" aria-label="MedIQ admin dashboard">
+        <Link to="/admin/dashboard" className="admin-logo" aria-label="PharmaSense admin dashboard">
           <span className="topnav-logo-mark" aria-hidden="true">✚</span>
           <span className="topnav-logo-word">
-            <span className="topnav-logo-med">Med</span>
-            <span className="topnav-logo-iq">IQ</span>
+            <span className="topnav-logo-med">Pharma</span>
+            <span className="topnav-logo-iq">Sense</span>
           </span>
           <span className="topnav-logo-trust">Admin Console</span>
         </Link>

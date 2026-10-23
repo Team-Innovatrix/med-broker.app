@@ -61,8 +61,8 @@ const buildOrderReceiptPdf = (order) => {
   doc.rect(0, 0, pageWidth, 100).fill(COLORS.primary);
 
   // Logo/Brand text
-  doc.fillColor('white').fontSize(32).font('Helvetica-Bold').text('MedIQ', margin + 10, 25);
-  doc.fontSize(12).font('Helvetica').text('Your Trusted Medicine Delivery Partner', margin + 10, 65);
+  doc.fillColor('white').fontSize(32).font('Helvetica-Bold').text('PharmaSense', margin + 10, 25);
+  doc.fontSize(12).font('Helvetica').text('Your AI-Powered Pharmaceutical Partner', margin + 10, 65);
 
   // Reset position and colors
   doc.fillColor(COLORS.dark).font('Helvetica');
@@ -257,13 +257,13 @@ const buildOrderReceiptPdf = (order) => {
   doc.moveDown(4);
 
   // Footer section
-  doc.fillColor(COLORS.primary).fontSize(14).font('Helvetica-Bold').text('Thank You for Choosing MedIQ!', { align: 'center' });
+  doc.fillColor(COLORS.primary).fontSize(14).font('Helvetica-Bold').text('Thank You for Choosing PharmaSense!', { align: 'center' });
   doc.moveDown(0.5);
 
   doc.fillColor(COLORS.dark).fontSize(10).font('Helvetica').text('Quality healthcare at your doorstep.', { align: 'center' });
   doc.moveDown(0.5);
 
-  doc.fontSize(9).text('Questions? Contact support@mediq.com | +91 1800-MED-IQ', { align: 'center' });
+  doc.fontSize(9).text('Questions? Contact support@pharmasense.ai | +91 1800-PHARMA-SENSE', { align: 'center' });
   doc.moveDown(1);
   doc.fontSize(8).fillColor('#9CA3AF').text('This is a computer-generated invoice and does not require a physical signature.', { align: 'center' });
 

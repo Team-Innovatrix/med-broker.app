@@ -131,11 +131,11 @@ export const CurrencyProvider = ({ children }) => {
 			}
 		};
 
-		window.addEventListener('mediq:auth-changed', handleAuthChanged);
+		window.addEventListener('pharmasense:auth-changed', handleAuthChanged);
 		window.addEventListener('currencyChanged', handleCurrencyChanged);
 		
 		return () => {
-			window.removeEventListener('mediq:auth-changed', handleAuthChanged);
+			window.removeEventListener('pharmasense:auth-changed', handleAuthChanged);
 			window.removeEventListener('currencyChanged', handleCurrencyChanged);
 		};
 	}, []);

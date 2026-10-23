@@ -200,7 +200,7 @@ navigate('/login');
 			const url = URL.createObjectURL(blob);
 			const link = document.createElement('a');
 			link.href = url;
-			link.download = 'mediq-account-export.json';
+			link.download = 'pharmasense-account-export.json';
 			document.body.appendChild(link);
 			link.click();
 			link.remove();

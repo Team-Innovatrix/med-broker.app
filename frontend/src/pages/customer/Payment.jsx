@@ -158,7 +158,7 @@ function Payment() {
 
 	const generateUPILink = () => {
 		const amount = calculateTotal();
-		const upiString = `upi://pay?pa=${upiId}&pn=MedIQ&am=${amount}&tn=Medicine%20Purchase&tr=${generateTransactionId()}`;
+		const upiString = `upi://pay?pa=${upiId}&pn=PharmaSense&am=${amount}&tn=Medicine%20Purchase&tr=${generateTransactionId()}`;
 		return upiString;
 	};
 
@@ -170,7 +170,7 @@ function Payment() {
 		const amount = calculateTotal();
 		const merchantUPI = '7666846804@ybl';
 		const transactionId = generateTransactionId();
-		const upiString = `upi://pay?pa=${merchantUPI}&pn=MedIQ&am=${amount}&tn=Medicine%20Purchase&tr=${transactionId}`;
+		const upiString = `upi://pay?pa=${merchantUPI}&pn=PharmaSense&am=${amount}&tn=Medicine%20Purchase&tr=${transactionId}`;
 		return upiString;
 	};
 
@@ -225,7 +225,7 @@ function Payment() {
 		},
 		wallet: {
 			icon: <Wallet size={18} strokeWidth={1.7} />,
-			title: 'MedIQ Wallet',
+			title: 'PharmaSense Wallet',
 			subtitle: 'Use wallet balance or top-up'
 		},
 		cod: {
@@ -531,7 +531,7 @@ function Payment() {
 								{isProcessing ? 'Processing Payment...' : `Pay ${formatPrice(total, orderCurrency)}`}
 							</button>
 
-							<p className={styles.disclaimer}>By proceeding, you authorize MedIQ to process this transaction securely.</p>
+							<p className={styles.disclaimer}>By proceeding, you authorize PharmaSense to process this transaction securely.</p>
 						</form>
 					</section>
 

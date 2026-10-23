@@ -2859,7 +2859,7 @@ img {
 	font-size: 0.92rem;
 	font-weight: 800;
 	box-shadow: 0 8px 16px rgba(124, 58, 237, 0.28);
-	animation: mediq-logo-float 4.6s ease-in-out infinite;
+	animation: pharmasense-logo-float 4.6s ease-in-out infinite;
 }
 
 .topnav-logo-word {
@@ -2884,7 +2884,7 @@ img {
 	height: 0.15rem;
 	background: linear-gradient(90deg, rgba(124, 58, 237, 0) 0%, rgba(124, 58, 237, 0.42) 52%, rgba(124, 58, 237, 0) 100%);
 	border-radius: 999px;
-	animation: mediq-logo-sweep 5s ease-in-out infinite;
+	animation: pharmasense-logo-sweep 5s ease-in-out infinite;
 }
 
 .topnav-logo-med {
@@ -2913,10 +2913,10 @@ img {
 	color: var(--color-primary);
 	transform: translateY(0.03rem);
 	box-shadow: 0 4px 10px rgba(124, 58, 237, 0.1);
-	animation: mediq-logo-pulse 3.8s ease-in-out infinite;
+	animation: pharmasense-logo-pulse 3.8s ease-in-out infinite;
 }
 
-@keyframes mediq-logo-float {
+@keyframes pharmasense-logo-float {
 	0%,
 	100% {
 		transform: translateY(0);
@@ -2926,7 +2926,7 @@ img {
 	}
 }
 
-@keyframes mediq-logo-pulse {
+@keyframes pharmasense-logo-pulse {
 	0%,
 	100% {
 		box-shadow: 0 4px 10px rgba(124, 58, 237, 0.1);
@@ -2936,7 +2936,7 @@ img {
 	}
 }
 
-@keyframes mediq-logo-sweep {
+@keyframes pharmasense-logo-sweep {
 	0%,
 	100% {
 		opacity: 0.35;

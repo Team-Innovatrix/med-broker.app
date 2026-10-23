@@ -111,8 +111,8 @@ function VendorLayout({ children }) {
 						{!isCollapsed && (
 							<div className="vendor-brand-text">
 								<span className="topnav-logo-word">
-									<span className="topnav-logo-med">Med</span>
-									<span className="topnav-logo-iq">IQ</span>
+									<span className="topnav-logo-med">Pharma</span>
+									<span className="topnav-logo-iq">Sense</span>
 								</span>
 								<span className="topnav-logo-trust">Vendor Console</span>
 							</div>

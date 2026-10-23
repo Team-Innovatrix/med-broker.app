@@ -321,7 +321,7 @@ function OrderConfirmation() {
 
 						<div className={styles.supportCard}>
 							<p className={styles.supportTitle}>Need help with this order?</p>
-							<a href="mailto:support@mediq.com" className={styles.supportLink}><Mail size={14} strokeWidth={1.9} /> support@mediq.com</a>
+							<a href="mailto:support@pharmasense.ai" className={styles.supportLink}><Mail size={14} strokeWidth={1.9} /> support@pharmasense.ai</a>
 							<p className={styles.supportPhone}><Phone size={14} strokeWidth={1.9} /> +91-1234-567-890</p>
 						</div>
 					</aside>
