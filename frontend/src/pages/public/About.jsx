@@ -217,6 +217,8 @@ const About = () => {
                             <p className={styles.cardText}>
                                 Real-time tiered bulk discount calculations and transparent multi-vendor comparisons for institutional buyers.
                             </p>
+                        </div>
+
                         <div className={styles.card}>
                             <div className={styles.cardIcon}>
                                 <Zap size={32} />
@@ -257,7 +259,6 @@ const About = () => {
                                 <span style={{ fontSize: '1.1rem', color: 'var(--color-text)', fontWeight: 500 }}>{item}</span>
                             </div>
                         ))}
->>>>>>> feat/lavender-ui-redesign
                     </div>
                 </div>
             </section>
