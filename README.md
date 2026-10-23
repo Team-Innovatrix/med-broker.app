@@ -124,7 +124,7 @@ Edit `frontend/.env` file:
 ```env
 # API endpoint (must match backend PORT)
 VITE_API_URL=http://localhost:4000/api
-VITE_APP_NAME=MedIQ
+VITE_APP_NAME=PharmaSense
 ```
 
 5. Run database migrations:
@@ -386,7 +386,7 @@ This project is proprietary software.
 
 ## 👥 Team
 
-MedIQ Development Team
+PharmaSense Development Team — Team Innovatrix
 
 ## 📞 Support
 
