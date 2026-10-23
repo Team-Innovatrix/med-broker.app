@@ -173,7 +173,7 @@ function Checkout() {
 			try {
 				const addresses = await addressService.list();
 				setSavedAddresses(addresses);
-				
+
 				// Set default address if available
 				const defaultAddress = addresses.find((addr) => addr.isDefault);
 				if (defaultAddress) {

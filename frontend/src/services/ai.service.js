@@ -9,7 +9,7 @@ if (!import.meta.env.VITE_API_URL) {
 const CHAT_SESSION_KEY = 'pharmasense_chat_session_id';
 
 const getSessionId = () => {
-	const existing = localStorage.getItem(CHAT_SESSION_KEY) || localStorage.getItem('mediq_chat_session_id');
+	const existing = localStorage.getItem(CHAT_SESSION_KEY);
 	if (existing) return existing;
 
 	const generated = `chat_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;

@@ -60,6 +60,9 @@ import VendorSettings from '../pages/vendor/Settings';
 import VendorDemandForecasting from '../pages/vendor/DemandForecasting';
 import { useUser } from '../context/UserContext';
 
+// Load canonical primitives after legacy component styles.
+import '../styles/theme.css';
+
 function ChatbotAccessGate({ isChatOpen, onToggle, onClose }) {
     const location = useLocation();
     const { user, loading } = useUser();

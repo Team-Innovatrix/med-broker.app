@@ -41,14 +41,14 @@ function useCountdown(expiresAtISO) {
 
 	useEffect(() => {
 		if (!expiresAtISO) return;
-		
+
 		let intervalId;
 		const tick = () => {
 			const ms = Math.max(0, new Date(expiresAtISO).getTime() - Date.now());
 			setRemainingMs(ms);
 			if (ms <= 0 && intervalId) clearInterval(intervalId);
 		};
-		
+
 		tick();
 		intervalId = setInterval(tick, 1000);
 		return () => clearInterval(intervalId);
@@ -92,7 +92,7 @@ function RefundBreakdownModal({ eligibility, onClose, onConfirm, confirming, for
 					<button className={styles.refundModalClose} onClick={onClose}>&#x2715;</button>
 				</div>
 
-				<p style={{ margin: '0 0 0.8rem', fontSize: '0.88rem', color: '#475569' }}>
+				<p style={{ margin: '0 0 0.8rem', fontSize: '0.88rem', color: 'var(--color-text)' }}>
 					Only the <strong>medicine cost</strong> is refundable. Shipping, taxes, and fees are non-refundable.
 				</p>
 
@@ -117,8 +117,8 @@ function RefundBreakdownModal({ eligibility, onClose, onConfirm, confirming, for
 							<td className={styles.refundBreakdownNonRefundable}>{fmt(bd.nonRefundableTaxCents)}</td>
 						</tr>
 						<tr className={styles.refundBreakdownTotal}>
-							<td style={{ color: '#15803d' }}>Your Refund Amount</td>
-							<td style={{ color: '#15803d' }}>{fmt(eligibility.refund.refundableCents)}</td>
+							<td style={{ color: 'var(--color-primary-hover)' }}>Your Refund Amount</td>
+							<td style={{ color: 'var(--color-primary-hover)' }}>{fmt(eligibility.refund.refundableCents)}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -567,13 +567,13 @@ const OrderDetailsModal = ({ order, onClose, onDownload, downloading, formatPric
 	const modalCurrency = order?.currencyCode || order?.checkoutSnapshot?.currencyCode || 'INR';
 	const itemMoneyScale = Number.isFinite(order?.itemMoneyScale) ? order.itemMoneyScale : 1;
 	return (
-		<div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999 }}>
-			<div style={{ width: '90%', maxWidth: 820, background: 'white', borderRadius: 12, padding: 20, boxShadow: '0 8px 30px rgba(0,0,0,0.2)' }}>
+		<div style={{ position: 'fixed', inset: 0, background: 'rgba(31, 41, 55, 0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999 }}>
+			<div style={{ width: '90%', maxWidth: 820, background: 'white', borderRadius: 12, padding: 20, boxShadow: '0 8px 30px rgba(31, 41, 55, 0.2)' }}>
 				<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
 					<h3 style={{ margin: 0 }}>Order Details</h3>
 					<div>
 						<button style={{ marginRight: 8 }} onClick={onClose}>Close</button>
-						<button onClick={() => onDownload(order.id)} disabled={downloading} style={{ background: '#218e66', color: 'white', border: 0, padding: '8px 12px', borderRadius: 6 }}>
+						<button onClick={() => onDownload(order.id)} disabled={downloading} style={{ background: 'var(--color-primary-hover)', color: 'white', border: 0, padding: '8px 12px', borderRadius: 6 }}>
 							{downloading ? 'Downloading...' : 'Download Receipt'}
 						</button>
 					</div>

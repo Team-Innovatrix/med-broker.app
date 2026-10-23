@@ -56,7 +56,7 @@ const AdminPayouts = () => {
 
     const totalUnpaidBalance = payouts.reduce((sum, p) => sum + p.pendingBalanceCents, 0);
 
-    if (loading) return <div className="admin-loading"><div className="spinner"></div>Loading Financials...</div>;
+    if (loading) return <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading Financials...</div>;
 
     return (
         <div className="admin-payouts fade-in">
@@ -92,7 +92,7 @@ const AdminPayouts = () => {
                 <h2 style={{ marginBottom: '1rem' }}>Vendor Balances</h2>
                 {payouts.length === 0 ? (
                     <div className="empty-state">
-                        <CheckCircle size={48} color="#22c55e" />
+                        <CheckCircle size={48} color="var(--color-success, #0D9488)" />
                         <h2>No active balances</h2>
                         <p>There are no vendors with pending balances or historical revenue.</p>
                     </div>
@@ -132,7 +132,7 @@ const AdminPayouts = () => {
                                         </strong>
                                     </td>
                                     <td>
-                                        <button 
+                                        <button
                                             className="btn-action approve"
                                             disabled={payout.pendingBalanceCents <= 0 || processingId === payout.vendorId}
                                             onClick={() => handleProcessPayout(payout.vendorId, payout.pendingBalanceCents)}

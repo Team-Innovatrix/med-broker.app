@@ -95,21 +95,21 @@ function VendorOnboarding() {
 		try {
 			// Get user info to retrieve mobile number
 			const user = authService.getUser();
-			
+
 			// Include contactNumber (mobile) in the submission
 			const submissionData = {
 				...formData,
-				contactNumber: user?.mobile || '' 
+				contactNumber: user?.mobile || ''
 			};
 
 			await authService.completeVendorOnboarding(submissionData);
-			
+
 			// Refresh user data to get updated roles and currency
 			await authService.getCurrentUser();
-			
+
 			// Show success message
 			alert('Vendor onboarding completed! Your profile is under verification. You will be notified once approved.');
-			
+
 			// Redirect to vendor dashboard
 			navigate('/vendor/dashboard');
 		} catch (err) {
@@ -140,10 +140,10 @@ function VendorOnboarding() {
 						{error && (
 							<div style={{
 								padding: '0.75rem',
-								backgroundColor: '#fee',
-								border: '1px solid #fcc',
+								backgroundColor: 'color-mix(in srgb, var(--color-error) 9%, white)',
+								border: '1px solid color-mix(in srgb, var(--color-error) 9%, white)',
 								borderRadius: '8px',
-								color: '#c33'
+								color: 'var(--color-error)'
 							}}>
 								{error}
 							</div>
@@ -237,7 +237,7 @@ function VendorOnboarding() {
 									maxLength={15}
 									required
 								/>
-								<small style={{ color: '#666', fontSize: '0.85rem' }}>
+								<small style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem' }}>
 									15 characters (e.g., 22AAAAA0000A1Z5)
 								</small>
 							</div>
@@ -331,14 +331,14 @@ function VendorOnboarding() {
 						<div style={{
 							marginTop: '1rem',
 							padding: '1rem',
-							backgroundColor: '#e8f4f8',
+							backgroundColor: 'var(--color-bg-secondary)',
 							borderRadius: '8px',
-							border: '1px solid #b3d9e8'
+							border: '1px solid var(--color-lavender)'
 						}}>
-							<strong style={{ color: '#0f7f8a', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}><Info size={14} strokeWidth={1.75} /> What happens next?</strong>
-							<p style={{ margin: '0.5rem 0 0 0', color: '#5a6b76', fontSize: '0.9rem' }}>
-								Your vendor profile will be submitted for verification. Our team will review your 
-								GSTIN and drug license details. You'll receive an email notification once approved 
+							<strong style={{ color: 'var(--color-primary-hover)', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}><Info size={14} strokeWidth={1.75} /> What happens next?</strong>
+							<p style={{ margin: '0.5rem 0 0 0', color: 'var(--color-text-secondary)', fontSize: '0.9rem' }}>
+								Your vendor profile will be submitted for verification. Our team will review your
+								GSTIN and drug license details. You'll receive an email notification once approved
 								(usually within 24-48 hours).
 							</p>
 						</div>

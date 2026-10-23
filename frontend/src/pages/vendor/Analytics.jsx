@@ -209,7 +209,7 @@ function VendorAnalytics() {
 								<td className={styles.tableCell}>{product.sales}</td>
 								<td className={styles.tableCell}>{formatMoney(product.revenue)}</td>
 								<td className={styles.tableCell}>
-									<button 
+									<button
 										className={styles.detailsButton}
 										onClick={() => navigate('/vendor/products', { state: { selectedMedicineId: product.id } })}
 									>

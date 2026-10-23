@@ -1,4 +1,5 @@
 const { prisma } = require('../../database/prisma');
+const {ValidationError} = require('../../utils/errors');
 const PAYMENT_CONFIG = require('../../config/payment');
 const { normalizeCurrencyCode } = require('../../utils/currencyPipeline');
 
@@ -98,6 +99,10 @@ module.exports = {
     const preferredCurrency = normalizeCurrencyCode(user?.preferredCurrency) || normalizeCurrencyCode(PAYMENT_CONFIG.currency) || String(process.env.EXCHANGE_RATE_BASE || 'INR').toUpperCase();
 
     const resolved = await resolveCartMedicineIds(data);
+    const medicine = await prisma.medicine.findUnique({where:{id:resolved.medicineId},select:{status:true,isActive:true,meta:true}});
+    if (!medicine || medicine.status !== 'PUBLISHED' || !medicine.isActive || medicine.meta?.dataset?.synthetic) {
+      throw new ValidationError('This listing is not available for purchase');
+    }
     const quantity = Math.max(1, Number(data.quantity) || 1);
 
     const existing = await prisma.cartItem.findFirst({

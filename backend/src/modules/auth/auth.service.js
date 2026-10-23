@@ -20,6 +20,10 @@ const getAvailableRoles = (user) => {
   
   const availableRoles = [];
   
+  if (!user.isProfileComplete && ['CUSTOMER', 'VENDOR'].includes(user.role)) {
+    availableRoles.push(user.role);
+  }
+
   // Strictly check for the existence of the linked profile records
   if (user.customer && user.customer.id) {
     availableRoles.push('CUSTOMER');
@@ -320,6 +324,9 @@ module.exports = {
     }
 
     // Block banned users immediately — before bcrypt, before token generation
+    if (user.isActive === false) {
+      throw new AuthenticationError('Account is inactive');
+    }
     if (user.isBanned) {
       const suspendedError = new Error('Your account has been suspended. Please contact support.');
       suspendedError.statusCode = 403;
@@ -332,11 +339,11 @@ module.exports = {
       throw new AuthenticationError('Invalid credentials');
     }
 
-    if (role) {
-      if (role === 'VENDOR' && !user.vendor) {
+    if (role && user.role !== 'ADMIN') {
+      if (role === 'VENDOR' && !user.vendor && user.role !== 'VENDOR') {
         throw new AuthenticationError('No vendor profile found for this account. If you just registered, please complete your onboarding.');
       }
-      if (role === 'CUSTOMER' && !user.customer) {
+      if (role === 'CUSTOMER' && !user.customer && user.role !== 'CUSTOMER') {
         throw new AuthenticationError('No customer profile found for this account. You can create one in your account settings after logging in as a Vendor.');
       }
       
@@ -472,6 +479,7 @@ module.exports = {
 
     // return refreshed user with relations
     const refreshed = await prisma.user.findUnique({ where: { id: userId }, include: { customer: true, vendor: true } });
+    if (refreshed) delete refreshed.passwordHash;
     return refreshed;
   },
 
@@ -481,7 +489,6 @@ module.exports = {
 };
 
 module.exports.invalidateUserSessions = async (userId) => {
-  const { prisma } = require('../database/prisma');
   // set tokenInvalidBefore to now to invalidate older JWTs
   await prisma.user.update({ where: { id: userId }, data: { tokenInvalidBefore: new Date() } });
   return true;

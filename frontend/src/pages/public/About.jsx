@@ -5,7 +5,7 @@ import styles from './About.module.css';
 
 const About = () => {
     const navigate = useNavigate();
-    
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -21,15 +21,15 @@ const About = () => {
     return (
         <div className={styles.aboutPage}>
             <div className={styles.container} style={{ marginBottom: '20px' }}>
-                <button 
+                <button
                     onClick={() => navigate('/')}
-                    style={{ 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        gap: '8px', 
-                        background: 'none', 
-                        border: 'none', 
-                        color: 'var(--primary)', 
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        background: 'none',
+                        border: 'none',
+                        color: 'var(--primary)',
                         cursor: 'pointer',
                         fontWeight: 600,
                         padding: 0
@@ -62,7 +62,7 @@ const About = () => {
                         </div>
                         <div className={styles.contentImage}>
                              <div style={{ 
-                                background: 'linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%)', 
+                                background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%)', 
                                 height: '380px', 
                                 display: 'flex', 
                                 flexDirection: 'column', 
@@ -77,7 +77,7 @@ const About = () => {
                                 <div style={{ background: 'rgba(255, 255, 255, 0.15)', padding: '16px', borderRadius: '50%' }}>
                                     <Brain size={56} color="white" />
                                 </div>
-                                <h2 style={{ fontSize: '2.4rem', margin: 0, fontWeight: 800, letterSpacing: '-0.02em' }}>PharmaSense</h2>
+                                <h2 style={{ fontSize: '2.4rem', margin: 0, fontWeight: 800, letterSpacing: '-0.02em', color: 'white' }}>PharmaSense</h2>
                                 <p style={{ fontSize: '0.95rem', opacity: 0.9, maxWidth: '280px', margin: 0 }}>
                                     AI-Driven Pharmaceutical Intelligence & Predictive Inventory Architecture
                                 </p>
@@ -187,7 +187,7 @@ const About = () => {
                         <h2 className={styles.cardTitle} style={{ fontSize: '2.2rem' }}>PharmaSense Core Capabilities</h2>
                         <p className={styles.cardText}>Core services driving our 30-40% milestone release</p>
                     </div>
-                    
+
                     <div className={styles.grid}>
                         <div className={styles.card}>
                             <div className={styles.cardIcon}>
@@ -217,7 +217,47 @@ const About = () => {
                             <p className={styles.cardText}>
                                 Real-time tiered bulk discount calculations and transparent multi-vendor comparisons for institutional buyers.
                             </p>
+                        <div className={styles.card}>
+                            <div className={styles.cardIcon}>
+                                <Zap size={32} />
+                            </div>
+                            <h3 className={styles.cardTitle}>Innovation Driven</h3>
+                            <p className={styles.cardText}>
+                                From AI-powered recommendations to secure real-time tracking, we use technology to solve the most complex healthcare logistics.
+                            </p>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Why Choose Us */}
+            <section className={styles.section} style={{ backgroundColor: 'var(--color-bg-secondary)' }}>
+                <div className={styles.container}>
+                    <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+                         <h2 className={styles.cardTitle} style={{ fontSize: '2.5rem' }}>Why Healthcare Partners Choose PharmaSense</h2>
+                    </div>
+
+                    <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+                        {[
+                            '100% Authentic Products Sourcing',
+                            'Automated GST-Compliant Invoicing',
+                            'Real-time Inventory Management for Vendors',
+                            'Next-day Delivery in Major Metro Cities',
+                            'Dedicated 24/7 Professional Support',
+                            'Secure Encrypted Payment Gateway'
+                        ].map((item, index) => (
+                            <div key={index} style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '16px',
+                                padding: '16px',
+                                borderBottom: '1px solid var(--color-border)'
+                            }}>
+                                <CheckCircle2 size={24} color="var(--color-primary)" />
+                                <span style={{ fontSize: '1.1rem', color: 'var(--color-text)', fontWeight: 500 }}>{item}</span>
+                            </div>
+                        ))}
+>>>>>>> feat/lavender-ui-redesign
                     </div>
                 </div>
             </section>

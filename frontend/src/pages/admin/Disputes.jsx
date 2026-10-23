@@ -47,7 +47,7 @@ const AdminDisputes = () => {
     }
   };
 
-  if (loading) return <div className="admin-loading"><div className="spinner"></div>Loading disputes...</div>;
+  if (loading) return <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading disputes...</div>;
 
   const openCount = disputes.filter((d) => d.status === 'OPEN').length;
   const resolvedCount = disputes.filter((d) => d.status === 'RESOLVED').length;

@@ -3,24 +3,24 @@ import PublicLayout from '../../components/layout/PublicLayout';
 
 const AccordionItem = ({ question, answer, isOpen, onClick }) => {
   return (
-    <div style={{ 
-      border: '1px solid var(--border)', 
-      borderRadius: 'var(--radius)', 
-      marginBottom: '1rem', 
+    <div style={{
+      border: '1px solid var(--border)',
+      borderRadius: 'var(--radius)',
+      marginBottom: '1rem',
       background: isOpen ? 'var(--green-50)' : 'white',
       overflow: 'hidden',
       transition: 'all 0.3s ease'
     }}>
-      <button 
+      <button
         onClick={onClick}
-        style={{ 
-          width: '100%', 
-          padding: '1.25rem 1.5rem', 
-          display: 'flex', 
-          justifyContent: 'space-between', 
-          alignItems: 'center', 
-          background: 'none', 
-          border: 'none', 
+        style={{
+          width: '100%',
+          padding: '1.25rem 1.5rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          background: 'none',
+          border: 'none',
           cursor: 'pointer',
           textAlign: 'left'
         }}
@@ -28,9 +28,9 @@ const AccordionItem = ({ question, answer, isOpen, onClick }) => {
         <span style={{ fontSize: '1.1rem', fontWeight: '600', color: 'var(--text-primary)' }}>
           {question}
         </span>
-        <span style={{ 
-          color: 'var(--primary)', 
-          transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', 
+        <span style={{
+          color: 'var(--primary)',
+          transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
           transition: 'transform 0.3s ease',
           display: 'flex'
         }}>
@@ -39,11 +39,11 @@ const AccordionItem = ({ question, answer, isOpen, onClick }) => {
           </svg>
         </span>
       </button>
-      
-      <div style={{ 
-        maxHeight: isOpen ? '500px' : '0', 
-        opacity: isOpen ? 1 : 0, 
-        padding: isOpen ? '0 1.5rem 1.25rem 1.5rem' : '0 1.5rem', 
+
+      <div style={{
+        maxHeight: isOpen ? '500px' : '0',
+        opacity: isOpen ? 1 : 0,
+        padding: isOpen ? '0 1.5rem 1.25rem 1.5rem' : '0 1.5rem',
         transition: 'all 0.3s ease',
         color: 'var(--text-secondary)',
         lineHeight: '1.6'
@@ -138,7 +138,7 @@ export default function FAQ() {
   return (
     <PublicLayout>
       <div className="container" style={{ maxWidth: '1000px' }}>
-        
+
         {/* Header Section */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{ display: 'inline-block', padding: '0.5rem 1rem', background: 'var(--green-100)', color: 'var(--primary-dark)', borderRadius: '99px', fontSize: '0.9rem', fontWeight: '600', marginBottom: '1rem' }}>
@@ -153,7 +153,7 @@ export default function FAQ() {
         {/* Categories Tabs */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', marginBottom: '3rem' }}>
           {tabs.map(tab => (
-            <button 
+            <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               style={{
@@ -176,7 +176,7 @@ export default function FAQ() {
         {/* FAQs List */}
         <div className="reveal" style={{ minHeight: '400px' }}>
           {faqs[activeTab].map((faq) => (
-            <AccordionItem 
+            <AccordionItem
               key={faq.id}
               question={faq.q}
               answer={faq.a}
@@ -185,7 +185,7 @@ export default function FAQ() {
             />
           ))}
         </div>
-        
+
         {/* Helper Footer */}
         <div style={{ marginTop: '4rem', padding: '2rem', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
           <div>
@@ -194,7 +194,7 @@ export default function FAQ() {
           </div>
           <a href="/support/contact-us" className="button button-success">Talk to Support</a>
         </div>
-        
+
       </div>
     </PublicLayout>
   );

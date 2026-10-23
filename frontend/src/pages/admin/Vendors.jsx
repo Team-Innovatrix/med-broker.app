@@ -147,10 +147,10 @@ const AdminVendors = () => {
                 )}
 
                 {loading ? (
-                    <div className="admin-loading"><div className="spinner"></div>Loading Vendors...</div>
+                    <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading Vendors...</div>
                 ) : vendors.length === 0 ? (
                     <div className="empty-state">
-                        <CheckCircle size={48} color="#22c55e" />
+                        <CheckCircle size={48} color="var(--color-success, #0D9488)" />
                         <h2>No vendors found</h2>
                         <p>
                             {activeTab === 'PENDING'

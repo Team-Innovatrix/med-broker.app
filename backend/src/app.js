@@ -64,9 +64,10 @@ const wildcardToRegex = (pattern) => {
   return new RegExp(regexSource);
 };
 
-const allowedOriginRegexes = configuredOrigins
-  .map(wildcardToRegex)
-  .filter(Boolean);
+const allowedOriginRegexes = [
+  ...configuredOrigins.map(wildcardToRegex).filter(Boolean),
+  /^https:\/\/[a-zA-Z0-9_-]+\.vercel\.app$/
+];
 
 console.info('CORS allowlist initialized:', allowedOrigins);
 

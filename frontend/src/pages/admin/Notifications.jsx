@@ -79,7 +79,7 @@ const AdminNotifications = () => {
     }
   };
 
-  if (loading) return <div className="admin-loading"><div className="spinner"></div>Loading notifications...</div>;
+  if (loading) return <div className="admin-loading" role="status" aria-live="polite"><div className="spinner"></div>Loading notifications...</div>;
   if (error) return <div className="admin-error">{error}</div>;
 
   const unreadCount = items.filter((n) => !n.isRead).length;

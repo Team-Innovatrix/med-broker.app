@@ -397,3 +397,6 @@ For issues and questions, please contact the development team.
 **Version**: 1.0.0  
 **Last Updated**: 2024
 ```
+## Supplied demo dataset
+
+The uploaded medicine dataset has a validated, idempotent Neon import pipeline. See [backend/DATASET_IMPORT.md](backend/DATASET_IMPORT.md) for commands, exact counts, admin API access, and separation of fictional stock/orders from real commerce. Imported medicines remain inactive drafts pending review.

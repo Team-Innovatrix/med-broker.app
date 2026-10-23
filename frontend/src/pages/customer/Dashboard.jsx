@@ -218,25 +218,25 @@ function CustomerDashboard() {
 					<div className={styles.sidebarDivider}></div>
 
 					<nav className={styles.sidebarNav}>
-						<button 
+						<button
 							className={styles.navItem}
 							onClick={() => navigate('/customer/catalog')}
 						>
 							<Pill size={16} strokeWidth={1.5} /> Browse Medicines
 						</button>
-						<button 
+						<button
 							className={styles.navItem}
 							onClick={() => navigate('/customer/orders')}
 						>
 							<Package size={16} strokeWidth={1.5} /> My Orders
 						</button>
-						<button 
+						<button
 							className={styles.navItem}
 							onClick={() => navigate('/customer/prescriptions')}
 						>
 							<ClipboardList size={16} strokeWidth={1.5} /> Prescriptions
 						</button>
-						<button 
+						<button
 							className={styles.navItem}
 							onClick={() => navigate('/customer/favorites')}
 						>
@@ -291,21 +291,21 @@ function CustomerDashboard() {
 
 				<section className={styles.quickStats}>
 					<div className={`${styles.statBox} card`}>
-						<div className={styles.statBoxIcon} style={{ backgroundColor: 'rgba(21, 115, 71, 0.15)' }}><TrendingUp size={20} strokeWidth={1.5} /></div>
+						<div className={styles.statBoxIcon} style={{ backgroundColor: 'rgba(124, 58, 237, 0.15)' }}><TrendingUp size={20} strokeWidth={1.5} /></div>
 						<div>
 							<p className={styles.statBoxLabel}>Total Spent</p>
 							<p className={styles.statBoxValue}>{formatPrice(metrics.totalSpent)}</p>
 						</div>
 					</div>
 					<div className={`${styles.statBox} card`}>
-						<div className={styles.statBoxIcon} style={{ backgroundColor: 'rgba(59, 130, 246, 0.15)' }}><Package size={20} strokeWidth={1.5} /></div>
+						<div className={styles.statBoxIcon} style={{ backgroundColor: 'rgba(124, 58, 237, 0.15)' }}><Package size={20} strokeWidth={1.5} /></div>
 						<div>
 							<p className={styles.statBoxLabel}>Avg. Order</p>
 							<p className={styles.statBoxValue}>{formatPrice(metrics.avgOrderValue)}</p>
 						</div>
 					</div>
 					<div className={`${styles.statBox} card`}>
-						<div className={styles.statBoxIcon} style={{ backgroundColor: 'rgba(168, 85, 247, 0.15)' }}><Timer size={20} strokeWidth={1.5} /></div>
+						<div className={styles.statBoxIcon} style={{ backgroundColor: 'rgba(124, 58, 237, 0.15)' }}><Timer size={20} strokeWidth={1.5} /></div>
 						<div>
 							<p className={styles.statBoxLabel}>Open Orders</p>
 							<p className={styles.statBoxValue}>{metrics.activeOrders.length}</p>

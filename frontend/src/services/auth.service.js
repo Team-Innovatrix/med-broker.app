@@ -10,12 +10,9 @@ const AUTH_CHANGED_EVENT = 'pharmasense:auth-changed';
 const ACCOUNT_SCOPED_KEYS = [
   'pharmasense_cart',
   'pharmasense_favorites',
-  'pharmasense_chat_session_id',
-  'mediq_cart',
-  'mediq_favorites',
   'pending_order',
   'completed_order',
-  'mediq_chat_session_id',
+  'pharmasense_chat_session_id',
   'preferredCurrency'
 ];
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AdminSidebar from './AdminSidebar';
 import AdminHeader from './AdminHeader';
 import '../../styles/admin.css';
+import './AdminLayout.css';
 
 const AdminLayout = ({ children }) => {
     const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth > 768);
@@ -10,7 +11,9 @@ const AdminLayout = ({ children }) => {
         <div className="admin-layout">
             <AdminSidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
             {sidebarOpen && (
-                <div
+                <button
+                    type="button"
+                    aria-label="Close administration navigation"
                     className="admin-sidebar-overlay admin-mobile-only"
                     onClick={() => setSidebarOpen(false)}
                 />

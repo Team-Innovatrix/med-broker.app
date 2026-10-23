@@ -29,6 +29,7 @@ async function authenticate(req, res, next) {
         role: true,
         isActive: true,
         isBanned: true,
+        tokenInvalidBefore: true,
         preferredCurrency: true,
         isProfileComplete: true,
         vendor: true,
@@ -50,9 +51,12 @@ async function authenticate(req, res, next) {
     if (user.tokenInvalidBefore) {
       const tokenIat = decoded && decoded.iat ? Number(decoded.iat) : null;
       const invalidBefore = Math.floor(new Date(user.tokenInvalidBefore).getTime() / 1000);
-      if (tokenIat && tokenIat < invalidBefore) {
+      if (tokenIat && tokenIat <= invalidBefore) {
         return res.status(401).json({ success: false, message: 'Session invalidated. Please login again.' });
       }
+    }
+    if (!user.isActive) {
+      return res.status(403).json({ success: false, message: 'Account is inactive' });
     }
     if (user.isBanned) {
       return res.status(403).json({
@@ -97,12 +101,16 @@ async function authenticateOptional(req, res, next) {
         email: true,
         role: true,
         preferredCurrency: true,
+        isActive: true,
+        isBanned: true,
+        tokenInvalidBefore: true,
         vendor: true,
         customer: true
       }
     });
 
-    if (user) {
+    const revoked = user?.tokenInvalidBefore && (!decoded.iat || Number(decoded.iat) <= Math.floor(new Date(user.tokenInvalidBefore).getTime() / 1000));
+    if (user && user.isActive && !user.isBanned && !revoked) {
       req.user = user;
     }
 

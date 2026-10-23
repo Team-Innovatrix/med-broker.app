@@ -135,7 +135,7 @@ export const CartProvider = ({ children }) => {
 		const load = async () => {
 			try {
 				if (user && user.id) {
-					const local = JSON.parse(localStorage.getItem('pharmasense_cart') || localStorage.getItem('mediq_cart') || '[]');
+					const local = JSON.parse(localStorage.getItem('pharmasense_cart') || '[]');
 					if (local.length) {
 						for (const item of local) {
 							try {
@@ -152,13 +152,12 @@ export const CartProvider = ({ children }) => {
 							}
 						}
 						localStorage.removeItem('pharmasense_cart');
-						localStorage.removeItem('mediq_cart');
 					}
 
 					const res = await cartService.getCart();
 					setCartItems((res.data || []).map(mapServerCartItem).filter(item => item !== null));
 				} else {
-					const savedCart = localStorage.getItem('pharmasense_cart') || localStorage.getItem('mediq_cart');
+					const savedCart = localStorage.getItem('pharmasense_cart');
 					if (savedCart) setCartItems(JSON.parse(savedCart).map(mapLocalCartItem));
 				}
 			} catch (error) {
@@ -176,11 +175,7 @@ export const CartProvider = ({ children }) => {
 		};
 
 		window.addEventListener('pharmasense:auth-changed', handleAuthChanged);
-		window.addEventListener('mediq:auth-changed', handleAuthChanged);
-		return () => {
-			window.removeEventListener('pharmasense:auth-changed', handleAuthChanged);
-			window.removeEventListener('mediq:auth-changed', handleAuthChanged);
-		};
+		return () => window.removeEventListener('pharmasense:auth-changed', handleAuthChanged);
 	}, []);
 
 	useEffect(() => {
@@ -349,10 +344,7 @@ export const CartProvider = ({ children }) => {
 	const clearCart = () => {
 		setCartItems([]);
 		if (user && user.id) cartService.clearCart().catch(() => {});
-		if (!user || !user.id) {
-			localStorage.removeItem('pharmasense_cart');
-			localStorage.removeItem('mediq_cart');
-		}
+		if (!user || !user.id) localStorage.removeItem('pharmasense_cart');
 	};
 
 	const getTotalItems = () => {

@@ -1,44 +1,5 @@
 /* Vendor Layout Styles */
 
-:root {
-	--primary: #157347;
-	--primary-dark: #0e5e3a;
-	--primary-light: #e8f6ee;
-	--surface: #f5fbf7;
-	--surface-alt: #ffffff;
-	--border: #cfe0d6;
-	--border-light: #e4efe8;
-	--text-primary: #102017;
-	--text-secondary: #3d5a4c;
-	--text-tertiary: #6e887c;
-	--success: #157347;
-	--warning: #f59e0b;
-	--error: #ef4444;
-	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-	--shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-	--shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
-	--radius: 8px;
-	--radius-lg: 12px;
-	--transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body {
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-		sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	background-color: transparent;
-	color: var(--text-primary);
-}
-
 /* Layout Container */
 .vendor-layout {
 	display: flex;
@@ -68,7 +29,7 @@ body {
 /* Sidebar Styles */
 .vendor-sidebar {
 	width: 280px;
-	background: linear-gradient(165deg, #0f5b39 0%, #0b4a2f 100%);
+	background: linear-gradient(165deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
 	color: white;
 	transition: var(--transition);
 	border-right: 2px solid rgba(255, 255, 255, 0.15);
@@ -116,7 +77,7 @@ body {
 	width: 1.5rem;
 	height: 1.5rem;
 	border-radius: 0.45rem;
-	background: linear-gradient(145deg, #1a9868 0%, #0f7f56 100%);
+	background: linear-gradient(145deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -124,7 +85,7 @@ body {
 	font-size: 0.84rem;
 	font-weight: 800;
 	box-shadow: 0 8px 16px rgba(14, 110, 74, 0.28);
-	animation: mediq-logo-float 4.6s ease-in-out infinite;
+	animation: pharmasense-logo-float 4.6s ease-in-out infinite;
 }
 
 .vendor-brand-text {
@@ -155,20 +116,20 @@ body {
 	height: 0.13rem;
 	background: linear-gradient(90deg, rgba(24, 129, 89, 0) 0%, rgba(24, 129, 89, 0.42) 52%, rgba(24, 129, 89, 0) 100%);
 	border-radius: 999px;
-	animation: mediq-logo-sweep 5s ease-in-out infinite;
+	animation: pharmasense-logo-sweep 5s ease-in-out infinite;
 }
 
 .vendor-brand .topnav-logo-med {
 	font-family: "Space Grotesk", "Inter", sans-serif;
-	font-weight: 800;
-	color: #ffffff;
+	font-weight: 700;
+	color: var(--color-bg-secondary);
 }
 
 .vendor-brand .topnav-logo-iq {
 	font-family: "Space Grotesk", "Inter", sans-serif;
 	font-weight: 800;
-	letter-spacing: -0.01em;
-	color: #38bdf8;
+	letter-spacing: 0.01em;
+	color: var(--color-lavender);
 	margin-left: 0.03em;
 }
 
@@ -184,11 +145,11 @@ body {
 	background: linear-gradient(180deg, rgba(20, 95, 66, 0.78) 0%, rgba(14, 77, 54, 0.76) 100%);
 	color: rgba(232, 246, 238, 0.92);
 	box-shadow: 0 4px 10px rgba(8, 39, 28, 0.2);
-	animation: mediq-logo-pulse 3.8s ease-in-out infinite;
+	animation: pharmasense-logo-pulse 3.8s ease-in-out infinite;
 	white-space: nowrap;
 }
 
-@keyframes mediq-logo-float {
+@keyframes pharmasense-logo-float {
 	0%,
 	100% {
 		transform: translateY(0);
@@ -198,7 +159,7 @@ body {
 	}
 }
 
-@keyframes mediq-logo-pulse {
+@keyframes pharmasense-logo-pulse {
 	0%,
 	100% {
 		box-shadow: 0 4px 10px rgba(8, 39, 28, 0.2);
@@ -208,7 +169,7 @@ body {
 	}
 }
 
-@keyframes mediq-logo-sweep {
+@keyframes pharmasense-logo-sweep {
 	0%,
 	100% {
 		opacity: 0.25;
@@ -358,9 +319,9 @@ body {
 	overflow-x: hidden;
 	background: transparent;
 	/* Vendor-only readability tuning for glass surfaces */
-	--text-primary: #0f2318;
-	--text-secondary: #26493a;
-	--text-light: #4a6b5c;
+	--text-primary: var(--color-text);
+	--text-secondary: var(--color-text);
+	--text-light: var(--color-text-secondary);
 	--surface-elevated: rgba(255, 255, 255, 0.8);
 	--surface-elevated-strong: rgba(255, 255, 255, 0.9);
 }
@@ -370,7 +331,7 @@ body {
 .vendor-main textarea {
 	color: var(--text-primary);
 	background: var(--surface-elevated-strong);
-	border-color: rgba(21, 115, 71, 0.26);
+	border-color: rgba(124, 58, 237, 0.26);
 }
 
 .vendor-main input::placeholder,
@@ -382,8 +343,8 @@ body {
 .vendor-main input:focus,
 .vendor-main select:focus,
 .vendor-main textarea:focus {
-	border-color: rgba(21, 115, 71, 0.5);
-	box-shadow: 0 0 0 3px rgba(21, 115, 71, 0.14);
+	border-color: rgba(124, 58, 237, 0.5);
+	box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.14);
 }
 
 .vendor-utility-bar {
@@ -428,7 +389,7 @@ body {
 }
 
 .vendor-quick-action {
-	border: 1px solid rgba(21, 115, 71, 0.24);
+	border: 1px solid rgba(124, 58, 237, 0.24);
 	background: rgba(255, 255, 255, 0.88);
 	color: var(--primary-dark);
 	padding: 0.45rem 0.75rem;
@@ -441,19 +402,19 @@ body {
 
 .vendor-quick-action:hover {
 	background: var(--primary-light);
-	border-color: rgba(21, 115, 71, 0.4);
+	border-color: rgba(124, 58, 237, 0.4);
 	transform: translateY(-1px);
 }
 
 .vendor-quick-action-secondary {
 	background: var(--primary-light);
 	color: var(--primary-dark);
-	border-color: rgba(21, 115, 71, 0.3);
+	border-color: rgba(124, 58, 237, 0.3);
 }
 
 .vendor-quick-action-secondary:hover {
-	background: rgba(21, 115, 71, 0.15);
-	border-color: rgba(21, 115, 71, 0.5);
+	background: rgba(124, 58, 237, 0.15);
+	border-color: rgba(124, 58, 237, 0.5);
 }
 
 .vendor-quick-action-premium-logout {
@@ -663,3 +624,10 @@ body {
 	outline: 2px solid white;
 	outline-offset: -2px;
 }
+
+/* White and lavender workspace chrome. */
+.vendor-layout { background:var(--color-bg-secondary); color:var(--color-text); font-family:Inter,system-ui,sans-serif; }
+.vendor-layout .vendor-sidebar { background:var(--color-bg); color:var(--color-text); border-right:1px solid var(--color-border); box-shadow:none; }.vendor-layout .vendor-sidebar-header { background:var(--color-bg); border-bottom:1px solid var(--color-border); min-height:88px; padding:20px; }.vendor-layout .vendor-brand,.vendor-layout .vendor-brand .topnav-logo-word { color:var(--color-text); font-family:Inter,system-ui,sans-serif; }.vendor-layout .vendor-brand .topnav-logo-mark { background:var(--color-primary); color:white; box-shadow:none; border:0; border-radius:10px; width:34px; height:34px; }.vendor-layout .vendor-brand .topnav-logo-med { color:var(--color-text); }.vendor-layout .vendor-brand .topnav-logo-iq { color:var(--color-primary); }.vendor-layout .vendor-brand .topnav-logo-trust { color:var(--color-primary); background:var(--color-bg-secondary); border-color:var(--color-border); }.vendor-layout .vendor-brand .topnav-logo-word::after { color:var(--color-text-secondary); }
+.vendor-layout .vendor-sidebar-section-title { color:var(--color-text-secondary); font-size:9px; letter-spacing:1.5px; }.vendor-layout .vendor-menu-item { color:var(--color-text); border:1px solid transparent; border-radius:10px; background:transparent; padding:11px 14px; margin-bottom:4px; }.vendor-layout .vendor-menu-item:hover { color:var(--color-primary); background:var(--color-bg-secondary); border-color:var(--color-border); }.vendor-layout .vendor-menu-item.active { color:var(--color-primary); background:var(--color-bg-secondary); border-color:var(--color-lavender); box-shadow:none; }.vendor-layout .vendor-menu-item-label { color:inherit; font-size:12px; }.vendor-layout .vendor-menu-item-hint { color:var(--color-text-secondary); font-size:10px; }.vendor-layout .vendor-menu-item.active .vendor-menu-item-hint { color:var(--color-text); }.vendor-layout .vendor-menu-item-icon { background:transparent; color:var(--color-primary); }
+.vendor-layout .vendor-sidebar-toggle,.vendor-layout .vendor-mobile-toggle { color:var(--color-primary); background:var(--color-bg); border:1px solid var(--color-border); border-radius:9px; }.vendor-layout .vendor-main { background:var(--color-bg-secondary); --text-primary:var(--color-text); --text-secondary:var(--color-text-secondary); --text-light:var(--color-text-secondary); --surface-elevated:#fff; --surface-elevated-strong:#fff; }.vendor-layout .vendor-utility-bar { background:var(--color-bg); border-bottom:1px solid var(--color-border); backdrop-filter:none; padding:18px 28px; min-height:76px; }.vendor-layout .vendor-utility-title { color:var(--color-text); font-size:14px; }.vendor-layout .vendor-utility-subtitle { color:var(--color-text-secondary); font-size:11px; }.vendor-layout .vendor-quick-action { color:var(--color-primary); background:var(--color-bg-secondary); border:1px solid var(--color-border); border-radius:9px; box-shadow:none; }.vendor-layout .vendor-quick-action:hover { background:var(--color-lavender); }.vendor-layout .vendor-quick-action-premium-logout { color:var(--color-error,#dc2626); background:var(--color-bg); border:1px solid var(--color-border); box-shadow:none; }.vendor-layout .vendor-main input,.vendor-layout .vendor-main select,.vendor-layout .vendor-main textarea { border-color:var(--color-border); background:var(--color-bg); }.vendor-layout .vendor-main input:focus,.vendor-layout .vendor-main select:focus,.vendor-layout .vendor-main textarea:focus { border-color:var(--color-primary); box-shadow:0 0 0 3px var(--color-lavender); }.vendor-layout :focus-visible { outline:3px solid var(--color-lavender); outline-offset:3px; }
+@media(max-width:768px) { .vendor-layout .vendor-utility-bar { padding:16px 16px 16px 64px; }.vendor-layout .vendor-utility-actions { gap:6px; }.vendor-layout .vendor-quick-action { font-size:10px; padding:8px; } }

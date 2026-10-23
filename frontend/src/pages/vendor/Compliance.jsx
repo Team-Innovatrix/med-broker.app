@@ -186,7 +186,7 @@ function VendorCompliance() {
 	const handleSaveAll = async () => {
 		try {
 			setLoading(true);
-			
+
 			const newAuditLogs = [
 				{
 					id: Date.now(),
@@ -242,10 +242,10 @@ function VendorCompliance() {
 			>
 				{loading && !documents.length && <p className={styles.loadingText}>Loading compliance records...</p>}
 
-			<input 
-				type="file" 
-				ref={fileInputRef} 
-				style={{ display: 'none' }} 
+			<input
+				type="file"
+				ref={fileInputRef}
+				style={{ display: 'none' }}
 				onChange={handleFileChange}
 				accept=".pdf,.jpg,.jpeg,.png"
 			/>
@@ -264,8 +264,8 @@ function VendorCompliance() {
 
 			<div className={styles.statsOverview}>
 				<div className={styles.scoreCard}>
-					<div className={styles.scoreCircle} style={{ 
-						background: `conic-gradient(var(--primary) ${complianceScore}%, var(--primary-light) 0)` 
+					<div className={styles.scoreCircle} style={{
+						background: `conic-gradient(var(--primary) ${complianceScore}%, var(--primary-light) 0)`
 					}}>
 						<div className={styles.scoreInner}>{complianceScore}%</div>
 					</div>
@@ -275,7 +275,7 @@ function VendorCompliance() {
 							{complianceScore >= 90 ? 'Excellent' : complianceScore >= 70 ? 'Good' : 'Needs Attention'}
 						</div>
 						<div className={styles.scoreStatus}>
-							<ShieldCheck size={14} /> 
+							<ShieldCheck size={14} />
 							{complianceScore === 100 ? 'All requirements met' : `${documents.filter(d => d.status !== 'verified').length} actions pending`}
 						</div>
 					</div>
@@ -287,10 +287,10 @@ function VendorCompliance() {
 						<div className={styles.ratingInfo}>
 							<div className={styles.ratingStars}>
 								{[...Array(5)].map((_, i) => (
-									<Star 
-										key={i} 
-										size={18} 
-										fill={i < Math.floor(displayRating) ? "var(--warning)" : "none"} 
+									<Star
+										key={i}
+										size={18}
+										fill={i < Math.floor(displayRating) ? "var(--warning)" : "none"}
 										color="var(--warning)"
 										strokeWidth={1.5}
 									/>
@@ -348,14 +348,14 @@ function VendorCompliance() {
 											onClick={() => handleViewCertificate(doc)}
 											title="View uploaded document"
 										>
-											<svg 
-												width="16" 
-												height="16" 
-												viewBox="0 0 24 24" 
-												fill="none" 
-												stroke="currentColor" 
-												strokeWidth="2.5" 
-												strokeLinecap="round" 
+											<svg
+												width="16"
+												height="16"
+												viewBox="0 0 24 24"
+												fill="none"
+												stroke="currentColor"
+												strokeWidth="2.5"
+												strokeLinecap="round"
 												strokeLinejoin="round"
 											>
 												<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
@@ -381,8 +381,8 @@ function VendorCompliance() {
 						<div className={styles.saveTip}>
 							<Clock size={16} /> You have unsaved changes in your documents
 						</div>
-						<button 
-							className={styles.primaryButton} 
+						<button
+							className={styles.primaryButton}
 							onClick={handleSaveAll}
 							disabled={loading}
 						>
@@ -472,10 +472,10 @@ function VendorCompliance() {
 									<p><strong>Expires:</strong> {previewDoc.expiryDate || 'N/A'}</p>
 								</div>
 								{previewDoc.certificate.startsWith('http') ? (
-									<a 
-										href={previewDoc.certificate} 
-										target="_blank" 
-										rel="noopener noreferrer" 
+									<a
+										href={previewDoc.certificate}
+										target="_blank"
+										rel="noopener noreferrer"
 										className={styles.viewLink}
 									>
 										Open Original Document <ExternalLink size={14} />

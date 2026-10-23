@@ -261,7 +261,7 @@ function VendorPayments() {
 											className={styles.statusBadge}
 											style={{
 											backgroundColor: 'var(--green-100)',
-											color: 'var(--success)'
+											color: 'var(--success-dark)'
 											}}
 										>
 											<Check size={12} strokeWidth={1.5} /> {settlement.status}

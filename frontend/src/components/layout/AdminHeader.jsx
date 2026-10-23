@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, Bell, Settings, ChevronDown, LogOut } from 'lucide-react';
 import authService from '../../services/auth.service';
+import { useUser } from '../../context/UserContext';
 import adminService from '../../services/admin.service';
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -8,7 +9,7 @@ const AdminHeader = ({ sidebarOpen, setSidebarOpen }) => {
     const [userMenuOpen, setUserMenuOpen] = useState(false);
     const [notificationCount, setNotificationCount] = useState(0);
     const navigate = useNavigate();
-    const user = authService.getCurrentUser();
+    const { user } = useUser();
 
     useEffect(() => {
         const fetchNotifications = async () => {
@@ -31,14 +32,15 @@ const AdminHeader = ({ sidebarOpen, setSidebarOpen }) => {
         <header className="admin-header">
             <div className="admin-header-left">
                 <button
-                    className="admin-sidebar-toggle admin-desktop-only"
+                    className="admin-sidebar-toggle"
                     onClick={() => setSidebarOpen(!sidebarOpen)}
                     aria-label="Toggle sidebar"
+                    aria-expanded={sidebarOpen}
+                    aria-controls="admin-sidebar-navigation"
                 >
                     <Menu size={20} />
                 </button>
-
-
+                <span className="admin-workspace-label">Your administration workspace</span>
             </div>
 
             <div className="admin-header-right">

@@ -62,13 +62,13 @@ const AdminSidebar = ({ sidebarOpen, setSidebarOpen }) => {
   };
 
   return (
-    <aside className={`admin-sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
+    <aside id="admin-sidebar-navigation" className={`admin-sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
       <div className="admin-sidebar-header">
-        <Link to="/admin" className="admin-logo">
+        <Link to="/admin/dashboard" className="admin-logo" aria-label="PharmaSense admin dashboard">
           <span className="topnav-logo-mark" aria-hidden="true">✚</span>
           <span className="topnav-logo-word">
-            <span className="topnav-logo-med">Med</span>
-            <span className="topnav-logo-iq">IQ</span>
+            <span className="topnav-logo-med">Pharma</span>
+            <span className="topnav-logo-iq">Sense</span>
           </span>
           <span className="topnav-logo-trust">Admin Console</span>
         </Link>
@@ -81,12 +81,13 @@ const AdminSidebar = ({ sidebarOpen, setSidebarOpen }) => {
         </button>
       </div>
 
-      <nav className="admin-sidebar-nav">
+      <nav className="admin-sidebar-nav" aria-label="Administration">
         <p className="admin-sidebar-section-title">Main Menu</p>
         {mainMenuItems.map((item) => (
           <Link
             key={item.path}
             to={item.path}
+            aria-label={item.label}
             className={`admin-nav-item ${isActive(item.path, item.exact) ? 'active' : ''}`}
             onClick={() => window.innerWidth < 768 && setSidebarOpen(false)}
           >
@@ -100,6 +101,7 @@ const AdminSidebar = ({ sidebarOpen, setSidebarOpen }) => {
           <Link
             key={item.path}
             to={item.path}
+            aria-label={item.label}
             className={`admin-nav-item ${isActive(item.path, item.exact) ? 'active' : ''}`}
             onClick={() => window.innerWidth < 768 && setSidebarOpen(false)}
           >
@@ -113,6 +115,7 @@ const AdminSidebar = ({ sidebarOpen, setSidebarOpen }) => {
           <Link
             key={item.path}
             to={item.path}
+            aria-label={item.label}
             className={`admin-nav-item ${isActive(item.path, item.exact) ? 'active' : ''}`}
             onClick={() => window.innerWidth < 768 && setSidebarOpen(false)}
           >

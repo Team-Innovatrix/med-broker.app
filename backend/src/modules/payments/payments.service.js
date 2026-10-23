@@ -491,7 +491,7 @@ const initiatePayment = async (orderId, userId, paymentData) => {
         orderId: razorpayOrder.id,
         amount: razorpayOrder.amount,
         currency: razorpayOrder.currency,
-        name: 'MedIQ',
+        name: 'PharmaSense',
         description: `Payment for order ${order.orderNumber || order.id}`,
         prefill: {
           name: order.user?.name || '',

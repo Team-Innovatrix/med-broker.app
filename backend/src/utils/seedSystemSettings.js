@@ -177,7 +177,7 @@ const DEFAULT_SETTINGS = [
 module.exports = {
   seedSystemSettings: async () => {
     try {
-      for (const setting of DEFAULT_SETTINGS) {
+      for (const { type, ...setting } of DEFAULT_SETTINGS) {
         await prisma.systemSetting.upsert({
           where: { key: setting.key },
           update: {}, // Don't override existing values
